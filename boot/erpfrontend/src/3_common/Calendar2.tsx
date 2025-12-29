@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { holidays as holidayData } from "@kyungseopk1m/holidays-kr";
-import { Wrapper, Header, Grid, DayName } from "../stylesjs/Content.styles";
+import { Wrapper, Header, Grid, DayName, CalTopMargin } from "../stylesjs/Content.styles";
 
 interface RawHoliday {
   date: number; // YYYYMMDD
@@ -44,6 +44,7 @@ const Calendar2 = () => {
   const lastDate = new Date(year, month + 1, 0).getDate();
 
   return (
+    <CalTopMargin>
     <Wrapper>
       <Header>
         <h3>
@@ -97,6 +98,7 @@ const Calendar2 = () => {
         })}
       </Grid>
     </Wrapper>
+    </CalTopMargin>
   );
 };
 

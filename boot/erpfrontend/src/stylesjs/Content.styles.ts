@@ -62,7 +62,7 @@ opacity:0; transition:0.2s; pointer-events:none;
 
 //api용
 export const Wrapper = styled.div`
-max-width:100%; margin:0 auto;
+max-width:90%; margin:0 auto;
 `;
 export const Header = styled.div`
 display:flex; justify-content:space-between;
