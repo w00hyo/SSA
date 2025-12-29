@@ -1,0 +1,46 @@
+
+
+<div w3-include-html="http://localhost:8282/include/header.html"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+<h1 class="mt67 mb-3">edit</h1>  
+<form method="POST"
+th:action="@{/lunch/edit/{id}(id=*{bootId})}"
+th:object="${bootEditResponseDTO}"
+>
+<div class="form-group mt-3">
+    <label class="form-label">제목</label>
+    <input type="text"
+    name="title"
+    th:value="*{title}"
+    class="form-control"/>
+</div>
+
+<div class="form-group mt-3">
+    <label class="form-label">가격</label>
+    <input type="text"
+    name="price"
+    th:value="*{price}"
+    class="form-control"/>
+</div>
+
+<div class="d-flex justify-content-end mt-4 mb-2">
+    <input type="submit" value="수정" class="btn btn-outline-success"/>
+</div>
+</form>
+<!--
+method="POST" 수정할때 일반적으로 post방식과 put 을 사용함
+th:action : 폼의 전송주소를 지정합니다
+th:object : 폼이 바인딩될 모델객체를 지정합니다
+-->
+        </div>
+    </div>
+</div>
+ 
+
+<div w3-include-html="http://localhost:8282/include/footer.html"></div>
+<script src="http://localhost:8282/js/js.js"></script>
+<script>
+includeHTML();//함수실행명령
+</script>

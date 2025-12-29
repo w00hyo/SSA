@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.title{
+width:250px;
+font-size:1.5rem;
+white-space:nowrap;
+text-overflow:ellipsis;
+overflow:hidden;
+}
+.imgw{
+width:125px;
+height:200px;
+}
+.des{
+height:210px;
+width:310px;
+font-size:0.8rem;
+white-space:normal;
+display:-webkit-box;
+-webkit-line-clamp:11;
+}

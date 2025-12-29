@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+	</context-param>
+	
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- Processes application requests -->
+	<servlet>
+		<servlet-name>appServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+		
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+<filter>
+ <filter-name>encodingFilter</filter-name>
+ <filter-class>org.springframework.web.filter.CharacterEncodingFilter
+ </filter-class>
+ <init-param>
+     <param-name>encoding</param-name>
+     <param-value>UTF-8</param-value>
+ </init-param>
+ <init-param>
+    <param-name>forceEncoding</param-name>
+    <param-value>true</param-value>
+  </init-param>
+</filter>
+<filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+<!--
+HTTP데이터의 수정은 PUT 메소드를 사용합니다
+다만 웹브라우저는 GET과 POST만 인식하기에 PUT메소드는
+처리 할수 없어요 그래서 많은 프로젝트에서는 HTTP메소드와
+무관하게 GET제외한 모든 경우는 POST를 사용합니다
+BUT 스프링은 이런경우를 대비해 HTTP메소드를 에뮬레이션
+하는 기능이 있습니다
+브라우저에서 POST메소드로 서버를 호출해도 서버에서는 PUT요청으로
+처리하는 겁니다
+자동으로 되는건 아니고 아래에다가 httpMethodFilter를 추가합니다
+그리고 html에서는
+_method 속성을 서버에 전달함으로 에뮬레이션 합니다
+-->
+    <filter>
+        <filter-name>httpMethodFilter</filter-name>
+        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>httpMethodFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+</web-app>

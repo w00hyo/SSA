@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/data/jpa
+           http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+           http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:component-scan base-package="com.react.mvc" />
+
+    <!-- DataSource -->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+        <property name="username" value="SHOP_USR" />
+        <property name="password" value="1234" />
+        <property name="initialSize" value="5" />
+        <property name="maxTotal" value="20" />
+    </bean>
+
+    <!-- JPA / Hibernate -->
+    <bean id="entityManagerFactory"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+
+        <!-- ★ 엔티티(@Entity)들이 들어 있는 패키지 -->
+        <property name="packagesToScan" value="com.react.mvc.vo" />
+
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="databasePlatform" value="org.hibernate.dialect.Oracle12cDialect" />
+                <property name="showSql" value="true" />
+                <!-- ★ 자동 DDL 생성 허용 -->
+                <property name="generateDdl" value="true" />
+            </bean>
+        </property>
+
+        <property name="jpaProperties">
+            <props>
+                <!-- ★ 테이블 자동 생성/수정 옵션 -->
+                <!-- 개발 중에는 update 또는 create 사용 -->
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <!-- create  : 매번 테이블 다 드롭 후 새로 생성 (주의)
+                     update  : 변경된 부분만 alter (개발용으로 무난)
+                     validate: 테이블은 손 안 대고 매핑만 검증
+                     none    : 아무것도 안 함 -->
+                <prop key="hibernate.format_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="transactionManager"
+          class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager" />
+</beans>

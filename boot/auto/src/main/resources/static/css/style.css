@@ -1,0 +1,9 @@
+html, html * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html body .mt67 {
+  margin-top: 4.1875rem;
+}/*# sourceMappingURL=style.css.map */

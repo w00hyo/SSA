@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sun.micro.mapper.CommentMapper"><!-- 해당 자바인터페이스에 연결 -->
+<!-- 오라클리어서 시퀀스 설정 -->
+<insert id="insert" parameterType="com.sun.micro.vo.CommentInsertVO">
+<!-- 시퀀스 부분 oracle시퀀스를 사용하여 기본 키 생성하기위해 삽입전에 SEQ_BLG_CMT 을 실행합니다-->
+	<selectKey keyProperty="seqBlgCmt" resultType="java.lang.Integer" order="BEFORE">
+	select SEQ_BLG_CMT.NEXTVAL from dual
+	</selectKey>
+	<![CDATA[
+insert into tb_blg_cmt 
+(blg_cmt_seq, blg_cont_seq, cmt_bdy, tmp_pw)
+values
+(#{seqBlgCmt}, #{blgContSeq}, #{cmtBdy}, #{tmpPw, jdbcType=NVARCHAR})	
+	]]>
+</insert>
+<select id="selectListByBlgContSeq" parameterType="java.lang.Integer" resultType="com.sun.micro.vo.CommentResponseVO">
+<![CDATA[
+select
+BLG_CMT_SEQ as seqBlgCmt,
+CMT_BDY as cmtBdy
+from
+TB_BLG_CMT
+WHERE BLG_CONT_SEQ = #{blgContSeq}
+]]>
+</select>
+</mapper>
+
+
+
+
+

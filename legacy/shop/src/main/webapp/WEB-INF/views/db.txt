@@ -1,0 +1,60 @@
+create table goods_category(
+cateName varchar2(20) not null,
+cateCode varchar2(30) not null,
+cateCodeRef varchar2(30) null,
+
+CONSTRAINT pk_goods_category
+PRIMARY KEY(cateCode),
+
+CONSTRAINT fk_goods_category_ref
+FOREIGN KEY(cateCodeRef)
+REFERENCES goods_category(cateCode)
+);
+
+
+
+create table goods_category( mysql
+cateName varchar2(20) not null,
+cateCode varchar2(30) not null,
+cateCodeRef varchar2(30) null,
+foreign key(cateCodeRef) references goods_category(cateCode)
+);
+
+create table tbl_member(
+MEMBER_ID number not null,
+FIRST_NAME varchar2(50) not null,
+LAST_NAME varchar2(50) not null,
+EMAIL varchar2(100) not null unique,
+PASSWORD varchar2(200) not null,
+REPEAT_PASSWORD varchar2(200) not null,
+GENDER varchar2(10) not null,
+COMPANY_NAME varchar2(100),
+POSITION varchar2(100),
+TEL varchar2(20) not null,
+ADDRESS varchar2(200) not null,
+DETAIL_ADDRESS varchar2(200),
+Verify number default 0,
+REG_DATE date default sysdate
+);
+
+create table tbl_member(
+userId varchar2(50) not null,
+userPass varchar2(100) not null,
+userName varchar2(30) not null,
+userPhone varchar2(20) not null,
+userAddr1 varchar2(20) not null,
+userAddr2 varchar2(50) not null,
+userAddr3 varchar2(50) not null,
+regiDate date default sysdate,
+verify number default 0
+);
+
+시퀀스 만들기
+create sequence seq_userId;
+
+오라클 사용자
+ALTER SESSION SET "_ORACLE_SCRIPT"=true;
+CREATE USER "SHOP_USR" IDENTIFIED BY "1234";
+GRANT CONNECT TO "SHOP_USR";
+GRANT RESOURCE TO "SHOP_USR";
+alter user SHOP_USR default tablespace users quota unlimited on users;

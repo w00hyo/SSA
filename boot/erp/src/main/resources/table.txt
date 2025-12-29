@@ -1,0 +1,14 @@
+CREATE TABLE members (
+    member_id        NUMBER PRIMARY KEY,
+    first_name       VARCHAR2(50) NOT NULL,
+    last_name        VARCHAR2(50) NOT NULL,
+    email            VARCHAR2(100) NOT NULL UNIQUE,
+    password         VARCHAR2(255) NOT NULL,
+    company_name     VARCHAR2(100),
+    position         VARCHAR2(50),
+    tel              VARCHAR2(20),
+    gender           VARCHAR2(10) NOT NULL, -- 'male', 'female', 'other'
+    address          VARCHAR2(200),
+    detail_address   VARCHAR2(200),
+    created_at       DATE DEFAULT SYSDATE
+);

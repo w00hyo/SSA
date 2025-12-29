@@ -1,0 +1,17 @@
+create table tbl_member(
+MEMBER_ID number not null,
+FIRST_NAME varchar2(50) not null,
+LAST_NAME varchar2(50) not null,
+EMAIL varchar2(100) not null unique,
+PASSWORD varchar2(200) not null,
+REPEAT_PASSWORD varchar2(200) not null,
+GENDER varchar2(10) not null,
+COMPANY_NAME varchar2(100),
+POSITION varchar2(100),
+TEL varchar2(20) not null,
+ADDRESS varchar2(200) not null,
+DETAIL_ADDRESS varchar2(200),
+REG_DATE date default sysdate
+);
+
+create sequence seq_member_id;

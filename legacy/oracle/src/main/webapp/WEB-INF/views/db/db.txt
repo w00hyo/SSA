@@ -1,0 +1,9 @@
+ALTER SESSION SET "_ORACLE_SCRIPT"=true;
+//오라클에 대한 세션 쿼리를 작성 합니다
+CREATE USER "LEE_K_C" IDENTIFIED BY "1234";
+//사용자 생성 쿼리
+GRANT CONNECT TO "LEE_K_C";
+//리소스 권한도 줍니다
+GRANT RESOURCE TO "LEE_K_C";
+//테이블 스페이스 공간 부여
+alter user LEE_K_C default tablespace users quota unlimited on users;

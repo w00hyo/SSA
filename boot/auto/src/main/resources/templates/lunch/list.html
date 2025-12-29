@@ -1,0 +1,37 @@
+
+
+<div w3-include-html="http://localhost:8282/include/header.html"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+<h1 class="mt67 mb-3">list</h1>  
+<table class="table table-bordered">
+<colgroup>
+<col width="5%">
+<col width="95%">
+</colgroup>
+<thead>
+    <tr class="text-center">
+        <th>no.</th>
+        <th>title</th>
+    </tr>
+</thead>
+<tbody>
+    <tr th:each="boot : ${boots}">
+        <td th:text="${boot.bootId}"></td>
+        <td th:text="${boot.title}"></td>
+    </tr>
+</tbody>
+<tfoot></tfoot>
+</table>
+
+        </div>
+    </div>
+</div>
+ 
+
+<div w3-include-html="http://localhost:8282/include/footer.html"></div>
+<script src="http://localhost:8282/js/js.js"></script>
+<script>
+includeHTML();//함수실행명령
+</script>

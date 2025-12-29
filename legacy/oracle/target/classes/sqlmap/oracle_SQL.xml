@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TB_BLG_CONT">
+<!-- mysql과 다르다 why ...시퀀스 때문에.. -->
+<insert id="insert" parameterType="hashMap"><!-- INSERT문의 정의하는 마이바티스 태그 
+ id="insert" 이매퍼를 호출할때 사용하는 메서드 이름,  parameterType="hashMap"
+ 마이바티스 호출시에 파라미터 Map<String, Object>형태로 전달됩니다
+-->
+	<selectKey keyProperty="seq_blg_cont" resultType="java.lang.Integer" order="BEFORE">
+	select SEQ_BLG_CONT.NEXTVAL from dual
+	</selectKey><!-- Oracle에서는 자동증가 컬럼이 없기때문에 시퀀스를 사용하여 PK값을 미리만들어야 됩니다
+	resultType="java.lang.Integer" 글에순번은 숫자형이기때문에 리턴이 넘버형으로 ...
+	order="BEFORE" 는 BEFORE를 사용하여 시퀀스 값을 먼저 구한다음 ..그값을 insert에 사용합니다
+	select SEQ_BLG_CONT.NEXTVAL from dual 시퀀스에 다음값을 가져오는 명령어
+	 -->
+	 <![CDATA[
+	 insert into TB_BLG_CONT
+	 (BLG_CONT_SEQ, TITLE, CONT_BDY)
+	 values
+	 (#{seq_blg_cont},#{title},#{content_body})
+	 ]]>
+</insert>
+<select id="selectOne" parameterType="java.lang.Integer" resultType="hashMap">
+<![CDATA[
+select 
+BLG_CONT_SEQ, TITLE, TO_CHAR(CONT_BDY) as CONT_BDY, INSERT_DT
+from
+TB_BLG_CONT 
+where
+BLG_CONT_SEQ = #{BLG_CONT_SEQ}
+]]>
+</select>
+<update id="update" parameterType="com.sun.micro.vo.BlogEditRequestVO">
+<![CDATA[
+update TB_BLG_CONT
+set
+TITLE = #{title}, CONT_BDY = #{contBdy}
+where
+BLG_CONT_SEQ = #{blogContSeq}
+]]>
+</update>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>
