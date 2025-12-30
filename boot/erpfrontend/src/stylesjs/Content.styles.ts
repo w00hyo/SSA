@@ -24,13 +24,15 @@ background-color:#fff;
 //캘린더
 export const CalendarWrapper = styled.div`
 width:100%;
-margin:20px auto; 
+display:flex; align-items:center; justify-content:space-between;
 font-family:sans-serif;
+padding:10px 0px;
 `;
 export const CalHeader = styled.h2`
 text-align:center; margin-bottom:10px;
 `;
 export const Grid =styled.div`
+width:90%;
 display:grid; grid-template-columns:repeat(7, 1fr);
 gap:5px;
 `;
@@ -62,9 +64,31 @@ opacity:0; transition:0.2s; pointer-events:none;
 
 //api용
 export const Wrapper = styled.div`
-max-width:90%; margin:0 auto;
+max-width:100%;
+display:flex; align-items:center; justify-content:space-between;
+flex-direction:column;
+font-family:sans-serif;
+padding:10px 0px;
 `;
 export const Header = styled.div`
+width:90%;
 display:flex; justify-content:space-between;
 align-items:center; margin-bottom:10px;
+`;
+
+export const PrevBtn = styled.button`
+cursor:pointer; font-size:18px;
+background:transparent;
+border:none;
+&:hover{
+font-size:19px;
+}
+`;
+export const NextBtn = styled.button`
+cursor:pointer; font-size:18px;
+background:transparent;
+border:none;
+&:hover{
+font-size:19px;
+}
 `;

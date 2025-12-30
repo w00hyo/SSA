@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 //useMemo (→ 계산이 오래 걸리는 값을 기억해두고 필요할 때만 다시 계산하도록 도와줌)
 import { holidays as holidayData } from "@kyungseopk1m/holidays-kr";
 //대한민국 공휴일 데이터 라이브러리
-import { Wrapper, Header, Grid, DayName, CalTopMargin } from "../stylesjs/Content.styles";
+import { Wrapper, Header, Grid, DayName, CalTopMargin, PrevBtn, NextBtn } from "../stylesjs/Content.styles";
 //화면 디자인용 스타일 컴포넌트
 
 interface RawHoliday {//공휴일 하나의 형태를 정의
@@ -12,10 +12,30 @@ interface RawHoliday {//공휴일 하나의 형태를 정의
 }
 
 const Calendar2 = () => {//달력을 그려주는 React함수 컴포넌트
-  const [currentDate] = useState(new Date());//현재 날짜 가져오기
+
+
+
+  const [currentDate, setCurrentDate] = useState(new Date());//현재 날짜 가져오기
 
   const year = currentDate.getFullYear();//현재 년도 
   const month = currentDate.getMonth(); // 0~11
+
+  //add 20251230 오늘날짜
+  const today = new Date();
+  const todayYear = today.getFullYear();
+  const todayMonth = today.getMonth();
+  const todayDate = today.getDate();
+
+//이전 / 다음달 함수 만들기
+const goPrevMonth = () => {
+  setCurrentDate(prev => new Date(prev.getFullYear(), prev.getMonth() -1, 1));
+}
+
+const goNextMonth = () => {
+  setCurrentDate(prev => new Date(prev.getFullYear(), prev.getMonth() + 1, 1));
+}
+
+
 
   // 연도별 공휴일 + 성탄절 수동 추가
   const rawHolidays = useMemo<RawHoliday[]>(() => {
@@ -57,9 +77,11 @@ if (month === 11 && !holidays.some(h => String(h.date) === `${year}1225`)) {
     <CalTopMargin>
     <Wrapper>
       <Header>
+<PrevBtn>◀</PrevBtn>
         <h3>
           {year}년 {month + 1}월{/*0부터라서 + 1 */}
         </h3>
+<NextBtn>▶</NextBtn>
       </Header>
 
       <Grid>
@@ -89,6 +111,9 @@ if (month === 11 && !holidays.some(h => String(h.date) === `${year}1225`)) {
           //토요일 추가
           const isSaturday = weekday === 6;//토요일
           const isChristmas = holiday?.name === "성탄절";
+//add 20251230
+const isToday = year === todayYear && month === todayMonth && day === todayDate;
+
 //공휴일은 노란배경 일요일 빨간글씨
           return (
             <div
@@ -101,7 +126,9 @@ if (month === 11 && !holidays.some(h => String(h.date) === `${year}1225`)) {
                 background: isHoliday ? "#ffefc3" : "#f4f4f4",
                 borderRadius: 8,
                 color: isSunday ? "red": isSaturday ? "blue" : "#333",
+                border:isToday ? "2px solid #1976d2" : "none",
                 margin: 2,
+                fontWeight: isToday ? "bold" : "normal",
               }}
               title={holiday?.name || ""}
             >
