@@ -185,6 +185,42 @@ const Calendar2 = () => {
       ? new Date(year, month + 1, 1)
       : new Date(year, month - 1, 1);
 
+  //여기 추가 안함 몰래 개발
+  const renderMonths = () => {
+  const isNext = slideDir === "next";
+
+  const months = isNext
+    ? [currentMonthDate, slideMonthDate] // next
+    : [slideMonthDate, currentMonthDate]; // prev
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        width: "200%",
+        // ⭐ 핵심: 애니메이션 여부와 방향에 따라 기준 위치 분리
+        transform: isAnimating
+          ? isNext
+            ? "translateX(-50%)" // next 이동
+            : "translateX(0%)"   // prev 이동
+          : isNext
+          ? "translateX(0%)"    // next 기본
+          : "translateX(-50%)", // ⭐ prev 기본 위치
+        transition: isAnimating
+          ? `transform ${ANIMATION_TIME}ms ease`
+          : "none",
+      }}
+    >
+      {months.map((date, idx) => (
+        <div key={idx} style={{ width: "50%" }}>
+          {renderCalendar(date)}
+        </div>
+      ))}
+    </div>
+  );
+};
+  //여기 까지 몰래 개발안함
+
   return (
     <CalTopMargin>
       <Wrapper style={{ width: "100%" }}>
@@ -220,7 +256,8 @@ const Calendar2 = () => {
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
-          <div
+          {renderMonths()}
+          {/*<div
             style={{
               display: "flex",
               width: "200%",
@@ -234,7 +271,7 @@ const Calendar2 = () => {
           >
             <div style={{ width: "50%" }}>{renderCalendar(currentMonthDate)}</div>
             <div style={{ width: "50%" }}>{renderCalendar(slideMonthDate)}</div>
-          </div>
+          </div>*/}
         </div>
       </Wrapper>
     </CalTopMargin>
