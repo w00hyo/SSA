@@ -92,3 +92,11 @@ border:none;
 font-size:19px;
 }
 `;
+export const TodayBtn = styled.button`
+cursor:pointer; font-size:18px;
+background:transparent;
+border:none;
+&:hover{
+font-size:19px;
+}
+`;

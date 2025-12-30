@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 //useMemo (→ 계산이 오래 걸리는 값을 기억해두고 필요할 때만 다시 계산하도록 도와줌)
 import { holidays as holidayData } from "@kyungseopk1m/holidays-kr";
 //대한민국 공휴일 데이터 라이브러리
-import { Wrapper, Header, Grid, DayName, CalTopMargin, PrevBtn, NextBtn } from "../stylesjs/Content.styles";
+import { Wrapper, Header, Grid, DayName, CalTopMargin, PrevBtn, NextBtn, TodayBtn } from "../stylesjs/Content.styles";
 //화면 디자인용 스타일 컴포넌트
 
 interface RawHoliday {//공휴일 하나의 형태를 정의
@@ -11,14 +11,26 @@ interface RawHoliday {//공휴일 하나의 형태를 정의
   name: string;
 }
 
+const ANIMATION_TIME = 300;
+
 const Calendar2 = () => {//달력을 그려주는 React함수 컴포넌트
 
-
-
   const [currentDate, setCurrentDate] = useState(new Date());//현재 날짜 가져오기
+  
+  const [isAnimating, setIsAnimating] = useState(false); //예니메이션 상태관리
+const [direction, setDirection ] = useState<"prev" | "next" | "today">("today");
 
   const year = currentDate.getFullYear();//현재 년도 
   const month = currentDate.getMonth(); // 0~11
+
+//add 공통 월 변경 함수 (연타 방지)
+const changeMonth = (newDate: Date, dir:typeof direction) => {
+  if (isAnimating) return;
+  setIsAnimating(true);
+  setDirection(dir);
+  setCurrentDate(newDate);
+  setTimeout(() => setIsAnimating(false), ANIMATION_TIME);
+}
 
   //add 20251230 오늘날짜
   const today = new Date();
@@ -28,12 +40,32 @@ const Calendar2 = () => {//달력을 그려주는 React함수 컴포넌트
 
 //이전 / 다음달 함수 만들기
 const goPrevMonth = () => {
+  changeMonth(
+    new Date(year, month - 1, 1),
+"prev"
+  );
+}
+
+const goNextMonth = () => {
+  changeMonth(
+    new Date(year, month + 1, 1),
+"next"
+  );
+}
+
+const goToday = () => {
+  changeMonth(
+    new Date(todayYear, todayMonth, 1),
+"today"
+  );
+}
+/*const goPrevMonth = () => { 노멀한
   setCurrentDate(prev => new Date(prev.getFullYear(), prev.getMonth() -1, 1));
 }
 
 const goNextMonth = () => {
   setCurrentDate(prev => new Date(prev.getFullYear(), prev.getMonth() + 1, 1));
-}
+}*/
 
 
 
@@ -77,12 +109,31 @@ if (month === 11 && !holidays.some(h => String(h.date) === `${year}1225`)) {
     <CalTopMargin>
     <Wrapper>
       <Header>
-<PrevBtn>◀</PrevBtn>
+<PrevBtn onClick={goPrevMonth} disabled={isAnimating}>◀</PrevBtn>
         <h3>
           {year}년 {month + 1}월{/*0부터라서 + 1 */}
+                  <TodayBtn
+onClick={goToday} 
+disabled={year === todayYear && month === todayMonth}
+        >오늘로 돌아가기</TodayBtn>
         </h3>
-<NextBtn>▶</NextBtn>
+
+
+
+<NextBtn onClick={goNextMonth}>▶</NextBtn>
       </Header>
+{/*예니메이션 컨테이너 */}
+<div
+style={{
+width:"100%",
+transition:`all ${ANIMATION_TIME}ms ease`,
+transform:direction === "next" ? "translateX(0)" 
+: direction === "prev" ? "translateX(0)" 
+: "translateY(0)",
+opacity: isAnimating ? 0.4 : 1,
+}}
+
+>
 
       <Grid>
         {/* 요일 */}
@@ -137,6 +188,7 @@ const isToday = year === todayYear && month === todayMonth && day === todayDate;
           );
         })}
       </Grid>
+      </div>
     </Wrapper>
     </CalTopMargin>
   );
