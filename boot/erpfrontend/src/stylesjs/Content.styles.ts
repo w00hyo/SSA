@@ -174,3 +174,20 @@ display:grid; grid-template-columns:repeat(7, 1fr)
 grid-auto-rows:40px;
 gap:4px;
 `;
+
+export const DateCell2 = styled.div<{ $today?: boolean }>`
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: #f4f4f4;
+
+  ${({ $today }) =>
+    $today &&
+    `
+      border: 2px solid #1976d2;
+      font-weight: bold;
+      background: #e3f2fd;
+    `}
+`;

@@ -1,6 +1,6 @@
 import{useState} from "react";
-import { CalendarRow, CalTopMargin } from "../stylesjs/Content.styles";
 import {
+    CalTopMargin,
   CalendarRow2,
   CalendarWrapper2,
   SideButton,
@@ -44,7 +44,7 @@ today.getFullYear() === year && today.getMonth() === month;
 <Dates2>
 {/*첫 요일까지 빈칸 */}
 {Array.from({length: firstDay}).map((_, idx) => (
-    <DateCell key={`empty-${idx}`}/>
+    <DateCell2 key={`empty-${idx}`}/>
 ))}
 {/* 실제 날짜 */}
 {Array.from({length:lastDate},(_, idx) => {
@@ -59,7 +59,9 @@ fontWeight:isToday ? "bold":"normal",
 border:isToday ? "2px solid #1976d2" : "none",
 borderRadius:6,
     }}
-    ></DateCell2>
+    >
+        {date}
+    </DateCell2>
 );
 })}
 </Dates2>
