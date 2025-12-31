@@ -103,3 +103,59 @@ font-size:19px;
 export const CalendarRow = styled.div`
 display:flex; align-items:stretch; font-family:sans-serif;
 `;
+export const CalendarSmall = styled.div`
+width:0;
+overflow:hidden;
+border:1px solid #ccc;
+transition:width 0.4s ease;
+`;
+export const CalendarSmallOpen = styled.div`
+width:200px;
+`;
+
+//미니캘린더
+interface CalendarProps {
+$open : boolean;
+}
+
+export const CalendarRow2  = styled.div`
+display:flex; align-items:stretch;
+font-family:sans-serif;
+`
+export const CalendarWrapper2 = styled.div<CalendarProps>`
+width:${({$open }) => ($open ? "200px":"0")};
+overflow:hidden;
+border:1px solid #ccc;
+transition:width 0.4s ease;
+/*종이 접히는 느낌*/
+transform-origin:right center;
+`;
+
+export const SideButton = styled.button`
+width:32px; cursor:pointer; border:1px solid #ccc;
+background:#f5f5f5;
+&:hover{background:#e5e5e5;}
+`;
+
+export const Days = styled.div`
+display:grid; grid-template-columns:repeat(7, 1fr);
+text-align:center;
+`;
+
+export const Day = styled.div`
+font-size:12px; font-weight:bold;
+`;
+
+export const Dates = styled.div`
+display:grid; grid-template-columns:repeat(7, 1fr);
+text-align:center;
+`;
+
+export const DateCell = styled.div`
+font-size:11px; padding:2px 0;
+`;
+
+export const Month = styled.div`
+text-align:center; font-weight:bold; padding:6px;
+background:#f2f2f2;
+`;
