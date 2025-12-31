@@ -159,3 +159,18 @@ export const Month = styled.div`
 text-align:center; font-weight:bold; padding:6px;
 background:#f2f2f2;
 `;
+export const Days2 = styled.div`
+display:grid;
+grid-template-columns:repeat(7, 1fr);
+margin-bottom:4px;
+`;
+export const Day2 = styled.div`
+text-align:center;
+font-size:12px; color:#666;
+`;
+
+export const Dates2 = styled.div`
+display:grid; grid-template-columns:repeat(7, 1fr)
+grid-auto-rows:40px;
+gap:4px;
+`;
