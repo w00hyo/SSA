@@ -35,14 +35,15 @@ public class CalendarEventController {
 //제일 중요한 부분 지금 요청을 보낸 사람이 누구인지(userId)를 JWT토근에서 꺼내서 알려주는 함수
 private Long currentUserId() {
 Object p = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//Spring Security가 로그인(토큰인증) 성공하면 이 요청은 누구 요청이다 를 SecurityContext에 넣어줍니다
-//Principal 요청한 사용자 정보
+
 
 @SuppressWarnings("unchecked")
 Map<String, Object> principal = (Map<String, Object>)p;
+return ((Number) principal.get("uid")).longValue();
+//Spring Security가 로그인(토큰인증) 성공하면 이 요청은 누구 요청이다 를 SecurityContext에 넣어줍니다
+//Principal 요청한 사용자 정보
 //principal이 Object라서 Map으로 바꿔서 "uid"를 꺼내려고 하는 것
 //UID는 주로 User ID(사용자 식별자) 또는 **Unique Identifier(고유 식별자)**의 약자
-return ((Number) principal.get("uid")).longValue();
 //uid를 꺼내서 롱으로 변환 
 /*
 Object 타입이라 바로 Long으로 쓸 수 없음

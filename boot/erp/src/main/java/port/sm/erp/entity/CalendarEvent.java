@@ -30,6 +30,9 @@ public class CalendarEvent {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CALENDAR_SEQ")
 	@SequenceGenerator(name = "CALENDAR_SEQ",sequenceName = "CALENDAR_EVENT_SEQ", allocationSize = 1)
 	private Long id;
+	
+	
+	private LocalDate date;
 
 	
 	@Column(nullable=false)

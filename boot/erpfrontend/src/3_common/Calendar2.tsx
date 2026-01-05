@@ -9,8 +9,15 @@ import {
   PrevBtn,
   NextBtn,
   TodayBtn,
+  Flex,
 } from "../stylesjs/Content.styles";
-import { api } from "../api";
+import{
+Fixed, Modal,  ModalTitle, ModalDate
+} from "../stylesjs/Modal.styles";
+import {
+  BtnGroup
+} from "../stylesjs/Button.styles";
+import api from "../api";
 
 interface RawHoliday {
   date: number; // YYYYMMDD
@@ -154,8 +161,19 @@ const Calendar2 = () => {
     const from = `${year}-${pad2(month + 1)}-01`;
     const last = new Date(year, month + 1, 0).getDate();
     const to = `${year}-${pad2(month + 1)}-${pad2(last)}`;
-    const res = await api.get("/api/events", { params: { from, to } });
+    try{
+    const res = await api.get("/events", { params: { from, to } });
     setEvents(res.data);
+    } catch (err:any) {
+      if(err.response?.status === 401) {
+        alert("로그인이 필요합니다");
+      } else if(err.response?.status === 403){
+        alert("권한이 없습니다");
+      } else{
+        console.error(err);
+      }
+    }
+
   };
 
   useEffect(() => {
@@ -174,23 +192,35 @@ const Calendar2 = () => {
       return;
     }
 
-    await api.post("/api/events", {
+   try{
+    await api.post("/events", {
       date: selectedDate,
       title: form.title,
       memo: form.memo,
       startTime: form.startTime || null,
       endTime: form.endTime || null,
     });
-
     await reloadMonthEvents();
     setIsModalOpen(false);
+  } catch (err:any) {
+    if(err.response?.status === 401) alert ("로그인이 필요합니다");
+    else if(err.response?.status === 403 ) alert ("관한이 없습니다");
+  }
   };
 
   // ✅ 일정 삭제
   const deleteEvent = async (id: number) => {
     if (!confirm("이 일정을 삭제할까요?")) return;
-    await api.delete(`/api/events/${id}`);
-    await reloadMonthEvents();
+    try{
+        await api.delete(`/events/${id}`);
+        await reloadMonthEvents();
+    } catch (err:any){
+      if(err.response?.status === 401 ) alert ("로그인이 필요합니다");
+      else if(err.response?.status === 403) alert("권한이 없습니다");
+      else console.error(err);
+    }
+
+
   };
 
   const selectedDayEvents = selectedDate
@@ -365,29 +395,14 @@ const Calendar2 = () => {
 
       {/* ✅ 일정 입력/조회 모달 */}
       {isModalOpen && (
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            background: "rgba(0,0,0,0.35)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 9999,
-          }}
+        <Fixed
           onClick={() => setIsModalOpen(false)}
         >
-          <div
-            style={{
-              width: 340,
-              background: "#fff",
-              borderRadius: 12,
-              padding: 16,
-            }}
-            onClick={(e) => e.stopPropagation()}
+          <Modal
+            onClick={(e:any) => e.stopPropagation()}
           >
-            <h4 style={{ margin: 0 }}>일정</h4>
-            <p style={{ margin: "6px 0 12px" }}>{selectedDate}</p>
+            <ModalTitle>일정</ModalTitle>
+            <ModalDate>{selectedDate}</ModalDate>
 
             {/* ✅ 선택한 날짜의 기존 일정 목록 */}
             {selectedDayEvents.length > 0 && (
@@ -451,12 +466,12 @@ const Calendar2 = () => {
               />
             </div>
 
-            <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
+            <BtnGroup>
               <button onClick={() => setIsModalOpen(false)}>닫기</button>
               <button onClick={saveEvent}>저장</button>
-            </div>
-          </div>
-        </div>
+            </BtnGroup>
+          </Modal>
+        </Fixed>
       )}
     </CalTopMargin>
   );

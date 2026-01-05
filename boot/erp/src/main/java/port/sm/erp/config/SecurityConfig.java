@@ -47,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .httpBasic().disable()
             .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/members").permitAll() // 회원가입 허용
-                .antMatchers("/members/login", "/members/register").permitAll()
+                .antMatchers("/members/login", "/members/register", "/events/**").permitAll()
                 .anyRequest().authenticated();
     }
 }
