@@ -3,6 +3,7 @@ import axios from "axios";
 
 const api = axios.create({
     baseURL: "http://localhost:8888", timeout:5000,
+    withCredentials: true // <--- MUST match allowCredentials(true)
 });
 //매번 이주소를 http://localhost:8888 이렇게 길게 ㅅ면 불편 인스탄스로 하면 편하다
 //baseURL: 백앤드 서버주소 

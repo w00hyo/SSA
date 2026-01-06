@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -32,6 +34,7 @@ public class CalendarEvent {
 	private Long id;
 	
 	
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate date;
 
 	

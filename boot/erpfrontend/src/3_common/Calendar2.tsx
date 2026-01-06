@@ -166,7 +166,7 @@ const Calendar2 = () => {
     const last = new Date(year, month + 1, 0).getDate();
     const to = `${year}-${pad2(month + 1)}-${pad2(last)}`;
     try{
-    const res = await api.get("/events", { params: { from, to } });
+    const res = await api.get("/api/events", { params: { from, to } });
     setEvents(res.data);
     } catch (err:any) {
       if(err.response?.status === 401) {
@@ -197,7 +197,7 @@ const Calendar2 = () => {
     }
 
    try{
-    await api.post("/events", {
+    await api.post("/api/events", {
       date: selectedDate,
       title: form.title,
       memo: form.memo,
@@ -216,7 +216,7 @@ const Calendar2 = () => {
   const deleteEvent = async (id: number) => {
     if (!confirm("이 일정을 삭제할까요?")) return;
     try{
-        await api.delete(`/events/${id}`);
+        await api.delete(`/api/events/${id}`);
         await reloadMonthEvents();
     } catch (err:any){
       if(err.response?.status === 401 ) alert ("로그인이 필요합니다");

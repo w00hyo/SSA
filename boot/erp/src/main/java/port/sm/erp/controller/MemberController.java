@@ -78,7 +78,7 @@ public class MemberController {
             Member member = memberService.login(req.getEmail(), req.getPassword());
             //System.out.println("✅ service login 성공: " + member.getEmail());
 
-            String token = jwtUtil.createToken(member.getEmail()); // 여기서도 터질 수 있음
+            String token = jwtUtil.generateToken(member.getId(), member.getEmail()); // 여기서도 터질 수 있음
             //System.out.println("✅ token 생성 성공");
 
             return ResponseEntity.ok(new LoginResponse("success", token));
