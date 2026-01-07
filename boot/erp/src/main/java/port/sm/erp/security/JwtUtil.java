@@ -42,9 +42,9 @@ public class JwtUtil {
     }
     
     //토큰생성 로그인 성공후 JWT문자열 하나를 만들어서 반환
-    public String generateToken(Long userId, String email) {
+    public String generateToken(Long userId, String username) {
         return Jwts.builder()
-                .setSubject(email)//토큰 주인 이메일
+                .setSubject(username)//토큰 주인 이메일
 				//add 20260106                
                 .claim("uid", userId)//사용자 id를 uid라는 이름으로 저장
                 .setIssuedAt(new Date(System.currentTimeMillis()))

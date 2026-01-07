@@ -37,6 +37,8 @@ type CalEvent = {
   endTime?: string;   // "HH:mm"
 };
 
+
+
 // 상수들 (고정값)
 const ANIMATION_TIME = 300; // 애니메이션 시간
 const FIXED_HEIGHT = 360; // 달력 높이

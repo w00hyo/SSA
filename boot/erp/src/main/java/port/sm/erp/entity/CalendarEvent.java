@@ -33,7 +33,7 @@ public class CalendarEvent {
 	@SequenceGenerator(name = "CALENDAR_SEQ",sequenceName = "CALENDAR_EVENT_SEQ", allocationSize = 1)
 	private Long id;
 	
-	
+	@Column(name = "EVENT_DATE", nullable = false)
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate date;
 
@@ -41,9 +41,9 @@ public class CalendarEvent {
 	@Column(nullable=false)
 	private Long userId;
 	
-	/*날짜 필수*/
-	@Column(nullable=false)
-	private LocalDate eventDate;
+	/*날짜 필수
+	
+	private LocalDate eventDate;*/
 	
 	@Column(nullable = false, length = 100)
 	  private String title;
@@ -51,9 +51,14 @@ public class CalendarEvent {
 	  @Column(length = 1000)
 	  private String memo;
 
-	  private LocalTime startTime;
-	  private LocalTime endTime;
-	
+	  //private LocalTime startTime;
+	  //private LocalTime endTime;
+	    // ✅ Oracle 안전하게 String으로
+	    @Column(name = "START_TIME", length = 5)
+	    private String startTime; // "HH:mm"
+
+	    @Column(name = "END_TIME", length = 5)
+	    private String endTime;   // "HH:mm"
 	
 	
 	

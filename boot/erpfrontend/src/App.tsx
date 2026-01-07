@@ -82,7 +82,7 @@ if  배열에 값이 있다면 그 값이 바뀔때 마다 실행된다
   <Routes>
     <Route path="/" element={<Login/>}/>
     <Route path="/admin" element={<ProtectedRoute><Admin/></ProtectedRoute>}/>
-    <Route path="/mypage" element={<MyPage/>}/>
+    <Route path="/mypage" element={<ProtectedRoute><MyPage/></ProtectedRoute>}/>
     <Route path="/about" element={<About/>}/>
     <Route path="/contact" element={<Contact/>}/>
     <Route path="/member" element={<Member/>}/>

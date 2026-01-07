@@ -9,7 +9,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Builder(toBuilder = true)
 public class Member {
 
 	@Id
@@ -40,7 +40,7 @@ public class Member {
     private String tel;
 
     @Column(name = "GENDER", nullable = false)
-    private String gender; // 추가
+    private String gender; //�
 
     @Column(name = "ADDRESS")
     private String address;
