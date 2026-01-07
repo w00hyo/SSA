@@ -41,7 +41,7 @@ public class MemberController {
     /**
      * 2️⃣ 특정 회원 조회
      */
-    @GetMapping("/{id}")
+    @GetMapping("/{id:[0-9]+}")
     public ResponseEntity<Member> getMemberById(@PathVariable Long id) {
         Member member = memberService.getMemberById(id);
         return ResponseEntity.ok(member);
@@ -64,7 +64,7 @@ public class MemberController {
     /**
      * 4️⃣ 회원 삭제
      */
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id:[0-9]+}")
     public ResponseEntity<String> deleteMember(@PathVariable Long id) {
         memberService.deleteMember(id);
         return ResponseEntity.ok("회원 삭제 완료");

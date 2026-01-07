@@ -85,7 +85,7 @@ const Member = () => {
 
     try {
       const { repeatPassword, ...payload } = formData;
-      await axios.post("http://localhost:8888/members/register", payload);
+      await axios.post("http://localhost:8888/members", payload);
       alert("회원가입이 완료되었습니다");
       window.location.href = "http://localhost:5173/login";
     } catch (err) {
