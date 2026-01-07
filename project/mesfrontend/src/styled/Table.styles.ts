@@ -23,6 +23,14 @@ export const Thead = styled.thead<{variant?: HeaderVariant}>`
 ${({ variant = 'default'}) => headerVariants[variant]}
 `;
 
+export const Tbody = styled.tbody<{variant?: HeaderVariant}>`
+${({ variant = 'default'}) => headerVariants[variant]}
+`;
+
+export const Tfoot = styled.tfoot<{variant?: HeaderVariant}>`
+${({ variant = 'default'}) => headerVariants[variant]}
+`;
+
 export const Tr = styled.tr`
 $:hover{background:#fafafa;}
 `;
@@ -30,7 +38,7 @@ $:hover{background:#fafafa;}
 interface CellProps{align?: Align;}
 
 export const Th = styled.th<CellProps>`
-padding:12px; text-align:${({align = 'left'}) => align};
+padding:12px; text-align:${({align = 'center'}) => align};
 font-weight:600; border:1px solid #ddd;
 `;
 
