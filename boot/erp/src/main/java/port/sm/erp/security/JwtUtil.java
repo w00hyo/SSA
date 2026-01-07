@@ -15,19 +15,23 @@ import io.jsonwebtoken.security.Keys;
 @Component
 public class JwtUtil {
 
-    // ⚠️ 최소 32바이트 이상
+    /* ⚠️ 최소 32바이트 이상
     private static final String SECRET =
         "this-is-very-long-secret-key-at-least-32-bytes";
 
     private final Key key = Keys.hmacShaKeyFor(
         SECRET.getBytes(StandardCharsets.UTF_8)
-    );
+    );*/
 
-    @Value("${app.jwt.seceret}")//토큰을 위조하지 못하게 잠그는 비밀번호
+    @Value("${app.jwt.secret}")//토큰을 위조하지 못하게 잠그는 비밀번호
     private String jwtSecret;
     
     @Value("${app.jwt.expiration-ms}")//토큰 유효시간
     private long jwtExpiration;
+    
+    private Key getKey() {
+    	return Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
+    }
     
     //토큰생성
     public String generateToken(Long userId, String email) {
