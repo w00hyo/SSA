@@ -7,8 +7,45 @@ import {Container, Row, Col, Tab, Tabs, Table, Button} from "react-bootstrap";
 //import { ColGroup } from "../commons/ColGroup";
 import { Group, Left, Right,  Text6, Span, Dflex, DflexEnd} from "../styled/Component.styles";
 import {Time, Select, Search, Submit,} from "../styled/Input.styles";
+import * as XLSX from "xlsx";
+import { saveAs } from "file-saver";
+
 
 const SalesManagement = () => {
+
+const handleExcelDownload = () => {
+    // ✔️ 엑셀에 들어갈 데이터 (헤더 + row)
+    const excelData = [
+        ["#", ...tableData.headers],
+        [1, ...tableData.row],
+        [2, ...tableData.row],
+    ];
+
+    // ✔️ 워크시트 생성 (비어있으면 안 됨)
+    const worksheet = XLSX.utils.aoa_to_sheet(excelData);
+
+    // ✔️ 워크북 생성
+    const workbook = XLSX.utils.book_new();
+
+    // ❗ 반드시 시트 추가
+    XLSX.utils.book_append_sheet(workbook, worksheet, "수주관리");
+
+    // ✔️ 엑셀 파일 생성
+    const excelFile = XLSX.write(workbook, {
+        bookType: "xlsx",
+        type: "array",
+    });
+
+    // ✔️ 다운로드
+    const blob = new Blob([excelFile], {
+        type: "application/octet-stream",
+    });
+
+    saveAs(blob, "수주관리_리스트.xlsx");
+};
+
+
+
 
 const tableData = {
     headers:[
@@ -73,7 +110,7 @@ return(
         <Right>
             <Group>
             <DflexEnd>
-                <Button variant="success">엑셀 다운</Button>
+                <Button variant="success" onClick={handleExcelDownload}>엑셀 다운</Button>
                 <Button variant="primary" className="mx-3">일괄 납품</Button>
                 <Button variant="secondary">수주 등록</Button>
             </DflexEnd>
