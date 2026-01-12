@@ -57,6 +57,8 @@ public class SecurityConfig{
 		.authorizeHttpRequests(auth -> auth
 		.requestMatchers(HttpMethod.POST, "/members/login").permitAll()//로그인 안해도 통과 가능
 		.requestMatchers("/members/login","/members/register","/members/logout").permitAll()
+		.requestMatchers("/api/**").permitAll()
+		.requestMatchers("/api/sales/orders/**").permitAll()
 		.anyRequest().authenticated()//위에서 허용한것 빼고는 전부 로그인(인증)된 사용자만 접근가능
 		);
 		return http.build();

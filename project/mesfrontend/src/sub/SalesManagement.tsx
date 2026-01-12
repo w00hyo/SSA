@@ -76,8 +76,8 @@ type SalesOrderPayload = {
     customerName:string;
     itemCode:string;
     itemName:string;
-    orderQty:string;
-    price:string;
+    orderQty:number;
+    price:number;
     deliveryDate:string;
     remark:string;
 }
@@ -187,7 +187,7 @@ const openCreate = () => {
       setSaving(true);
 
       // ✅ 실제 백엔드 POST
-      const res = await fetch(`${API_BASE}/api/sales-orders`, {
+      const res = await fetch(`${API_BASE}/api/sales/orders`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -437,3 +437,8 @@ const openCreate = () => {
 
 
 export default SalesManagement;
+
+/*
+403에러 post가 막히는것
+
+*/
