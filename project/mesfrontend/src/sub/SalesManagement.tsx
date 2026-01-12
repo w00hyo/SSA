@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Lnb from "../include/Lnb";
 import Top from "../include/Top";
 import { Wrapper, DflexColumn, DflexColumn2, Content, Ctap } from "../styled/Sales.styles";
@@ -18,56 +18,7 @@ type TableData = {
   rows: TableRow[];
 };
 
-// ✅ rows는 반드시 2차원 배열(여러 행)이어야 row.map이 가능함
-const tableData: TableData = {
-  headers: [
-    "수주일자",
-    "거래처코드",
-    "거래처명",
-    "품목코드",
-    "품목명",
-    "규격",
-    "수주 잔량",
-    "단가",
-    "금액",
-    "납품 예정일",
-    "납품 여부",
-    "비고",
-    "상세보기",
-  ],
-  rows: [
-    [
-      "2025-12-30",
-      "2001",
-      "A거래처",
-      "0000000025",
-      "다마내기",
-      "1",
-      "100",
-      "100,000",
-      "10,000,000",
-      "2026-01-05",
-      "미납",
-      "-",
-      "보기",
-    ],
-    [
-      "2025-12-31",
-      "2002",
-      "B거래처",
-      "0000000026",
-      "양파",
-      "1",
-      "50",
-      "50,000",
-      "2,500,000",
-      "2026-01-06",
-      "납품완료",
-      "-",
-      "보기",
-    ],
-  ],
-};
+
 
 //백앤드 엔티티 dto형태
 type SalesOrderPayload = {
@@ -78,11 +29,17 @@ type SalesOrderPayload = {
     itemName:string;
     orderQty:number;
     price:number;
-    deliveryDate:string;
+    deliveryDate:string | null;
     remark:string;
 }
 
 const API_BASE = "http://localhost:9500";
+
+const TABLE_HEADERS = [
+"수주일자","거래처코드","거래처명","품목코드","품목명","규격","수주 잔량",
+"단가","금액","남품 예정일","납품 여부","비고","상세보기", 
+]
+
 
 const SalesManagement = () => {
  const[showCreate, setShowCreate] = useState(false);
@@ -90,9 +47,7 @@ const SalesManagement = () => {
  const[saving, setSaving] = useState(false);
  const[errorMsg, setErrorMsg] = useState<string>("");
  //add end
-
-
- const [rows, setRows] =useState<TableRow[]>(tableData.rows)
+const [rows, setRows] =useState<TableRow[]>([]);
 
   const [form, setForm] = useState({
     orderDate: "",
@@ -109,15 +64,99 @@ const SalesManagement = () => {
     deliveryStatus:"미납",
   });
 
-  const handleChange = (e: React.ChangeEvent<any>) => {
+    const handleChange = (e: React.ChangeEvent<any>) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
+//목록 조회 (서버 -> rows)
+const fetchOrders = async () => {
+ 
+  //add
+  const token = localStorage.getItem("token");
+
+  console.log("[orders] token exists?", Boolean(token));
+  console.log("[orders] request url:", `${API_BASE}/api/sales/orders`);
+
+
+  const res = await fetch(`${API_BASE}/api/sales/orders`,{
+    method: "GET", credentials:"include",
+    headers:{
+      "Content-Type":"application/json",
+      ...(token ?{Authorization: `Bearer ${token}`}:{}),
+    }
+  });
+
+  const raw = await res.text();
+  console.log("[orders] status:", res.status);
+  console.log("[orders] body:", raw);
+
+
+  if(!res.ok)throw new Error(`목록 조회 실패:${res.status}`);
+  const list:any[] = await res.json();//서버응답(json)을 배열로 받기
+// fetch 로 받아온 응답(res)에서 본문(body)을 json으로 파싱 any[] “일단 형태 신경 안 쓰고 배열로 받는다”는 뜻 (타입 안전성은 약함)
+  const mapped:TableRow[] = list.map((o) => {
+/*
+list의 각요소 (각 수주 1건)을 o라고 두고
+map은 원본 배열길이 그대로 새 배열을 만들어서 리턴
+결과가 mapped이고 이건 화면 테이블에 바로 넣기 종흔 형태(TableRow[])로 바꾼거
+*/
+const qty = Number(o.orderQty ?? 0);//숫자형 안전 변환
+//?? (Nullish coalescing) 
+/*
+o.orderQty가 null 또는 undefined면 0을 쓰겠다는 뜻.
+0은 “값이 없음”으로 처리하지 않음 (중요!)
+||를 쓰면 0도 falsy라서 대체돼버릴 수 있음.
+??는 null/undefined만 대체하니까 더 안전.
+*/
+const price = Number(o.price ?? 0);
+const amount = Number(o.amount ?? qty * price);
+
+//테이블 한행을 배열로 만드는 곳
+    return[
+      o.orderDate ?? "",
+      o.customerCode ?? "",
+      o.customerName ?? "",
+      o.itemCode ?? "",
+      o.itemName ?? "",
+      "-",
+      String(qty),
+      String(price),
+      String(amount),
+      o.deliveryDate ?? "-",
+      "미납",
+      o.remark ?? "-",
+      "보기",
+    ] //테이블에 한줄
+  });
+  setRows(mapped);
+};
+
+//최초 로딩시 서버 데이터 불러오기
+useEffect(() => {
+  fetchOrders().catch((e) => console.error(e));
+},[]);
+
+//모달 열때 에러 초기화
+const openCreate = () => {
+    setErrorMsg("");
+    setShowCreate(true);
+}
+
+
+
+ //const [rows, setRows] =useState<TableRow[]>(tableData.rows) 하드코딩
+
+
+
+
+
+
   const handleExcelDownload = () => {
     // ✅ 엑셀은 "헤더 + 모든 rows"를 넣는 방식이 정석
     const excelData: (string | number)[][] = [
-      ["#", ...tableData.headers],
+      //["#", ...tableData.headers] 최초 짝퉁 데이터 테스트 시,
+      ["#", ...TABLE_HEADERS],
       ...rows.map((row, idx) => [idx + 1, ...row]),
     ];
 
@@ -131,18 +170,15 @@ const SalesManagement = () => {
     });
 
     const blob = new Blob([excelFile], {
+       //Binary Large Object 대용량 비정형 이진 데이터 덩어리
       type: "application/octet-stream",
     });
 
     saveAs(blob, "수주관리_리스트.xlsx");
   };
-//모달 열때 에러 초기화
-const openCreate = () => {
-    setErrorMsg("");
-    setShowCreate(true);
-}
 
- // ✅ 백엔드로 저장 + 성공 시 rows 추가
+
+ // ✅ 백엔드로 저장 + POST 성공 시 GET으로 재조회
   const handleCreateSave = async () => {
     setErrorMsg("");
 
@@ -173,15 +209,15 @@ const openCreate = () => {
       itemName: form.itemName,
       orderQty: qty,
       price: price,
-      deliveryDate: form.deliveryDate || "", // 백엔드가 null 허용이면 "" 대신 null로 바꿔도 됨
+      deliveryDate: form.deliveryDate ? form.deliveryDate:null,// 백엔드가 null 허용이면 "" 대신 null로 바꿔도 됨
       remark: form.remark || "",
     };
 
-    // 3) 화면 전용 계산/필드
+    /* 3) 화면 전용 계산/필드
     const amount = qty * price;
     const spec = form.spec || "-";
     const remainQty = form.remainQty ? String(Number(form.remainQty)) : String(qty); // 기본은 수주수량으로
-    const deliveryStatus = form.deliveryStatus || "미납";
+    const deliveryStatus = form.deliveryStatus || "미납";*/
 
     try {
       setSaving(true);
@@ -190,6 +226,7 @@ const openCreate = () => {
       const res = await fetch(`${API_BASE}/api/sales/orders`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials:"include", //add 
         body: JSON.stringify(payload),
       });
 
@@ -198,10 +235,26 @@ const openCreate = () => {
         throw new Error(text || `저장 실패 (HTTP ${res.status})`);
       }
 
+      //저장성공 -> 서버에서 다시 조회(새로고침해도 유지)
+      await fetchOrders();
+
+      //폼초기화
+    setForm({
+orderDate:"", customerCode:"", customerName:"", itemCode:"",itemName:"", orderQty:"",price:"",
+deliveryDate:"",remark:"",spec:"", remainQty:"", deliveryStatus:"미납",
+    });
+
+    setShowCreate(false);
+    } catch (err: any) {
+      setErrorMsg(err?.message || "저장 중 오류가 발생했습니다.");
+    } finally {
+      setSaving(false);
+    }
+  };
       // 백엔드 응답(SalesOrderResponse)을 받아도 되고(여기선 사용 안함)
       // const saved = await res.json();
 
-      // ✅ 성공하면 화면 rows에 추가(13개 컬럼 맞춤)
+      /* ✅ 성공하면 화면 rows에 추가(13개 컬럼 맞춤)
       const newRow: TableRow = [
         payload.orderDate,
         payload.customerCode,
@@ -236,13 +289,8 @@ const openCreate = () => {
         deliveryStatus: "미납",
       });
 
-      setShowCreate(false);
-    } catch (err: any) {
-      setErrorMsg(err?.message || "저장 중 오류가 발생했습니다.");
-    } finally {
-      setSaving(false);
-    }
-  };
+
+  };*/
 
   return (
     <>
@@ -302,7 +350,7 @@ const openCreate = () => {
                         <Button variant="primary" className="mx-3">
                           일괄 납품
                         </Button>
-<Button variant="secondary" onClick={() => setShowCreate(true)}>수주 등록</Button>
+                        <Button variant="secondary" onClick={openCreate}>수주 등록</Button>
                       </DflexEnd>
                     </Group>
                   </Right>
@@ -314,7 +362,7 @@ const openCreate = () => {
                       <thead>
                         <tr>
                           <th className="bg-secondary text-white">#</th>
-                          {tableData.headers.map((title, index) => (
+                          {TABLE_HEADERS.map((title, index) => (
                             <th key={index} className="bg-secondary text-white">
                               {title}
                             </th>
@@ -361,7 +409,7 @@ const openCreate = () => {
     </Wrapper>
 
 {/*모달 */}    
-<Modal show={showCreate} onHide={()=> setShowCreate(false)}>
+<Modal show={showCreate} onHide={()=> setShowCreate(false)} centered backdrop="static">
 
 <Modal.Header closeButton>
     <Modal.Title>
@@ -420,11 +468,11 @@ const openCreate = () => {
 </Modal.Body>
 
 <Modal.Footer>
-    <Button variant="secondary" onClick={() => setShowCreate(false)}>
+    <Button variant="secondary" onClick={() => setShowCreate(false)} disabled={saving}>
         닫기
     </Button>
-    <Button variant="secondary" onClick={handleCreateSave}>
-        저장
+    <Button variant="secondary" onClick={handleCreateSave} disabled={saving}>
+        {saving ? "저장중...":"저장"}
     </Button>
 </Modal.Footer>
 
@@ -441,4 +489,54 @@ export default SalesManagement;
 /*
 403에러 post가 막히는것
 
+// ✅ rows는 반드시 2차원 배열(여러 행)이어야 row.map이 가능함
+const tableData: TableData = {
+  headers: [
+    "수주일자",
+    "거래처코드",
+    "거래처명",
+    "품목코드",
+    "품목명",
+    "규격",
+    "수주 잔량",
+    "단가",
+    "금액",
+    "납품 예정일",
+    "납품 여부",
+    "비고",
+    "상세보기",
+  ],
+  rows: [
+    [
+      "2025-12-30",
+      "2001",
+      "A거래처",
+      "0000000025",
+      "다마내기",
+      "1",
+      "100",
+      "100,000",
+      "10,000,000",
+      "2026-01-05",
+      "미납",
+      "-",
+      "보기",
+    ],
+    [
+      "2025-12-31",
+      "2002",
+      "B거래처",
+      "0000000026",
+      "양파",
+      "1",
+      "50",
+      "50,000",
+      "2,500,000",
+      "2026-01-06",
+      "납품완료",
+      "-",
+      "보기",
+    ],
+  ],
+};
 */
