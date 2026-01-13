@@ -4,7 +4,7 @@ import Top from "../include/Top";
 import { Wrapper, DflexColumn, DflexColumn2, Content, Ctap } from "../styled/Sales.styles";
 import { Container, Row, Col, Tab, Tabs, Table, Button, Modal, Form, Pagination } 
 from "react-bootstrap";
-import { Group, Left, Right, Text6, Dflex, DflexEnd } from "../styled/Component.styles";
+import { Group, Left, Right, Text6, Dflex, DflexEnd, Center, PageTotal } from "../styled/Component.styles";
 import { Time, Select, Search } from "../styled/Input.styles";
 
 import * as XLSX from "xlsx";
@@ -335,6 +335,10 @@ deliveryDate:"",remark:"",spec:"", remainQty:"", deliveryStatus:"미납",
 
 
   };*/
+const goPage = (p: number) => {
+  const next = Math.max(0, Math.min(p, totalPages - 1));
+  fetchOrders(next, size);
+}
 
   return (
     <>
@@ -417,7 +421,7 @@ deliveryDate:"",remark:"",spec:"", remainQty:"", deliveryStatus:"미납",
                       <tbody>
                         {rows.map((row, rIdx) => (
                           <tr key={rIdx}>
-                            <td>{rIdx + 1}</td>
+                            <td>{rIdx + 1 + page * size}</td>
                             {row.map((cell, cIdx) => (
                               <td key={cIdx}>{cell}</td>
                             ))}
@@ -441,23 +445,28 @@ deliveryDate:"",remark:"",spec:"", remainQty:"", deliveryStatus:"미납",
                     </Table>
 
 
+<Center>
 {totalPages > 1 && (
   <>
-  <div className="d-flex justify-content-between align-items-center mt-3">
-    <div>
+  
+    <PageTotal>
       총 {totalElements}건 {page + 1} / {totalPages} 페이지
-    </div>
-  </div>
+    </PageTotal>
+
   <Pagination className="mb-0">
-<Pagination.First disabled={page === 0} onClick={() => fetchOrders(0, size)}/>
-<Pagination.Prev/>
-<Pagination.Item></Pagination.Item>
-<Pagination.Next/>
-<Pagination.Last disabled={page >= totalPages - 1} onClick={() => fetchOrders(totalPages - 1, size)}/>
+<Pagination.First disabled={page === 0} onClick={() => goPage(0)}/>
+<Pagination.Prev disabled={page === 0} onClick={() => goPage(page - 1)}/>
+{Array.from({length:totalPages}).map((_, i) => i).filter((i) => i >= page -2 && i <= page + 2).map((i) =>(
+<Pagination.Item key={i} active={i === page} onClick={() => goPage(i)}>{i + 1}</Pagination.Item>
+))}
+<Pagination.Next
+disabled={page >= totalPages - 1} onClick={() => goPage(page + 1)}/>
+<Pagination.Last 
+disabled={page >= totalPages - 1} onClick={() => goPage(totalPages - 1)}/>
   </Pagination>
   </>
 )}
-
+</Center>
 
                   </Tab>
 

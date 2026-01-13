@@ -41,8 +41,8 @@ public class SalesOrderController {
 @RequestParam(name = "from", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate from,
 @RequestParam(name = "to", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate to,
 //페이징
-@RequestParam(defaultValue = "0") int page,
-@RequestParam(defaultValue = "10") int size
+@RequestParam(name="page", defaultValue = "0") int page,
+@RequestParam(name="size", defaultValue = "10") int size
 			){
 		return service.list(from, to, page, size);
 	}

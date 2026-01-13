@@ -31,3 +31,14 @@ display:flex;
 justify-content:flex-end;
 align-items:center;
 `;
+
+export const Center = styled.div`
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+`;
+
+export const PageTotal = styled.div`
+font-size:12px; font-weight:400; color:gray;
+`;
