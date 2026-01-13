@@ -11604,3 +11604,9 @@ Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
 
 !ENTRY org.eclipse.lsp4e 4 0 2026-01-13 17:41:16.468
 !MESSAGE 17:41:06.404 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 36036" | findstr 36036"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 17:41:46.698
+!MESSAGE 17:41:36.616 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 36036" | findstr 36036"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 17:41:52.669
+!MESSAGE 17:41:52.668 [pool-14-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Invalidate AST for file:///D:/dev_hwang/workspace/boot/erp/src/main/java/port/sm/erp/entity/CalendarEvent.java
