@@ -39,9 +39,12 @@ public class SalesOrderController {
 	@GetMapping
 	public List<SalesOrderResponse> list(
 @RequestParam(name = "from", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate from,
-@RequestParam(name = "to", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate to
+@RequestParam(name = "to", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate to,
+//페이징
+@RequestParam(defaultValue = "0") int page,
+@RequestParam(defaultValue = "10") int size
 			){
-		return service.list(from, to);
+		return service.list(from, to, page, size);
 	}
 	
 	

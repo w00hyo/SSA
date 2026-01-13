@@ -68,7 +68,7 @@ private String itemName;
 
 //수주수량 수량은 정수니까 0이라도 값을 넣어 줘야 합니다 null이면 저장불가
 @Column(name="order_qty", nullable=false)
-private Long orderQty;
+private BigDecimal orderQty;
 
 @Column(name="price", nullable=false, precision=18, scale=2)
 private BigDecimal price;//BigDecimal 돈계산에 안전

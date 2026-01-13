@@ -16,7 +16,7 @@ public class SalesOrderRequest {
 	private String customerName;
 	private String itemCode;
 	private String itemName;
-	private Long orderQty;
+	private BigDecimal orderQty;
 	private BigDecimal price;
 	
 	@JsonFormat(pattern = "yyyy-MM-dd")

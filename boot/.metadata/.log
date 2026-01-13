@@ -10945,3 +10945,54 @@ Binding(CTRL+SHIFT+T,
 
 !ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:33:27.104
 !MESSAGE 10:33:17.022 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+!SESSION 2026-01-13 11:36:31.692 -----------------------------------------------
+eclipse.buildId=4.37.0.20250905-1455
+java.version=21.0.9
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY ch.qos.logback.classic 1 0 2026-01-13 11:37:19.631
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY org.eclipse.lemminx.uber-jar 4 0 2026-01-13 11:37:19.913
+!MESSAGE bundle org.eclipse.lemminx.uber-jar:0.31.0 (615) Component descriptor entry 'OSGI-INF/*.xml' not found
+
+!ENTRY ch.qos.logback.classic 1 0 2026-01-13 11:37:21.963
+!MESSAGE Logback config file: D:\dev_hwang\workspace\boot\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.7.100.20250418-1315.xml
+
+!ENTRY org.eclipse.ui 2 0 2026-01-13 11:37:22.459
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2026-01-13 11:37:22.459
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 2 0 2026-01-13 11:37:22.750
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2026-01-13 11:37:22.750
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.egit.ui 2 0 2026-01-13 11:37:29.599
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\PC'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 11:37:44.862
+!MESSAGE 11:37:44.766 [Simple-Language-Server main thread] INFO  o.s.i.v.b.jdt.ls.JdtLsProjectCache - INIT CLASSPATH LISTENER enableClasspath=true
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 11:37:44.863
+!MESSAGE 11:37:44.862 [Simple-Language-Server main thread] INFO  o.s.i.v.b.j.BootJavaLanguageServerComponents - update live process tracker settings - start
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 11:37:44.864
+!MESSAGE 11:37:44.862 [Simple-Language-Server main thread] INFO  o.s.i.v.b.j.BootJavaLanguageServerComponents - update live process tracker settings - done
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 11:37:45.559
+!MESSAGE 11:37:45.513 [pool-6-thread-1] INFO  o.s.i.v.b.j.u.SpringFactoriesIndexer - scan factories files for symbols for project: erp - no. of files: 0
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 11:37:45.703
+!MESSAGE 11:37:45.567 [pool-6-thread-1] INFO  o.s.i.v.b.j.utils.SpringIndexerJava - scan java files for symbols for project: erp - no. of files: 20
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 11:37:46.040
+!MESSAGE 11:37:46.040 [Project-Reconciler-1] INFO  o.s.i.v.boot.app.RestTemplateFactory - Env var https_proxy: null
