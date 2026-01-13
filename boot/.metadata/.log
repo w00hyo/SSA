@@ -10942,3 +10942,6 @@ Binding(CTRL+SHIFT+T,
 
 !ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:31:56.444
 !MESSAGE 10:31:56.443 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:33:27.104
+!MESSAGE 10:33:17.022 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
