@@ -191,3 +191,27 @@ export const DateCell2 = styled.div<{ $today?: boolean }>`
       background: #e3f2fd;
     `}
 `;
+interface DayClickProps {
+  holiday? : boolean;
+  weekday:number;
+  isToday?:boolean;
+}
+
+export const DayClick = styled.div<DayClickProps>`
+margin: 2;
+border-radius: 8;
+background: ${({holiday}) => (holiday ? "#ffefc3" : "#f4f4f4")};
+color:${({weekday}) => weekday === 0 ? "red" : weekday === 6 ? "blue" : "#333"};
+
+border: ${({isToday}) => (isToday ? "2px solid #1976d2" : "none")};
+font-weight: ${({ isToday}) => (isToday ? "bold" : "normal")};
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
+cursor:pointer;
+gap:4;
+padding:10px 0px;
+height:70px;
+`;

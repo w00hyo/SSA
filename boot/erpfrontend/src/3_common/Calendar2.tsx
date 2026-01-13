@@ -17,11 +17,12 @@ Fixed, Modal,  ModalTitle, ModalDate
 import {
   BtnGroup,
   MainBtn,
-  GrayBtn
+  GrayBtn,DelBtn
 } from "../stylesjs/Button.styles";
 import api from "../api";
 import { JustifyContent, W49 } from "../stylesjs/Util.styles";
 import { InsertTitle, InsertMemo, TimeInput } from "../stylesjs/Input.styles";
+import { DayClick } from "../stylesjs/Content.styles";
 
 interface RawHoliday {
   date: number; // YYYYMMDD
@@ -270,32 +271,17 @@ const Calendar2 = () => {
           const dayEvents = events.filter((e) => e.date === iso);
 
           return (
-            <div
-              key={day}
-              ref={isToday ? todayRef : null}
-              onClick={() => {
-                setSelectedDate(iso); // ✅ “아무 날짜나 클릭” 핵심
-                setForm({ title: "", memo: "", startTime: "", endTime: "" });
-                setIsModalOpen(true);
-              }}
-              style={{
-                height: 50,
-                margin: 2,
-                borderRadius: 8,
-                background: holiday ? "#ffefc3" : "#f4f4f4",
-                color:
-                  weekday === 0 ? "red" : weekday === 6 ? "blue" : "#333",
-                border: isToday ? "2px solid #1976d2" : "none",
-                fontWeight: isToday ? "bold" : "normal",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                gap: 4,
-                paddingTop: 4,
-              }}
-              title={holiday?.name}
+            <DayClick
+  key={day}
+  weekday={weekday}
+  isToday={isToday}
+  holiday={!!holiday}
+  onClick={() => {
+    setSelectedDate(iso);
+    setForm({ title: "", memo: "", startTime: "", endTime: "" });
+    setIsModalOpen(true);
+  }}
+  title={holiday?.name}
             >
               <div>{day}</div>
 
@@ -316,7 +302,7 @@ const Calendar2 = () => {
                   {dayEvents[0].title}
                 </div>
               )}
-            </div>
+            </DayClick>
           );
         })}
       </Grid>
@@ -421,7 +407,7 @@ const Calendar2 = () => {
                       <b style={{ flex: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                         {ev.title}
                       </b>
-                      <button onClick={() => deleteEvent(ev.id)}>삭제</button>
+                      <DelBtn onClick={() => deleteEvent(ev.id)}>삭제</DelBtn>
                     </div>
                     {ev.memo && (
                       <div style={{ fontSize: 12, marginTop: 6, whiteSpace: "pre-wrap" }}>

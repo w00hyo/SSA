@@ -11,7 +11,7 @@ color:white;
 width:100%;
 display:flex; justify-content:center; align-items:center;
 border:none;
-height:56px;
+height:36px;
 border-radius:5px;
 `;
 
@@ -21,6 +21,27 @@ color:white;
 width:100%;
 display:flex; justify-content:center; align-items:center;
 border:none;
-height:56px;
+height:36px;
 border-radius:5px;
+font-size:14px;
+letter-spacing:-2%;
+`;
+
+export const DelBtn = styled.button`
+background-color:red;
+color:white;
+width:60px;
+max-width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:14px;
+letter-spacing:-2%;
+border:none;
+border-radius:3px;
+opacity:.8;
+transition:all 1s;
+    &hover{
+    opacity:1;
+    }
 `;

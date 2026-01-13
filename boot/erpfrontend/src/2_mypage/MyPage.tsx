@@ -34,3 +34,13 @@ const MyPage = () => {
 }
 
 export default MyPage;
+/*
+401오류가 뜨는 이유
+프론트에서 Authorization 헤더가 안 붙음
+Axios인터셉터가 있어도
+토큰키가 다르거나 token이 아니라 accessToken등
+요청이 api가 아닌 기본 axios로 나가거나
+lcalStorage에 토큰이 비어 있거나
+Bearer가 빠져 잇거나
+
+*/

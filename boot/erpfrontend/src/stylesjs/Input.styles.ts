@@ -15,7 +15,7 @@ width:100%;
 padding:10px 16px;
 margin:5px 0px 10px;
 resize:none;
-height:400px;
+height:auto;
 `;
 
 export const TimeInput = styled.input`

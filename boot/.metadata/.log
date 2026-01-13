@@ -10235,3 +10235,710 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:19:59.021
 !MESSAGE 17:19:38.865 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:20:29.259
+!MESSAGE 17:20:19.193 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:20:49.398
+!MESSAGE 17:20:49.398 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:21:59.827
+!MESSAGE 17:21:39.701 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:22:40.089
+!MESSAGE 17:22:30.019 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:24:00.641
+!MESSAGE 17:23:50.567 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:25:01.043
+!MESSAGE 17:24:20.782 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:26:11.523
+!MESSAGE 17:25:41.332 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:26:51.816
+!MESSAGE 17:26:41.748 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:28:12.380
+!MESSAGE 17:27:52.246 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:28:42.590
+!MESSAGE 17:28:42.589 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:29:12.797
+!MESSAGE 17:29:12.796 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:29:42.985
+!MESSAGE 17:29:32.924 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:30:23.244
+!MESSAGE 17:30:13.170 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:30:43.375
+!MESSAGE 17:30:43.373 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:31:43.821
+!MESSAGE 17:31:23.679 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:32:24.103
+!MESSAGE 17:32:14.035 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:32:44.252
+!MESSAGE 17:32:44.252 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:33:34.594
+!MESSAGE 17:33:04.404 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:34:24.914
+!MESSAGE 17:33:54.731 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:35:05.171
+!MESSAGE 17:34:45.050 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:35:25.311
+!MESSAGE 17:35:25.310 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:35:55.536
+!MESSAGE 17:35:45.456 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:37:05.986
+!MESSAGE 17:37:05.985 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:37:56.294
+!MESSAGE 17:37:46.225 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:38:36.535
+!MESSAGE 17:38:36.533 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:39:26.838
+!MESSAGE 17:39:16.768 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:40:27.219
+!MESSAGE 17:40:07.093 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:40:47.336
+!MESSAGE 17:40:47.336 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:41:17.526
+!MESSAGE 17:41:07.468 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:41:37.685
+!MESSAGE 17:41:37.685 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:41:57.804
+!MESSAGE 17:41:57.803 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:42:38.036
+!MESSAGE 17:42:38.035 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:43:38.422
+!MESSAGE 17:42:58.182 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:43:58.548
+!MESSAGE 17:43:58.547 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:44:18.667
+!MESSAGE 17:44:18.667 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:45:39.148
+!MESSAGE 17:45:39.147 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:46:39.532
+!MESSAGE 17:46:39.532 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:46:59.657
+!MESSAGE 17:46:59.656 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:48:10.098
+!MESSAGE 17:48:00.019 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:50:30.938
+!MESSAGE 17:50:30.937 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:51:31.308
+!MESSAGE 17:51:21.249 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:51:51.434
+!MESSAGE 17:51:51.433 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:52:41.725
+!MESSAGE 17:52:11.565 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:53:01.833
+!MESSAGE 17:53:01.833 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:53:21.945
+!MESSAGE 17:53:21.945 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-12 17:55:12.658
+!MESSAGE 17:54:52.527 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12992" | findstr 12992"' returns 255
+!SESSION 2026-01-13 09:13:18.755 -----------------------------------------------
+eclipse.buildId=4.37.0.20250905-1455
+java.version=21.0.9
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY ch.qos.logback.classic 1 0 2026-01-13 09:13:21.666
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY org.eclipse.lemminx.uber-jar 4 0 2026-01-13 09:13:21.940
+!MESSAGE bundle org.eclipse.lemminx.uber-jar:0.31.0 (615) Component descriptor entry 'OSGI-INF/*.xml' not found
+
+!ENTRY ch.qos.logback.classic 1 0 2026-01-13 09:13:23.327
+!MESSAGE Logback config file: D:\dev_hwang\workspace\boot\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.7.100.20250418-1315.xml
+
+!ENTRY org.eclipse.ui 2 0 2026-01-13 09:13:23.796
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2026-01-13 09:13:23.796
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 2 0 2026-01-13 09:13:24.113
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2026-01-13 09:13:24.113
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.egit.ui 2 0 2026-01-13 09:13:29.457
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\PC'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:13:33.206
+!MESSAGE 09:13:33.205 [Simple-Language-Server main thread] INFO  o.s.i.v.b.jdt.ls.JdtLsProjectCache - INIT CLASSPATH LISTENER enableClasspath=true
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:13:33.285
+!MESSAGE 09:13:33.284 [Simple-Language-Server main thread] INFO  o.s.i.v.b.j.l.v.SpringProcessConnectorRemote - updating settings for remote processses to track - start
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:13:33.286
+!MESSAGE 09:13:33.284 [Simple-Language-Server main thread] INFO  o.s.i.v.b.j.l.v.SpringProcessConnectorRemote - updating settings for remote processses to track - done
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:13:33.878
+!MESSAGE 09:13:33.846 [pool-6-thread-1] INFO  o.s.i.v.b.j.u.SpringFactoriesIndexer - scan factories files for symbols for project: erp - no. of files: 0
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:13:33.943
+!MESSAGE 09:13:33.890 [pool-6-thread-1] INFO  o.s.i.v.b.j.utils.SpringIndexerJava - scan java files for symbols for project: erp - no. of files: 20
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:13:34.370
+!MESSAGE 09:13:33.983 [pool-6-thread-1] INFO  o.s.i.v.b.j.utils.SpringIndexerJava - scan java files for symbols for project: erp took ms: 93
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:13:35.485
+!MESSAGE 09:13:35.484 [Project-Reconciler-1] INFO  o.s.i.v.boot.app.RestTemplateFactory - Env var https_proxy: null
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:14:53.315
+!MESSAGE 09:14:13.067 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:15:43.611
+!MESSAGE 09:15:13.445 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:16:23.838
+!MESSAGE 09:16:03.730 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:17:14.129
+!MESSAGE 09:16:54.009 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:17:54.404
+!MESSAGE 09:17:44.333 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:18:24.623
+!MESSAGE 09:18:24.623 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:18:44.767
+!MESSAGE 09:18:44.766 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:19:14.962
+!MESSAGE 09:19:04.898 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:19:55.249
+!MESSAGE 09:19:35.095 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:20:45.579
+!MESSAGE 09:20:45.579 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:21:25.839
+!MESSAGE 09:21:05.720 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:22:36.277
+!MESSAGE 09:21:45.950 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:23:56.787
+!MESSAGE 09:23:56.787 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:25:57.514
+!MESSAGE 09:25:27.330 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:26:17.806
+!MESSAGE 09:26:17.653 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:26:17.999
+!MESSAGE 09:26:17.995 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/dev_hwang/workspace/boot/erp/src/main/java/port/sm/erp/entity/CalendarEvent.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:26:18.350
+!MESSAGE 09:26:18.042 [pool-3-thread-4] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/dev_hwang/workspace/boot/erp/src/main/java/port/sm/erp/entity/CalendarEvent.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:26:19.033
+!MESSAGE 09:26:19.033 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/dev_hwang/workspace/boot/erp/src/main/java/port/sm/erp/entity/CalendarEvent.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:26:19.045
+!MESSAGE 09:26:19.035 [pool-3-thread-2] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/dev_hwang/workspace/boot/erp/src/main/java/port/sm/erp/entity/CalendarEvent.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:26:19.555
+!MESSAGE 09:26:19.074 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/dev_hwang/workspace/boot/erp/src/main/java/port/sm/erp/entity/CalendarEvent.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:26:21.932
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.operations.codeactions.LSPCodeActionMarkerResolution.checkMarkerResolution(LSPCodeActionMarkerResolution.java:159)
+	at org.eclipse.lsp4e.operations.codeactions.LSPCodeActionMarkerResolution.hasResolutions(LSPCodeActionMarkerResolution.java:210)
+	at org.eclipse.ui.internal.ide.registry.MarkerHelpRegistry.hasResolution(MarkerHelpRegistry.java:263)
+	at org.eclipse.ui.internal.ide.registry.MarkerHelpRegistry.hasResolutions(MarkerHelpRegistry.java:236)
+	at org.eclipse.ui.views.markers.MarkerField.annotateImage(MarkerField.java:86)
+	at org.eclipse.ui.internal.views.markers.MarkerProblemSeverityAndMessageField.update(MarkerProblemSeverityAndMessageField.java:80)
+	at org.eclipse.ui.internal.views.markers.MarkerColumnLabelProvider.update(MarkerColumnLabelProvider.java:54)
+	at org.eclipse.jface.viewers.ViewerColumn.refresh(ViewerColumn.java:149)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:998)
+	at org.eclipse.ui.internal.views.markers.MarkersTreeViewer.doUpdateItem(MarkersTreeViewer.java:62)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$UpdateItemSafeRunnable.run(AbstractTreeViewer.java:156)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:167)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:1071)
+	at org.eclipse.jface.viewers.StructuredViewer$UpdateItemSafeRunnable.run(StructuredViewer.java:426)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:167)
+	at org.eclipse.jface.viewers.StructuredViewer.updateItem(StructuredViewer.java:2110)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createTreeItem(AbstractTreeViewer.java:892)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:870)
+	at org.eclipse.jface.viewers.TreeViewer.createChildren(TreeViewer.java:611)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:817)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1734)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setSelectionToWidget(AbstractTreeViewer.java:2743)
+	at org.eclipse.jface.viewers.StructuredViewer.setSelectionToWidget(StructuredViewer.java:1705)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setSelectionToWidget(AbstractTreeViewer.java:3259)
+	at org.eclipse.jface.viewers.StructuredViewer.setSelection(StructuredViewer.java:1661)
+	at org.eclipse.jface.viewers.TreeViewer.setSelection(TreeViewer.java:1091)
+	at org.eclipse.ui.internal.views.markers.ExtendedMarkersView.setSelection(ExtendedMarkersView.java:1301)
+	at org.eclipse.ui.internal.views.markers.MarkerSupportInternalUtilities.showMarkers(MarkerSupportInternalUtilities.java:362)
+	at org.eclipse.ui.views.markers.MarkerViewUtil.showMarkers(MarkerViewUtil.java:130)
+	at org.eclipse.ui.views.markers.MarkerViewUtil.showMarker(MarkerViewUtil.java:96)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.updateMarkerViews(AbstractDecoratedTextEditor.java:2298)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor.updateMarkerViews(JavaEditor.java:3166)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor.updateStatusLine(JavaEditor.java:3623)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor.selectionChanged(JavaEditor.java:2274)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EditorSelectionChangedListener.selectionChanged(JavaEditor.java:311)
+	at org.eclipse.jface.text.TextViewer.firePostSelectionChanged(TextViewer.java:2725)
+	at org.eclipse.jface.text.TextViewer.firePostSelectionChanged(TextViewer.java:2655)
+	at org.eclipse.jface.text.TextViewer.postSelectionChanged(TextViewer.java:2638)
+	at org.eclipse.jface.util.Throttler.lambda$0(Throttler.java:66)
+	at org.eclipse.jface.util.Throttler.lambda$1(Throttler.java:79)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4135)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3751)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:678)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:627)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:575)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1431)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1403)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:220)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:204)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:449)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:185)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:114)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:26:21.939
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.operations.codeactions.LSPCodeActionMarkerResolution.checkMarkerResolution(LSPCodeActionMarkerResolution.java:159)
+	at org.eclipse.lsp4e.operations.codeactions.LSPCodeActionMarkerResolution.hasResolutions(LSPCodeActionMarkerResolution.java:210)
+	at org.eclipse.ui.internal.ide.registry.MarkerHelpRegistry.hasResolution(MarkerHelpRegistry.java:263)
+	at org.eclipse.ui.internal.ide.registry.MarkerHelpRegistry.hasResolutions(MarkerHelpRegistry.java:236)
+	at org.eclipse.ui.views.markers.MarkerField.annotateImage(MarkerField.java:86)
+	at org.eclipse.ui.internal.views.markers.MarkerProblemSeverityAndMessageField.update(MarkerProblemSeverityAndMessageField.java:80)
+	at org.eclipse.ui.internal.views.markers.MarkerColumnLabelProvider.update(MarkerColumnLabelProvider.java:54)
+	at org.eclipse.jface.viewers.ViewerColumn.refresh(ViewerColumn.java:149)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:998)
+	at org.eclipse.ui.internal.views.markers.MarkersTreeViewer.doUpdateItem(MarkersTreeViewer.java:62)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$UpdateItemSafeRunnable.run(AbstractTreeViewer.java:156)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:167)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:1071)
+	at org.eclipse.jface.viewers.StructuredViewer$UpdateItemSafeRunnable.run(StructuredViewer.java:426)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:167)
+	at org.eclipse.jface.viewers.StructuredViewer.updateItem(StructuredViewer.java:2110)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createTreeItem(AbstractTreeViewer.java:892)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:870)
+	at org.eclipse.jface.viewers.TreeViewer.createChildren(TreeViewer.java:611)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:817)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1734)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setSelectionToWidget(AbstractTreeViewer.java:2743)
+	at org.eclipse.jface.viewers.StructuredViewer.setSelectionToWidget(StructuredViewer.java:1705)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setSelectionToWidget(AbstractTreeViewer.java:3259)
+	at org.eclipse.jface.viewers.StructuredViewer.setSelection(StructuredViewer.java:1661)
+	at org.eclipse.jface.viewers.TreeViewer.setSelection(TreeViewer.java:1091)
+	at org.eclipse.ui.internal.views.markers.ExtendedMarkersView.setSelection(ExtendedMarkersView.java:1301)
+	at org.eclipse.ui.internal.views.markers.MarkerSupportInternalUtilities.showMarkers(MarkerSupportInternalUtilities.java:362)
+	at org.eclipse.ui.views.markers.MarkerViewUtil.showMarkers(MarkerViewUtil.java:130)
+	at org.eclipse.ui.views.markers.MarkerViewUtil.showMarker(MarkerViewUtil.java:96)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.updateMarkerViews(AbstractDecoratedTextEditor.java:2298)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor.updateMarkerViews(JavaEditor.java:3166)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor.updateStatusLine(JavaEditor.java:3623)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor.selectionChanged(JavaEditor.java:2274)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EditorSelectionChangedListener.selectionChanged(JavaEditor.java:311)
+	at org.eclipse.jface.text.TextViewer.firePostSelectionChanged(TextViewer.java:2725)
+	at org.eclipse.jface.text.TextViewer.firePostSelectionChanged(TextViewer.java:2655)
+	at org.eclipse.jface.text.TextViewer.postSelectionChanged(TextViewer.java:2638)
+	at org.eclipse.jface.util.Throttler.lambda$0(Throttler.java:66)
+	at org.eclipse.jface.util.Throttler.lambda$1(Throttler.java:79)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4135)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3751)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:678)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:627)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:575)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1431)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1403)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:220)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:204)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:449)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:185)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:114)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:27:07.801
+!MESSAGE 09:26:19.561 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/dev_hwang/workspace/boot/erp/src/main/java/port/sm/erp/entity/CalendarEvent.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:27:48.038
+!MESSAGE 09:27:27.920 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:28:08.165
+!MESSAGE 09:28:08.164 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:28:38.359
+!MESSAGE 09:28:38.358 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:28:47.894
+!MESSAGE 09:28:47.893 [pool-3-thread-5] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/dev_hwang/workspace/boot/erp/src/main/java/port/sm/erp/service/MemberService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:28:48.293
+!MESSAGE 09:28:48.291 [pool-3-thread-10] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/dev_hwang/workspace/boot/erp/src/main/java/port/sm/erp/service/MemberService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:28:48.373
+!MESSAGE 09:28:48.372 [pool-5-thread-2] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/dev_hwang/workspace/boot/erp/src/main/java/port/sm/erp/service/MemberService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:28:48.400
+!MESSAGE 09:28:48.398 [pool-3-thread-7] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/dev_hwang/workspace/boot/erp/src/main/java/port/sm/erp/service/MemberService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:28:48.407
+!MESSAGE 09:28:48.401 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/dev_hwang/workspace/boot/erp/src/main/java/port/sm/erp/service/MemberService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:29:41.806
+!MESSAGE 09:29:41.789 [pool-14-thread-1] INFO  o.s.i.v.c.l.u.SimpleTextDocumentService - change arrived: 1
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:29:42.249
+!MESSAGE 09:29:41.940 [pool-5-thread-2] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/dev_hwang/workspace/boot/erp/src/main/java/port/sm/erp/controller/CalendarEventController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:29:42.251
+!MESSAGE 09:29:42.248 [pool-3-thread-7] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/dev_hwang/workspace/boot/erp/src/main/java/port/sm/erp/controller/CalendarEventController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:29:42.307
+!MESSAGE 09:29:42.305 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/dev_hwang/workspace/boot/erp/src/main/java/port/sm/erp/controller/CalendarEventController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:30:18.631
+!MESSAGE 09:29:42.317 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/dev_hwang/workspace/boot/erp/src/main/java/port/sm/erp/controller/CalendarEventController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:30:38.727
+!MESSAGE 09:30:38.726 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:31:39.171
+!MESSAGE 09:31:18.991 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:32:39.613
+!MESSAGE 09:32:09.404 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:34:00.155
+!MESSAGE 09:33:40.025 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:34:40.490
+!MESSAGE 09:34:20.317 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:35:10.687
+!MESSAGE 09:35:00.625 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:36:21.187
+!MESSAGE 09:36:11.130 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:36:51.398
+!MESSAGE 09:36:41.313 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:37:51.801
+!MESSAGE 09:37:31.663 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:38:42.136
+!MESSAGE 09:38:42.135 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:39:42.553
+!MESSAGE 09:39:22.431 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:40:42.899
+!MESSAGE 09:40:12.716 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.jface 2 0 2026-01-13 09:42:16.000
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2026-01-13 09:42:16.000
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolInWorkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolInWorkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:42:23.667
+!MESSAGE 09:41:03.041 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:43:24.136
+!MESSAGE 09:42:43.835 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:44:14.519
+!MESSAGE 09:43:54.359 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:44:44.734
+!MESSAGE 09:44:34.662 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:45:14.960
+!MESSAGE 09:45:14.959 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:45:45.178
+!MESSAGE 09:45:45.178 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:46:55.699
+!MESSAGE 09:46:55.699 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:47:46.078
+!MESSAGE 09:47:46.078 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:48:06.240
+!MESSAGE 09:48:06.240 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:48:26.365
+!MESSAGE 09:48:26.364 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:49:06.692
+!MESSAGE 09:49:06.691 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:49:36.907
+!MESSAGE 09:49:26.836 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:49:57.059
+!MESSAGE 09:49:57.058 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:51:07.554
+!MESSAGE 09:50:47.416 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:52:18.109
+!MESSAGE 09:51:57.960 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:52:58.424
+!MESSAGE 09:52:58.422 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:53:18.575
+!MESSAGE 09:53:18.574 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:54:08.997
+!MESSAGE 09:53:58.903 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:55:39.704
+!MESSAGE 09:55:39.703 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:56:19.989
+!MESSAGE 09:56:19.988 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:57:00.302
+!MESSAGE 09:57:00.301 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:58:20.960
+!MESSAGE 09:58:20.959 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:59:21.426
+!MESSAGE 09:58:51.179 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 09:59:41.572
+!MESSAGE 09:59:41.571 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:00:21.881
+!MESSAGE 10:00:21.880 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:01:52.592
+!MESSAGE 10:01:52.591 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:02:42.966
+!MESSAGE 10:02:22.822 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:03:03.138
+!MESSAGE 10:03:03.137 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:03:23.286
+!MESSAGE 10:03:23.286 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:03:53.504
+!MESSAGE 10:03:53.504 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:04:13.650
+!MESSAGE 10:04:13.650 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:05:14.077
+!MESSAGE 10:05:14.077 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:07:35.181
+!MESSAGE 10:06:34.695 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:07:55.342
+!MESSAGE 10:07:55.341 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:09:15.940
+!MESSAGE 10:08:35.631 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:10:26.441
+!MESSAGE 10:09:56.241 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:11:26.875
+!MESSAGE 10:10:56.662 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:12:37.442
+!MESSAGE 10:11:57.115 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:12:57.581
+!MESSAGE 10:12:57.581 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:15:08.615
+!MESSAGE 10:15:08.615 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:15:28.760
+!MESSAGE 10:15:28.759 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:15:48.900
+!MESSAGE 10:15:48.899 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:16:29.188
+!MESSAGE 10:16:09.061 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:17:39.750
+!MESSAGE 10:17:39.749 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:18:20.041
+!MESSAGE 10:17:59.893 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:18:40.205
+!MESSAGE 10:18:40.204 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:20:10.927
+!MESSAGE 10:19:30.616 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:20:51.254
+!MESSAGE 10:20:51.253 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:21:31.564
+!MESSAGE 10:21:21.486 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:22:11.842
+!MESSAGE 10:22:01.773 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:22:31.993
+!MESSAGE 10:22:31.992 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:23:12.293
+!MESSAGE 10:23:02.216 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:23:52.646
+!MESSAGE 10:23:52.644 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:24:53.162
+!MESSAGE 10:24:22.914 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:25:53.643
+!MESSAGE 10:25:53.642 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:26:13.789
+!MESSAGE 10:26:13.789 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:26:33.929
+!MESSAGE 10:26:33.927 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:27:14.223
+!MESSAGE 10:26:54.068 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:28:24.776
+!MESSAGE 10:27:44.458 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:29:15.186
+!MESSAGE 10:28:55.016 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:30:25.786
+!MESSAGE 10:29:35.352 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-13 10:31:56.444
+!MESSAGE 10:31:56.443 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 32720" | findstr 32720"' returns 255
