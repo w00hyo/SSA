@@ -634,10 +634,97 @@ onChange={(e:any) => setForm((p) => ({...p, label:e.target.value}))}
   )}
 </W49>
 </JustifyContent>
+
+{/*날짜 시간 */}
+<div className="">
+  <div className="">날짜/시간</div>
+  {mode === "view" ?(
+<div className="">
+  {form.date || "-"}{""}
+  {(form.startTime || form.endTime) ? 
+  `${form.startTime || ""} ~ ${form.endTime ? 
+  `~ ${form.endTime}`:""}`:""}
+</div>
+  ):(
+<JustifyContent>
+  <W49>
+    <input
+    type="date" value={form.date} onChange={(e) => setForm((p) => ({...p, date:e.target.value}))}
+    />
+  </W49>
+  <W49>
+    <div className="">
+      <TimeInput
+type="time" value={form.startTime} 
+onChange={(e:any) => setForm((p) => ({...p, startTime:e.target.value}))}      
+      />
+      <TimeInput
+type="time" value={form.endTime} 
+onChange={(e:any) => setForm((p) => ({...p, endTime:e.target.value}))}         
+      />
+    </div>
+
+
+  </W49>
+</JustifyContent>
+  )}
 </div>
 
+{/*참석자 / 공유자 */}
+<div className="">
+  <div className="">참석자</div>
+  {mode === "view" ? (
+<div className="">{form.attendeesText || "-"}</div>
+  ):(
+<InsertTitle
+placeholder="참석자"
+value={form.attendeesText}
+onChange={(e:any) => setForm((p) => ({...p, attendeesText:e.target.value}))}
+/>
+  )}
+</div>
 
+<div>
+          <div style={{ fontSize: 12, opacity: 0.7, marginBottom: 6 }}>공유자</div>
+          {mode === "view" ? (
+            <div>{form.sharersText || "-"}</div>
+          ) : (
+            <InsertTitle
+              placeholder="공유자 (예: manager@a.com)"
+              value={form.sharersText}
+              onChange={(e: any) => setForm((p) => ({ ...p, sharersText: e.target.value }))}
+            />
+          )}
+        </div>
 
+        {/* 메모 */}
+        <div>
+          <div style={{ fontSize: 12, opacity: 0.7, marginBottom: 6 }}>전체(메모)</div>
+          {mode === "view" ? (
+            <div style={{ whiteSpace: "pre-wrap" }}>{form.memo || "-"}</div>
+          ) : (
+            <InsertMemo
+              placeholder="메모"
+              value={form.memo}
+              onChange={(e: any) => setForm((p) => ({ ...p, memo: e.target.value }))}
+            />
+          )}
+        </div>
+
+        {/* 하단 버튼 */}
+        {mode === "edit" && (
+          <JustifyContent>
+            <W49>
+              <GrayBtn onClick={() => { setMode("view"); }}>
+                취소
+              </GrayBtn>
+            </W49>
+            <W49>
+              <MainBtn onClick={saveEvent}>저장</MainBtn>
+            </W49>
+          </JustifyContent>
+        )}
+      </div>
 </Modal>
 </Fixed>      
       )}
