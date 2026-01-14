@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import {Container, Row, Col, Button, Card,Table} from "react-bootstrap"
-import Callendar from "../component/Callenadar";
+import Callendar2 from "../3_common/Calendar2";
 import Pay from "../component/Pay";
 import Notice from "../component/Notice";
 import OrderState from "../component/OrderState";
@@ -35,7 +35,7 @@ if(!token){
         <Col md={1}></Col>
         <Col md={5}>
         <div className="">
-            <Callendar/>
+            <Callendar2/>
         </div>
         </Col>
         

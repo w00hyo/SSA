@@ -22,21 +22,63 @@ import {
 import api from "../api";
 import { JustifyContent, W49 } from "../stylesjs/Util.styles";
 import { InsertTitle, InsertMemo, TimeInput } from "../stylesjs/Input.styles";
-import { DayClick } from "../stylesjs/Content.styles";
+import { DayClick, CalBg } from "../stylesjs/Content.styles";
 
 interface RawHoliday {
   date: number; // YYYYMMDD
   name: string;
 }
+type EventCategory = "MEETING" | "TASK" | "PERSONAL" | "ETC";
+type EventCalendar = "DEFAULT" | "WORK" | "FAMILY";
+
 
 type CalEvent = {
   id: number;
   date: string; // "YYYY-MM-DD"
   title: string;
-  memo?: string;
-  startTime?: string; // "HH:mm"
-  endTime?: string;   // "HH:mm"
+
+  category?:EventCategory;
+  calendar?:EventCalendar;
+  location?:string;
+  label?:string;
+  startAt?:string;
+  endAt?:string;
+  attendees?:string[];
+  sharers?:string[];
+  memo?:string;
 };
+
+type EventForm = {
+title: string;
+category: EventCategory;
+calendar: EventCalendar;
+location:string;
+label:string;
+date:string;
+startTime:string;
+endTime:string;
+attendeesText:string;
+sharersText:string;
+memo:string;
+
+}
+
+type EventPayload = {
+    date: string;
+  title: string;
+  memo?: string;
+
+  category?: EventCategory;
+  calendar?: EventCalendar;
+  location?: string;
+  label?: string;
+
+  startAt: string | null;
+  endAt: string | null;
+
+  attendees: string[];
+  sharers: string[];
+}
 
 
 
@@ -49,6 +91,10 @@ const toISODate = (y: number, m1to12: number, d: number) =>
   `${y}-${pad2(m1to12)}-${pad2(d)}`;
 
 const Calendar2 = () => {
+const[selectedEventId, setSelectedEventId] =useState<number | null>(null);
+const[mode, setMode] = useState<"view" | "edit">("view"); //상세 보기 수정
+
+
   const [currentDate, setCurrentDate] = useState(new Date());
   // 애니메이션 중인지 (연타방지)
   const [isAnimating, setIsAnimating] = useState(false);
@@ -64,10 +110,60 @@ const Calendar2 = () => {
 
   const [form, setForm] = useState({
     title: "",
-    memo: "",
+    category:"MEETING",
+    calendar:"DEFAULT",
+    location:"",
+    label:"",
+    date:"",
     startTime: "",
     endTime: "",
+    attendeesText:"",
+    sharersText:"",
+    memo: "",
   });
+
+//유틸함수
+const fillFormFromEvent = (isoDate: string, ev?:CalEvent) => {
+  if(!ev){
+    setForm({
+      title:"",
+      category:"MEETING",
+      calendar:"DEFAULT",
+      location:"",
+      label:"",
+      date:isoDate,
+      startTime:"",
+      endTime:"",
+      attendeesText:"",
+      sharersText:"",
+      memo:"",
+    });
+    return;
+  }
+//기존일정 편집보기
+const date = ev.startAt?.slice(0, 10) ?? ev.date ?? isoDate;
+const startTime = ev.startAt?.slice(11, 16) ?? "";
+const endTime = ev.endAt?.slice(11, 16) ?? "";
+
+setForm({
+title:ev.title ?? "",
+category:ev.category ?? "MEETING",
+calendar:ev.calendar ?? "DEFAULT",
+location:ev.location ?? "",
+label:ev.label ?? "",
+date,
+startTime,
+endTime,
+attendeesText:(ev.attendees ?? []).join(","),
+sharersText:(ev.sharers ?? []).join(","),
+memo: ev.memo ?? "",
+})
+
+}
+
+
+
+
 
   const startX = useRef<number | null>(null);
   // dom 직접 접근 (오늘 칸 자동 스크롤)
@@ -191,28 +287,52 @@ const Calendar2 = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [year, month]);
 
+const buildISO = (date: string, time: string): string | null => {
+  if (!date || !time) return null;
+  return `${date}T${time}`;
+};
+
+const splitCsv = (s: string) =>
+  s.split(",").map(v => v.trim()).filter(Boolean);
+
+
+
   // ✅ 일정 저장
   const saveEvent = async () => {
-    if (!selectedDate) return;
+    if(!form.date) return; //if (!selectedDate) return;
     if (!form.title.trim()) {
       alert("제목을 입력하세요");
       return;
     }
 
+
+    const payload = {
+      date: form.date, 
+      title:form.title, 
+      memo:form.memo, 
+      calendar:form.calendar,
+      location:form.location, 
+      label:form.label, 
+      startAt:buildISO(form.date, form.startTime),
+      endAt:buildISO(form.date, form.endTime), 
+      attendees : splitCsv(form.attendeesText),
+      sharers:splitCsv(form.sharersText),
+    };
+
    try{
-    await api.post("/api/events", {
-      date: selectedDate,
-      title: form.title,
-      memo: form.memo,
-      startTime: form.startTime || null,
-      endTime: form.endTime || null,
-    });
-    await reloadMonthEvents();
-    setIsModalOpen(false);
-  } catch (err:any) {
-    if(err.response?.status === 401) alert ("로그인이 필요합니다");
-    else if(err.response?.status === 403 ) alert ("관한이 없습니다");
-  }
+if(selectedEventId) {
+  await api.put(`/api/events/${selectedEventId}`, payload);
+} else {
+    await api.post("/api/events", payload);
+
+    }await reloadMonthEvents();
+        setMode("view");
+        setIsModalOpen(false);
+      } catch (err:any) {
+        if(err.response?.status === 401) alert ("로그인이 필요합니다");
+        else if(err.response?.status === 403 ) alert ("관한이 없습니다");
+        else console.error(err);
+      }
   };
 
   // ✅ 일정 삭제
@@ -247,7 +367,7 @@ const Calendar2 = () => {
     );
 
     return (
-      <Grid style={{ width: "95%" }}>
+      <Grid style={{ width: "100%" }}>
         {weekNames.map((day) => (
           <DayName key={day}>{day}</DayName>
         ))}
@@ -272,28 +392,38 @@ const Calendar2 = () => {
 
           return (
             <DayClick
-  key={day}
-  weekday={weekday}
-  isToday={isToday}
-  holiday={!!holiday}
-  onClick={() => {
-    setSelectedDate(iso);
-    setForm({ title: "", memo: "", startTime: "", endTime: "" });
-    setIsModalOpen(true);
-  }}
-  title={holiday?.name}
+            key={day}
+            weekday={weekday}
+            isToday={isToday}
+            holiday={!!holiday}
+            onClick={() => {
+              setSelectedDate(iso);
+              setSelectedEventId(null);
+              setMode("edit");
+              fillFormFromEvent(iso);
+              setIsModalOpen(true);
+            }}
+            title={holiday?.name}
             >
               <div>{day}</div>
 
               {/* ✅ 일정 1개 미리보기(있으면 보여주기) */}
               {dayEvents.length > 0 && (
                 <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const ev = dayEvents[0];
+                  setSelectedDate(iso);
+                  setSelectedEventId(ev.id);
+                  setMode("view");
+                  fillFormFromEvent(iso, ev);
+                  setIsModalOpen(true);
+                }}
                   style={{
                     fontSize: 10,
                     padding: "2px 6px",
                     borderRadius: 6,
                     background: "#ddd",
-                    maxWidth: "90%",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
                     whiteSpace: "nowrap",
@@ -347,6 +477,7 @@ const Calendar2 = () => {
   };
 
   return (
+    <CalBg>
     <CalTopMargin>
       <Wrapper style={{ width: "100%" }}>
         {/* HEADER */}
@@ -387,16 +518,144 @@ const Calendar2 = () => {
 
       {/* ✅ 일정 입력/조회 모달 */}
       {isModalOpen && (
-        <Fixed
-          onClick={() => setIsModalOpen(false)}
+<Fixed onClick={() => setIsModalOpen(false)}>
+<Modal onClick={(e: any) => e.stopPropagation()}>
+<div className="">
+<ModalTitle>
+일정상세
+</ModalTitle>
+<div className="">
+<GrayBtn onClick={() => setMode("edit")}>
+수정
+</GrayBtn>
+<GrayBtn onClick={() => window.print()}>
+인쇄
+</GrayBtn>
+<GrayBtn onClick={() =>{
+const txt = JSON.stringify(form, null, 2);
+navigator.clipboard?.writeText(txt);
+alert("복사 했습니다")  
+}}>
+복사
+</GrayBtn>
+<GrayBtn onClick={() => alert("enote연결 부비 콘티뉴드")}>
+enote
+</GrayBtn>
+<GrayBtn onClick={() => setIsModalOpen(false)}>
+닫기
+</GrayBtn>
+
+{selectedEventId && (
+  <DelBtn
+    onClick = {() => {
+      deleteEvent(selectedEventId);
+      setIsModalOpen(false);
+    }}
+      >
+    삭제
+  </DelBtn>
+)}
+</div>
+</div>
+
+<ModalDate>{form.date || selectedDate}</ModalDate>
+
+<div className="">
+  <div className="">
+    <div className="">제목</div>
+
+      {mode === "view" ? (
+      <div className="">{form.title || "-"}</div>
+      ):(
+        <InsertTitle placeholder="제목" value={form.title} 
+onChange={(e:any) => setForm ((p) => ({...p, title:e.target.value}))}        
+        />
+  )}
+  </div>
+
+  {/*일정 구분 캘린더 */}
+  <JustifyContent>
+    <W49>
+      <div className="">일정구분</div>
+      {mode === "view" ? (
+        <div className="">{form.category}</div>
+      ):(
+        <select
+value={form.category}
+onChange={(e) => setForm((p) => ({...p, category:e.target.value as any}))}        
         >
-          <Modal
-            onClick={(e:any) => e.stopPropagation()}
-          >
-            <ModalTitle>일정</ModalTitle>
+<option value="MEETING">MEETING</option>
+<option value="TASK">TASK</option>
+<option value="PERSONAL">PERSONAL</option>
+<option value="ETC">ETC</option>
+        </select>
+      )}
+    </W49>
+    <W49>
+      <div className="">캘린더</div>
+      {mode === "view"} (
+<div className="">{form.calendar}</div>
+      ):(
+<select
+value={form.calendar}
+onChange={(e) => setForm((p) => ({...p, calendar:e.target.value as any}))}        
+        >
+<option value="DEFAULT">DEFAULT</option>
+<option value="WORK">WORK</option>
+<option value="FAMILY">FAMILY</option>
+</select>
+      )
+    </W49>
+  </JustifyContent>
+
+{/*장소 라벨 */}
+<JustifyContent>
+  <W49>
+    <div className="">장소</div>
+    {mode === "view" ? (
+      <div className="">{form.location || "-"}</div>
+    ):(
+      <InsertTitle
+      placeholder="장소" value={form.location}
+      onChange={(e:any) => setForm((p) => ({...p, location:e.target.value}))}
+      />
+    )}
+  </W49>
+
+<W49>
+  <div className="">라벨</div>
+  { mode === "view" ? (
+<div className="">{form.label || "-"}</div>
+  ):(
+<InsertTitle
+placeholder="라벨" value={form.label}
+onChange={(e:any) => setForm((p) => ({...p, label:e.target.value}))}
+/>
+  )}
+</W49>
+</JustifyContent>
+</div>
+
+
+
+</Modal>
+</Fixed>      
+      )}
+    </CalTopMargin>
+    </CalBg>
+  );
+};
+
+export default Calendar2;
+
+/*
+초기 모달
+<Fixed onClick={() => setIsModalOpen(false)}>
+          <Modal onClick={(e:any) => e.stopPropagation()}>
+            <ModalTitle>일정 상세</ModalTitle>
             <ModalDate>{selectedDate}</ModalDate>
 
-            {/* ✅ 선택한 날짜의 기존 일정 목록 */}
+            {/* ✅ 선택한 날짜의 기존 일정 목록 
             {selectedDayEvents.length > 0 && (
               <div style={{ marginBottom: 12 }}>
                 {selectedDayEvents.map((ev) => (
@@ -424,7 +683,7 @@ const Calendar2 = () => {
               </div>
             )}
 
-            {/* ✅ 새 일정 추가 */}
+            {/* ✅ 새 일정 추가 
             <InsertTitle
               placeholder="제목"
               value={form.title}
@@ -466,9 +725,4 @@ const Calendar2 = () => {
           
           </Modal>
         </Fixed>
-      )}
-    </CalTopMargin>
-  );
-};
-
-export default Calendar2;
+*/

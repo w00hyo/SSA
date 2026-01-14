@@ -32,7 +32,7 @@ export const CalHeader = styled.h2`
 text-align:center; margin-bottom:10px;
 `;
 export const Grid =styled.div`
-width:90%;
+width:100%;
 display:grid; grid-template-columns:repeat(7, 1fr);
 gap:5px;
 `;
@@ -221,4 +221,13 @@ height:40px; width:40px;
 display:flex; justify-content:center;
 align-items:center;
 margin:0px 0px 10px;
+`;
+
+export const CalBg = styled.div`
+width:1580px;
+max-width:100%;
+background-color:white;
+display:flex; align-items:center;
+justify-content:center;
+padding:20px 0px;
 `;
