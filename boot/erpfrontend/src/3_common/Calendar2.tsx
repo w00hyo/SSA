@@ -684,7 +684,7 @@ onChange={(e:any) => setForm((p) => ({...p, attendeesText:e.target.value}))}
 <GrayBtn onClick={() => setMode("edit")}>
 수정
 </GrayBtn>
-<GrayBtn onClick={() => window.print()}>
+<GrayBtn onClick={() => window.print()} className="mx-2">
 인쇄
 </GrayBtn>
 <GrayBtn onClick={() =>{
@@ -694,7 +694,7 @@ alert("복사 했습니다")
 }}>
 복사
 </GrayBtn>
-<GrayBtn onClick={() => alert("enote연결 부비 콘티뉴드")}>
+<GrayBtn onClick={() => alert("enote연결 부비 콘티뉴드")} className="mx-2">
 enote
 </GrayBtn>
 <GrayBtn onClick={() => setIsModalOpen(false)}>
@@ -706,7 +706,7 @@ enote
     onClick = {() => {
       deleteEvent(selectedEventId);
       setIsModalOpen(false);
-    }}
+    }} className="mx-2"
       >
     삭제
   </DelBtn>
