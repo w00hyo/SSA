@@ -4,6 +4,9 @@ export const BtnGroup = styled.button`
 padding:10px 20px;
 border:none !important;
 color:none !important;
+display:flex;
+justfify-content:space-between;
+background:none !important;
 `;
 export const MainBtn = styled.button`
 background-color:hotpink;

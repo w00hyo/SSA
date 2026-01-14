@@ -21,7 +21,7 @@ import {
 } from "../stylesjs/Button.styles";
 import api from "../api";
 import { JustifyContent, W49 } from "../stylesjs/Util.styles";
-import { InsertTitle, InsertMemo, TimeInput } from "../stylesjs/Input.styles";
+import { InsertTitle, InsertMemo, TimeInput, Select } from "../stylesjs/Input.styles";
 import { DayClick, CalBg } from "../stylesjs/Content.styles";
 
 interface RawHoliday {
@@ -524,38 +524,7 @@ if(selectedEventId) {
 <ModalTitle>
 일정상세
 </ModalTitle>
-<div className="">
-<GrayBtn onClick={() => setMode("edit")}>
-수정
-</GrayBtn>
-<GrayBtn onClick={() => window.print()}>
-인쇄
-</GrayBtn>
-<GrayBtn onClick={() =>{
-const txt = JSON.stringify(form, null, 2);
-navigator.clipboard?.writeText(txt);
-alert("복사 했습니다")  
-}}>
-복사
-</GrayBtn>
-<GrayBtn onClick={() => alert("enote연결 부비 콘티뉴드")}>
-enote
-</GrayBtn>
-<GrayBtn onClick={() => setIsModalOpen(false)}>
-닫기
-</GrayBtn>
 
-{selectedEventId && (
-  <DelBtn
-    onClick = {() => {
-      deleteEvent(selectedEventId);
-      setIsModalOpen(false);
-    }}
-      >
-    삭제
-  </DelBtn>
-)}
-</div>
 </div>
 
 <ModalDate>{form.date || selectedDate}</ModalDate>
@@ -580,31 +549,31 @@ onChange={(e:any) => setForm ((p) => ({...p, title:e.target.value}))}
       {mode === "view" ? (
         <div className="">{form.category}</div>
       ):(
-        <select
+        <Select
 value={form.category}
-onChange={(e) => setForm((p) => ({...p, category:e.target.value as any}))}        
+onChange={(e:any) => setForm((p) => ({...p, category:e.target.value as any}))}        
         >
 <option value="MEETING">MEETING</option>
 <option value="TASK">TASK</option>
 <option value="PERSONAL">PERSONAL</option>
 <option value="ETC">ETC</option>
-        </select>
+        </Select>
       )}
     </W49>
     <W49>
       <div className="">캘린더</div>
-      {mode === "view"} (
+      {mode === "view" ? (
 <div className="">{form.calendar}</div>
       ):(
-<select
+<Select
 value={form.calendar}
-onChange={(e) => setForm((p) => ({...p, calendar:e.target.value as any}))}        
+onChange={(e:any) => setForm((p) => ({...p, calendar:e.target.value as any}))}        
         >
 <option value="DEFAULT">DEFAULT</option>
 <option value="WORK">WORK</option>
 <option value="FAMILY">FAMILY</option>
-</select>
-      )
+</Select>
+      )}
     </W49>
   </JustifyContent>
 
@@ -648,8 +617,8 @@ onChange={(e:any) => setForm((p) => ({...p, label:e.target.value}))}
   ):(
 <JustifyContent>
   <W49>
-    <input
-    type="date" value={form.date} onChange={(e) => setForm((p) => ({...p, date:e.target.value}))}
+    <TimeInput
+    type="date" value={form.date} onChange={(e:any) => setForm((p) => ({...p, date:e.target.value}))}
     />
   </W49>
   <W49>
@@ -710,6 +679,39 @@ onChange={(e:any) => setForm((p) => ({...p, attendeesText:e.target.value}))}
             />
           )}
         </div>
+
+<BtnGroup>
+<GrayBtn onClick={() => setMode("edit")}>
+수정
+</GrayBtn>
+<GrayBtn onClick={() => window.print()}>
+인쇄
+</GrayBtn>
+<GrayBtn onClick={() =>{
+const txt = JSON.stringify(form, null, 2);
+navigator.clipboard?.writeText(txt);
+alert("복사 했습니다")  
+}}>
+복사
+</GrayBtn>
+<GrayBtn onClick={() => alert("enote연결 부비 콘티뉴드")}>
+enote
+</GrayBtn>
+<GrayBtn onClick={() => setIsModalOpen(false)}>
+닫기
+</GrayBtn>
+
+{selectedEventId && (
+  <DelBtn
+    onClick = {() => {
+      deleteEvent(selectedEventId);
+      setIsModalOpen(false);
+    }}
+      >
+    삭제
+  </DelBtn>
+)}
+</BtnGroup>
 
         {/* 하단 버튼 */}
         {mode === "edit" && (

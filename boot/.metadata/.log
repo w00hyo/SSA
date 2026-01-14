@@ -263,3 +263,297 @@ Created Time: 2026-01-14 13:12:49.530
 
 !ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:16:26.230
 !MESSAGE 14:16:16.161 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:16:46.372
+!MESSAGE 14:16:46.372 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:17:16.587
+!MESSAGE 14:17:16.586 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:17:46.836
+!MESSAGE 14:17:46.836 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:19:07.437
+!MESSAGE 14:18:17.057 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:20:48.199
+!MESSAGE 14:19:47.766 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:21:38.565
+!MESSAGE 14:21:28.507 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:23:19.357
+!MESSAGE 14:23:09.269 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:25:00.059
+!MESSAGE 14:24:19.794 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:26:10.576
+!MESSAGE 14:26:10.575 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:27:11.009
+!MESSAGE 14:26:50.871 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:28:11.461
+!MESSAGE 14:28:11.460 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:28:41.675
+!MESSAGE 14:28:41.675 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:30:12.351
+!MESSAGE 14:30:12.351 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:31:02.723
+!MESSAGE 14:31:02.722 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:32:23.308
+!MESSAGE 14:31:43.017 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:32:43.478
+!MESSAGE 14:32:43.477 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:33:53.999
+!MESSAGE 14:33:53.998 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:34:24.220
+!MESSAGE 14:34:24.219 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:34:54.430
+!MESSAGE 14:34:54.430 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:36:55.317
+!MESSAGE 14:36:55.316 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:37:25.540
+!MESSAGE 14:37:25.540 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:37:45.700
+!MESSAGE 14:37:45.699 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:38:15.938
+!MESSAGE 14:38:15.937 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:38:36.075
+!MESSAGE 14:38:36.074 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:38:56.232
+!MESSAGE 14:38:56.230 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:39:26.465
+!MESSAGE 14:39:26.464 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:40:37.001
+!MESSAGE 14:40:26.923 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:40:57.148
+!MESSAGE 14:40:57.147 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:42:07.679
+!MESSAGE 14:41:47.518 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:43:08.130
+!MESSAGE 14:43:08.129 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:46:29.692
+!MESSAGE 14:44:28.729 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:47:40.212
+!MESSAGE 14:47:40.211 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:48:20.505
+!MESSAGE 14:48:00.356 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:49:00.797
+!MESSAGE 14:48:50.719 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:50:41.603
+!MESSAGE 14:50:41.603 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:51:01.746
+!MESSAGE 14:51:01.745 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:51:31.969
+!MESSAGE 14:51:31.968 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:52:32.413
+!MESSAGE 14:52:22.341 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:53:12.713
+!MESSAGE 14:53:12.711 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:53:52.983
+!MESSAGE 14:53:32.837 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:55:53.823
+!MESSAGE 14:54:53.395 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:56:24.032
+!MESSAGE 14:56:13.968 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:56:54.239
+!MESSAGE 14:56:44.170 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:57:14.358
+!MESSAGE 14:57:14.357 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:58:34.936
+!MESSAGE 14:58:34.936 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:59:05.170
+!MESSAGE 14:59:05.169 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 14:59:55.522
+!MESSAGE 14:59:35.397 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:00:15.658
+!MESSAGE 15:00:15.658 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:00:45.861
+!MESSAGE 15:00:45.860 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:01:16.090
+!MESSAGE 15:01:16.089 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:01:36.251
+!MESSAGE 15:01:36.250 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:02:06.476
+!MESSAGE 15:01:56.395 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:02:26.616
+!MESSAGE 15:02:26.616 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:03:27.042
+!MESSAGE 15:03:27.041 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:03:57.268
+!MESSAGE 15:03:57.267 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:04:17.407
+!MESSAGE 15:04:17.406 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:04:57.686
+!MESSAGE 15:04:57.685 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:05:17.837
+!MESSAGE 15:05:17.836 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:05:58.127
+!MESSAGE 15:05:58.125 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:07:08.642
+!MESSAGE 15:06:58.562 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:07:59.003
+!MESSAGE 15:07:28.779 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:08:29.218
+!MESSAGE 15:08:19.138 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:10:20.054
+!MESSAGE 15:09:39.746 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:11:20.500
+!MESSAGE 15:11:20.499 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:12:20.910
+!MESSAGE 15:12:10.830 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:12:41.058
+!MESSAGE 15:12:41.057 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:13:01.188
+!MESSAGE 15:13:01.186 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:14:01.654
+!MESSAGE 15:13:21.343 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:15:22.288
+!MESSAGE 15:15:22.287 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:16:22.753
+!MESSAGE 15:15:52.510 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:17:23.192
+!MESSAGE 15:16:52.972 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:18:03.486
+!MESSAGE 15:18:03.485 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:18:53.827
+!MESSAGE 15:18:33.680 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:19:24.030
+!MESSAGE 15:19:24.029 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:21:04.735
+!MESSAGE 15:20:54.678 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:22:15.235
+!MESSAGE 15:21:45.020 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:22:55.530
+!MESSAGE 15:22:35.390 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:23:25.730
+!MESSAGE 15:23:25.729 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:23:55.923
+!MESSAGE 15:23:45.863 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:24:56.373
+!MESSAGE 15:24:16.053 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:25:46.756
+!MESSAGE 15:25:16.529 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:26:16.980
+!MESSAGE 15:26:16.980 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:26:37.121
+!MESSAGE 15:26:37.120 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:26:57.259
+!MESSAGE 15:26:57.257 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:27:47.619
+!MESSAGE 15:27:47.617 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:28:07.754
+!MESSAGE 15:28:07.753 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:29:08.200
+!MESSAGE 15:28:27.900 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:30:08.608
+!MESSAGE 15:29:28.340 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:31:09.082
+!MESSAGE 15:31:09.080 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:31:59.450
+!MESSAGE 15:31:59.449 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:35:00.854
+!MESSAGE 15:34:10.465 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:35:41.138
+!MESSAGE 15:35:41.138 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:36:11.373
+!MESSAGE 15:36:11.372 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:36:51.675
+!MESSAGE 15:36:41.587 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:37:11.817
+!MESSAGE 15:37:11.816 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:37:31.965
+!MESSAGE 15:37:31.965 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:38:02.168
+!MESSAGE 15:38:02.168 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-14 15:38:42.449
+!MESSAGE 15:38:22.300 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 18460" | findstr 18460"' returns 255

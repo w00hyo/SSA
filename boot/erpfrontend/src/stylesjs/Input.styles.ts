@@ -25,3 +25,11 @@ width:100%;
 padding:10px 16px;
 margin:5px 0px 10px;
 `;
+
+export const Select = styled.input`
+border:1px solid #ccc;
+border-radius:5px;
+width:100%;
+padding:10px 16px;
+margin:5px 0px 10px;
+`;
