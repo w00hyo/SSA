@@ -11404,3 +11404,6 @@ Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
 
 !ENTRY org.eclipse.lsp4e 4 0 2026-01-15 11:49:14.309
 !MESSAGE 11:49:14.309 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 8228" | findstr 8228"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-15 11:49:44.559
+!MESSAGE 11:49:44.558 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 8228" | findstr 8228"' returns 255
