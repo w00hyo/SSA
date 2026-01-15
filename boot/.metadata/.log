@@ -11744,3 +11744,9 @@ Created Time: 2026-01-15 15:02:39.874
 
 !ENTRY org.eclipse.lsp4e 4 0 2026-01-15 17:45:00.510
 !MESSAGE 17:44:22.667 [pool-3-thread-193] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/dev_hwang/workspace/boot/erp/src/main/java/port/sm/erp/controller/CalendarEventController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-15 17:46:41.313
+!MESSAGE 17:46:00.983 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 8228" | findstr 8228"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-15 17:47:01.464
+!MESSAGE 17:47:01.464 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 8228" | findstr 8228"' returns 255
