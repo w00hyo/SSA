@@ -1,5 +1,14 @@
 import { useMemo, useState, useEffect, useRef } from "react";
+/*
+재료 가져오기
+useState : 값 저장
+useEffect : 화면 그려진 후 실행
+useMemo : 계산 결과 저장
+useRef : Dom 직접접근
+*/
+
 import { holidays as holidayData } from "@kyungseopk1m/holidays-kr";
+//한국 공휴일 데이터 가져오기
 import {
   Wrapper,
   Header,
@@ -19,7 +28,7 @@ import {
   MainBtn,
   GrayBtn,DelBtn
 } from "../stylesjs/Button.styles";
-import api from "../api";
+import api from "../api";//axios로 만든 API통신도구
 import { JustifyContent, W49 } from "../stylesjs/Util.styles";
 import { InsertTitle, InsertMemo, TimeInput, Select } from "../stylesjs/Input.styles";
 import { DayClick, CalBg } from "../stylesjs/Content.styles";
@@ -32,7 +41,7 @@ type EventCategory = "MEETING" | "TASK" | "PERSONAL" | "ETC";
 type EventCalendar = "DEFAULT" | "WORK" | "FAMILY";
 
 
-type CalEvent = {
+type CalEvent = { //타입 정의 [데이터 모양설명서]
   id: number;
   date: string; // "YYYY-MM-DD"
   title: string;
@@ -48,7 +57,7 @@ type CalEvent = {
   memo?:string;
 };
 
-type EventForm = {
+/*type EventForm = {
 title: string;
 category: EventCategory;
 calendar: EventCalendar;
@@ -60,10 +69,9 @@ endTime:string;
 attendeesText:string;
 sharersText:string;
 memo:string;
+}*/
 
-}
-
-type EventPayload = {
+/*type EventPayload = {
     date: string;
   title: string;
   memo?: string;
@@ -78,7 +86,7 @@ type EventPayload = {
 
   attendees: string[];
   sharers: string[];
-}
+}*/
 
 
 
@@ -95,20 +103,21 @@ const[selectedEventId, setSelectedEventId] =useState<number | null>(null);
 const[mode, setMode] = useState<"view" | "edit">("view"); //상세 보기 수정
 
 
-  const [currentDate, setCurrentDate] = useState(new Date());
+// 아래가 상태들이다 화면 기억장치
+  const [currentDate, setCurrentDate] = useState(new Date());//현재 보고 있는 달
   // 애니메이션 중인지 (연타방지)
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);//이번달에 일정 목록
   // 왼쪽으로 가는지 / 오른쪽으로 가는지
-  const [slideDir, setSlideDir] = useState<"prev" | "next">("next");
+  const [slideDir, setSlideDir] = useState<"prev" | "next">("next");//이전 이후 상태창
   // 모바일 인지 아닌지
   const [isMobile, setIsMobile] = useState(false);
 
-  // ✅ 일정 상태
+  // ✅ 일정 상태 초기상태
   const [events, setEvents] = useState<CalEvent[]>([]);
-  const [selectedDate, setSelectedDate] = useState<string | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);//일정 입력/조회 모달 열림 여부
 
-  const [form, setForm] = useState({
+  const [form, setForm] = useState({ //폼 상태 입력창들
     title: "",
     category:"MEETING",
     calendar:"DEFAULT",
@@ -259,7 +268,7 @@ memo: ev.memo ?? "",
     ? ["일", "월", "화", "수", "목", "금", "토"]
     : ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
 
-  // ✅ 이번 달 일정 로딩
+  // ✅ 이번 달 일정 로딩 이번달 일정에 목록 불러오기
   const reloadMonthEvents = async () => {
     const from = `${year}-${pad2(month + 1)}-01`;
     const last = new Date(year, month + 1, 0).getDate();
@@ -350,9 +359,9 @@ if(selectedEventId) {
 
   };
 
-  const selectedDayEvents = selectedDate
+  /*const selectedDayEvents = selectedDate
     ? events.filter((e) => e.date === selectedDate)
-    : [];
+    : [];*/
 
   /* 달력 렌더 함수 */
   const renderCalendar = (baseDate: Date) => {
@@ -397,6 +406,8 @@ if(selectedEventId) {
             isToday={isToday}
             holiday={!!holiday}
             onClick={() => {
+              const iso = toISODate(y, m+1, day);
+
               setSelectedDate(iso);
               setSelectedEventId(null);
               setMode("edit");
@@ -679,7 +690,7 @@ onChange={(e:any) => setForm((p) => ({...p, attendeesText:e.target.value}))}
             />
           )}
         </div>
-
+{mode === "view" && (
 <BtnGroup>
 <GrayBtn onClick={() => setMode("edit")}>
 수정
@@ -712,13 +723,13 @@ enote
   </DelBtn>
 )}
 </BtnGroup>
-
+)}
         {/* 하단 버튼 */}
         {mode === "edit" && (
           <JustifyContent>
             <W49>
-              <GrayBtn onClick={() => { setMode("view"); }}>
-                취소
+              <GrayBtn onClick={() => {setIsModalOpen(false); }}>
+               취소
               </GrayBtn>
             </W49>
             <W49>

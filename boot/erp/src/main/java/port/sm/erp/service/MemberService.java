@@ -25,19 +25,19 @@ public class MemberService {
         this.passwordEncoder = passwordEncoder;
     }*/
     /**
-     * ð íìê°ì
+     회원가입
      */
     @Transactional
     public Member register(MemberRequestDTO dto) {
 
-           if (memberRepository.existsByEmail(dto.getEmail())) {
+        if (memberRepository.existsByEmail(dto.getEmail())) {
             throw new IllegalArgumentException("이미 사용 중인 이메일입니다.");
         }
 
         /*
         String encryptedPw = passwordEncoder.encode(dto.getPassword());*/
 
-        // DTO â Entity ë³í í ì ì¥
+        // DTO Entity 빌더
         Member member = Member.builder()
                 .firstName(dto.getFirstName())
                 .lastName(dto.getLastName())

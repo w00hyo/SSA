@@ -14,7 +14,7 @@ overflow:hidden;
 
 export const Modal =styled.div`
 width: 440px;
-height:80%;
+height:90%;
 background:#fff;
 border-top-left-radius: 12px;
 border-top-right-radius: 12px;
