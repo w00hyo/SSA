@@ -76,6 +76,9 @@ public class CalendarEvent {
 	    @Column(name = "LABEL", length = 50)
 	    private String label;
 	    
+	    @Column(name = "LOCATION", length = 200)
+	    private String location;
+	    
 	    //참석자 
 //쇼핑몰 에서 상품을 구매할때 user(구매자[테이블{칼럼}])-> 똑같은 이름 [조인] (product[테이블{칼럼}])상품
 //포린키	  

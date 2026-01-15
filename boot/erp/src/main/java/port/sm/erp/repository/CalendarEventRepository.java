@@ -2,6 +2,7 @@ package port.sm.erp.repository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -12,7 +13,13 @@ import port.sm.erp.entity.CalendarEvent;
 public interface CalendarEventRepository extends JpaRepository<CalendarEvent, Long>{
 List<CalendarEvent> findByUserIdAndDateBetween(Long userId, LocalDate from, LocalDate to);	
 	
-List<CalendarEvent> findByUserIdAndDate(Long userId, LocalDate from);
+Optional<CalendarEvent> findByIdAndUserId(Long id, Long userId);
+
+List<CalendarEvent> findByUserIdAndDateBetweenOrderByDateAsc(Long userId, LocalDate from, LocalDate to);
+
+List<CalendarEvent> findSharedWithUser(Long userId, LocalDate from, LocalDate to);
+
+
 	
 }
 //핵심은 이한줄 extends JpaRepository<CalendarEvent, Long> 이 모든 기능이 자동으로 생긴다
