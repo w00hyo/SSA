@@ -476,3 +476,6 @@ Created Time: 2026-01-16 13:25:43.983
 
 !ENTRY org.eclipse.lsp4e 4 0 2026-01-16 15:27:33.717
 !MESSAGE 15:27:23.661 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12884" | findstr 12884"' returns 255
+
+!ENTRY org.eclipse.lsp4e 4 0 2026-01-16 15:28:24.078
+!MESSAGE 15:27:53.855 [pool-13-thread-1] INFO  o.s.i.v.c.l.u.ParentProcessWatcher - The tasklist command: 'cmd /c "tasklist /FI "PID eq 12884" | findstr 12884"' returns 255
