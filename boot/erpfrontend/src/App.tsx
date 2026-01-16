@@ -24,6 +24,7 @@ import Login from './1_member/Login';
 import Forgot from './1_member/Forgot';
 import InstagramRedirect from './1_member/InstargramRedirect';
 import KakaoRedirect from './1_member/KakaoRedirect';
+import Inventory from './4_inventory/Inventory';
 //react나 vue에서 링크연결을 라우팅이라 합니다 npm install react-router-dom
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
@@ -83,6 +84,7 @@ if  배열에 값이 있다면 그 값이 바뀔때 마다 실행된다
     <Route path="/" element={<Login/>}/>
     <Route path="/admin" element={<ProtectedRoute><Admin/></ProtectedRoute>}/>
     <Route path="/mypage" element={<ProtectedRoute><MyPage/></ProtectedRoute>}/>
+    <Route path="/inventory" element={<Inventory/>}/>
     <Route path="/about" element={<About/>}/>
     <Route path="/contact" element={<Contact/>}/>
     <Route path="/member" element={<Member/>}/>

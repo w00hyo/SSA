@@ -36,7 +36,7 @@ const Header:React.FC = () => { //jsx
           <MenuLink to="/admin">Admin</MenuLink>
         </MenuItem>
         <MenuItem>
-          <MenuLink to="/ea1">재고1</MenuLink>
+          <MenuLink to="/inventory">재고1</MenuLink>
         </MenuItem>
         <MenuItem>
           <MenuLink to="/ea2">재고2</MenuLink>
