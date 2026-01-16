@@ -48,6 +48,17 @@ transition:all 1s;
     opacity:1;
     }
 `;
+export const MainSubmitBtn = styled.button`
+background-color:blue;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:14px;
+letter-spacing:-2%;
+border:none;
+border-radius:3px;
+`;
 
 export const WhiteBtn = styled.button`
 background-color:white;

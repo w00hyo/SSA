@@ -236,3 +236,11 @@ export const TopWrap = styled.div`
 width:100%;
 height:120px;
 `;
+
+export const RoundRect = styled.div`
+width:100%;
+padding:15px;
+background-color:white;
+border-radius:16px;
+border:1px solid #ccc;
+`

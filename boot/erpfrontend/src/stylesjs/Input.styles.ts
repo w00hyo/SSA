@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 export const InputGroup = styled.div`
-max-width:100%;
+width:100%;
+max-width:55%;
 display:flex;
 justify-content:space-evenly;
 align-items:center;
+margin-right:103px;
 `;
 
 export const InsertTitle = styled.input`
@@ -60,4 +62,11 @@ margin:5px 0px 10px;
     border-color: 1px solid #ccc !important;
     box-shadow: none !important;
   }
+`;
+
+export const Radio = styled.input`
+
+`;
+export const Label = styled.label`
+font-size:12px !important; color:#333 !important;
 `;
