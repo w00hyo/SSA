@@ -78,3 +78,14 @@ transition:all 1s;
     opacity:1;
     }
 `;
+
+export const SmallBadge = styled.div`
+background-color:coral;
+display:inline-flex;
+justify-content:center;
+align-items:center;
+font-size:12px;
+color:white;
+padding:5px 10px;
+border-radius:16px;
+`;

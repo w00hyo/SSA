@@ -69,4 +69,18 @@ export const Radio = styled.input`
 `;
 export const Label = styled.label`
 font-size:12px !important; color:#333 !important;
+width:70px;
+max-width:100%;
 `;
+export const MidLabel = styled.label`
+font-size:14px !important; color:#333 !important;
+width:100px;
+max-width:100%;
+`;
+
+export const CheckGroup = styled.div`
+display:inline-flex;
+align-items:center;
+`;
+export const Check = styled.input``;
+

@@ -7,7 +7,10 @@ interface DayCellProps{
 }
 
 export const Flex = styled.div`
-display:flex;
+display:inline-flex; 
+align-items:center;
+width:100%;
+justify-content:flex-start;
 `;
 
 export const Left = styled.div`
@@ -238,7 +241,8 @@ height:120px;
 `;
 
 export const RoundRect = styled.div`
-width:100%;
+width:750px;
+min-width:100%;
 padding:15px;
 background-color:white;
 border-radius:16px;

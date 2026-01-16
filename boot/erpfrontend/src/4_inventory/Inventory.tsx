@@ -6,10 +6,10 @@ import Header from "../include/Header";
 import SideBar from "../include/SideBar";
 import {Left, Right, Flex, TopWrap, RoundRect} from "../stylesjs/Content.styles";
 import {useMemo, useState} from "react";
-import { JustifyContent } from "../stylesjs/Util.styles";
+import { JustifyContent, W70, W30, W80, W20 } from "../stylesjs/Util.styles";
 import { TableTitle, TabTitle } from "../stylesjs/Text.styles";
-import { InputGroup, Search, Select, Radio, Label } from "../stylesjs/Input.styles";
-import { WhiteBtn, MainSubmitBtn, BtnGroup } from "../stylesjs/Button.styles";
+import { InputGroup, Search, Select, Radio, Label, MidLabel, CheckGroup, Check } from "../stylesjs/Input.styles";
+import { WhiteBtn, MainSubmitBtn, BtnGroup, SmallBadge } from "../stylesjs/Button.styles";
 
 type SortDirection = "asc" | "desc";
 
@@ -168,9 +168,12 @@ Search(F3)
     </Row>
 </Container>
 
-<Modal show={show} onHide={handleClose} >
+<Modal show={show} onHide={handleClose} 
+size="lg"
+centerd
+>
     <Modal.Header closeButton>
-        <Modal.Title></Modal.Title>
+        <Modal.Title>품목등록</Modal.Title>
     </Modal.Header>
     <Modal.Body>
 <TabTitle>품목등록</TabTitle>
@@ -182,43 +185,108 @@ justify
 <RoundRect>
 
     <InputGroup>
-        <label className="w-25">품목코드</label>
-        <Form.Control type="text" placeholder="예시 Z00021" className="w-75"/>
+    <W30>
+        <MidLabel>품목코드</MidLabel>
+        </W30>
+        <W70>
+        <Form.Control type="text" placeholder="예시 Z00021" />
+        </W70>
     </InputGroup>
 
     <InputGroup className="my-3">
-        <label className="w-25">품목명</label>
-        <Form.Control type="text" placeholder="품목명" className="w-75"/>
+    <W30>
+        <MidLabel>품목명</MidLabel>
+        </W30>
+        <W70>
+        <Form.Control type="text" placeholder="품목명" />
+        </W70>
     </InputGroup>
 
-    <InputGroup>
-        <label className="w-25">규격</label>
-    <div >
+<Flex>
+    <W30>
+  <MidLabel className="">규격</MidLabel>
+  </W30>
+  <W70>
+  <div className="">
         <Flex className="my-2">
-        <Radio type="radio"/><Label className="mx-2">규격명</Label>
+            <Radio type="radio"/><Label className="mx-2">규격명</Label>
+            <Radio type="radio"/><Label className="mx-2">규격그룹</Label>
+            <Radio type="radio"/><Label className="mx-2">규격계산</Label>
+            <Radio type="radio"/><Label className="mx-2">규격계산그룹</Label>
         </Flex>
+        <Form.Control type="text" placeholder="단위"/>
+   </div>
+   </W70>
+</Flex>
+   
+
+    <InputGroup className="my-3">
+    <W30>
+        <MidLabel>단위</MidLabel>
+        </W30>
+        <W70>
         <Form.Control type="text" placeholder="단위" className="w-75"/>
-    </div>
+        </W70>
+    </InputGroup>
+
+<Flex>
+  <W30>
+  <MidLabel className="">품목구분</MidLabel>
+  </W30>
+  <W70>
+        <Flex className="my-2">
+            <Radio type="radio"/><Label className="mx-2">원재료</Label>
+            <Radio type="radio"/><Label className="mx-2">부재료</Label>
+            <Radio type="radio"/><Label className="mx-2">제품</Label>
+            <Radio type="radio"/><Label className="mx-2">반제품</Label>
+            <Radio type="radio"/><Label className="mx-2">상품</Label>
+            <Radio type="radio"/><Label className="mx-2">무형상품</Label>
+        </Flex>
+            <Flex className="my-2">
+            <SmallBadge className="mx-5">세트여부</SmallBadge>
+            <Radio type="radio"/><Label className="mx-2">사용</Label>
+            <Radio type="radio"/><Label className="mx-2">사용안함</Label>
+        </Flex>     
+   </W70>
+</Flex>
+
+    <InputGroup className="my-3">
+        <W30>
+            <MidLabel>생산공정</MidLabel>
+        </W30>
+        <W70>
+            <Form.Control type="text" placeholder="생산공정" />
+        </W70>
     </InputGroup>
 
     <InputGroup>
-        <label className="w-25">단위</label>
-        <Form.Control type="text" placeholder="단위" className="w-75"/>
+        <W30>
+            <MidLabel>입고단가</MidLabel>
+        </W30>
+        <W70>
+            <Flex>
+                <Form.Control type="text" placeholder="입고단가" />
+                <CheckGroup>
+                    <Check type="checkbox" className="mx-2"/>
+                    <Label>VAT 포함</Label>
+                </CheckGroup>
+            </Flex>
+        </W70>
     </InputGroup>
 
     <InputGroup className="my-3">
-        <label className="w-25">생산공정</label>
-        <Form.Control type="text" placeholder="생산공정" className="w-75"/>
-    </InputGroup>
-
-    <InputGroup>
-        <label className="w-25">입고단가</label>
-        <Form.Control type="text" placeholder="입고단가" className="w-75"/>
-    </InputGroup>
-
-    <InputGroup className="my-3">
-        <label className="w-25">출고단가</label>
-        <Form.Control type="text" placeholder="입고단가" className="w-75"/>
+        <W30>
+            <MidLabel>출고단가</MidLabel>
+        </W30>
+        <W70>
+            <Flex>
+                <Form.Control type="text" placeholder="입고단가"/>            
+                <CheckGroup>
+                    <Check type="checkbox"  className="mx-2"/>
+                    <Label>VAT 포함</Label>
+                </CheckGroup>
+            </Flex>
+        </W70>
     </InputGroup>
 
 </RoundRect>
