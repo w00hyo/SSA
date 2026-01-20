@@ -23,7 +23,7 @@ select i from Item i where (:includeStopped = true or i.useYn = 'Y')
 and (:q is null or :q = ''or
 lower(i.itemCode) like lower(concat('%',:q,'%')) or
 lower(i.itemName) like lower(concat('%',:q,'%')) or	
-lower(i.barCode) like lower(concat('%',:q,'%'))
+lower(i.barcode) like lower(concat('%',:q,'%'))
 )
 """)
 Page<Item> search(@Param("q") String q, @Param("includeStopped") boolean includeStopped, Pageable pageable);

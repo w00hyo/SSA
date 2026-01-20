@@ -26,7 +26,7 @@ public class SecurityConfig {
             .and()
             .authorizeRequests()
             .antMatchers(HttpMethod.POST, "/members").permitAll()
-            .antMatchers("/members/login", "/members/register", "/api/events/**").permitAll() // <-- 여기 수정
+            .antMatchers("/members/login", "/members/register", "/api/events/**", "/api/inv/items").permitAll() // <-- 여기 수정
             .anyRequest().authenticated()
             .and()
             .httpBasic().disable();
