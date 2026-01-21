@@ -96,6 +96,31 @@ dependency배열	실행 시점
 []	           처음 딱 한 번
 */
 
+/*
+생산지시 등록
+*/
+const handleSave = async () => {//저장 버튼 클릭 시 실행되는 함수
+await fetch(`${API_BASE}/api/production/orders`,{
+//👉 서버에 생산지시 저장 요청 보내기
+method:"POST", //👉 새 데이터 등록이라는 뜻
+headers:{"Content-Type":"application/json"},//👉 “JSON 형식으로 데이터 보낼게요”라고 서버에 알려줌
+body:JSON.stringify({...form,planQty:Number(form.planQty),}),    
+//👉 입력한 form 데이터를 서버로 전송 ...form → 입력한 값 전부  planQty: Number(form.planQty) 👉 숫자로 변환
+});
+setShowCreate(false);
+fetchOrders();//저장 후 다시 목록 조회
+}
+
+const TABLE_HEADERS = [
+{key:"orderDate", label:"지시일"},    
+{key:"workOrderNo", label:"지시번호"}, 
+{key:"itemCode", label:"품목코드"},
+{key:"itemName", label:"품목명"},
+{key:"planQty", label:"계획수량"},
+{key:"startDate", label:"시작일"},
+{key:"endDate", label:"종료일"},
+{key:"status", label:"상태"},
+]
     return(
 <>
  <Wrapper>
@@ -106,9 +131,73 @@ dependency배열	실행 시점
         </Content>
 
         <Container fluid className="p-0">
+
           <Row>
             <Col>
-              <Ctap></Ctap>
+              <Ctap>
+            <h4>생산관리</h4>
+            <Button className="mb-3" onClick={() => setShowCreate(true)}>
+              생산지시 등록  
+            </Button>
+<Table bordered hover>
+<thead>
+<tr>
+<th>#</th>
+{TABLE_HEADERS.map((h) => (
+    <th key={h.key}>
+        {h.label}
+    </th>
+))}
+</tr>
+</thead>
+<tbody>
+{rows.map((r, i) => (
+<tr key={i}>
+<td>{i + 1 + page * size}</td>    
+<td>{r.orderDate}</td>
+<td>{r.workOrderNo}</td>
+<td>{r.itemCode}</td>
+<td>{r.itemName}</td>
+<td>{r.planQty}</td>
+<td>{r.startDate}</td>
+<td>{r.endDate}</td>
+<td>{r.status}</td>
+</tr>  
+))}
+</tbody>
+</Table>              
+
+      <Pagination>
+        <Pagination.Prev
+          disabled={page === 0}
+          onClick={() => fetchOrders(page - 1)}
+        />
+        <Pagination.Next
+          disabled={page >= totalPages - 1}
+          onClick={() => fetchOrders(page + 1)}
+        />
+      </Pagination>             
+
+{/* 생산지시 등록 모달 */}
+      <Modal show={showCreate} onHide={() => setShowCreate(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>생산지시 등록</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Control className="mb-2" type="date" name="orderDate" onChange={handleChange} />
+            <Form.Control className="mb-2" name="itemCode" placeholder="품목코드" onChange={handleChange} />
+            <Form.Control className="mb-2" name="itemName" placeholder="품목명" onChange={handleChange} />
+            <Form.Control className="mb-2" type="number" name="planQty" placeholder="계획수량" onChange={handleChange} />
+            <Form.Control className="mb-2" type="date" name="startDate" onChange={handleChange} />
+            <Form.Control className="mb-2" type="date" name="endDate" onChange={handleChange} />
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={handleSave}>저장</Button>
+        </Modal.Footer>
+      </Modal>
+</Ctap>
               </Col>
               </Row>
               </Container>
