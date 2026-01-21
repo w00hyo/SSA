@@ -6,6 +6,7 @@ import Reset from './sub/Reset';
 import Login from './sub/Login';
 import ProtectedRoute from './routes/ProtectedRoute';
 import SalesManagement from './sub/SalesManagement';
+import ProductionManagement from './sub/ProductionManagement';
 
 const App = () => {
 return (
@@ -17,6 +18,7 @@ return (
 
 <Route path="/admin" element={<ProtectedRoute><Admin/></ProtectedRoute>}/>
 <Route path="/sales" element={<SalesManagement/>}/>
+<Route path="/pmanagement" element={<ProductionManagement/>}/>
 <Route path="/member" element={<Member/>}/>
 <Route path="/" element={<Navigate to="/login" replace/>}/>
 <Route path="/forgot" element={<Forgot/>}/>

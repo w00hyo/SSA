@@ -87,7 +87,6 @@
           <tags>persp.editorOnboardingCommand:New$$$Ctrl+N</tags>
           <children xsi:type="basic:PartSashContainer" xmi:id="_oBk-pfUWEfCsmsrXaL4zdg" selectedElement="_oBk-svUWEfCsmsrXaL4zdg" horizontal="true">
             <children xsi:type="basic:PartStack" xmi:id="_oBk-pvUWEfCsmsrXaL4zdg" elementId="topLeft" containerData="1781" selectedElement="_oBk-p_UWEfCsmsrXaL4zdg">
-              <tags>active</tags>
               <children xsi:type="advanced:Placeholder" xmi:id="_oBk-p_UWEfCsmsrXaL4zdg" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_oBlnYPUWEfCsmsrXaL4zdg" closeable="true">
                 <tags>View</tags>
                 <tags>categoryTag:General</tags>
@@ -155,6 +154,7 @@
               </children>
               <children xsi:type="basic:PartStack" xmi:id="_oBk-ufUWEfCsmsrXaL4zdg" elementId="bottomRight" containerData="5273" selectedElement="_oBk-w_UWEfCsmsrXaL4zdg">
                 <tags>Oomph</tags>
+                <tags>active</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_oBk-uvUWEfCsmsrXaL4zdg" elementId="org.eclipse.ui.views.ProblemView" ref="_oBlngfUWEfCsmsrXaL4zdg" closeable="true">
                   <tags>View</tags>
                   <tags>categoryTag:General</tags>
@@ -267,7 +267,6 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; currentWorkingSetName=&quot;Aggregate for window 1766449839770&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;>&#xD;&#xA;&lt;lastRecentlyUsedFilters/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
-      <tags>active</tags>
       <tags>activeOnClose</tags>
       <menus xmi:id="_oBlnYfUWEfCsmsrXaL4zdg" elementId="org.eclipse.ui.navigator.ProjectExplorer">
         <tags>ViewMenu</tags>
@@ -371,6 +370,7 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
+      <tags>active</tags>
       <menus xmi:id="_oBlnjfUWEfCsmsrXaL4zdg" elementId="org.eclipse.ui.console.ConsoleView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -474,7 +474,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_oBlnt_UWEfCsmsrXaL4zdg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_E08ZEPXXEfCIsMGDweZnRg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.svg" tooltip="Print" command="_oBoE4vUWEfCsmsrXaL4zdg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_R7_Q8PZdEfCS4I9U2NQaXA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.svg" tooltip="Print" command="_oBoE4vUWEfCsmsrXaL4zdg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_oBlnxPUWEfCsmsrXaL4zdg" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -482,8 +482,8 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_oBlnxvUWEfCsmsrXaL4zdg" elementId="org.eclipse.ui.workbench.edit">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_E09AIPXXEfCIsMGDweZnRg" elementId="undo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.svg" tooltip="Undo" enabled="false" command="_oBoCnPUWEfCsmsrXaL4zdg"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_E09AIfXXEfCIsMGDweZnRg" elementId="redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.svg" tooltip="Redo" enabled="false" command="_oBoDUPUWEfCsmsrXaL4zdg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_R7_4BfZdEfCS4I9U2NQaXA" elementId="undo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.svg" tooltip="Undo" enabled="false" command="_oBoCnPUWEfCsmsrXaL4zdg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_R8AfEPZdEfCS4I9U2NQaXA" elementId="redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.svg" tooltip="Redo" enabled="false" command="_oBoDUPUWEfCsmsrXaL4zdg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_oBlnyvUWEfCsmsrXaL4zdg" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -513,7 +513,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_oBloLPUWEfCsmsrXaL4zdg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_E09nNPXXEfCIsMGDweZnRg" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.svg" tooltip="Pin Editor" enabled="false" type="Check" command="_oBoEgfUWEfCsmsrXaL4zdg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_R8BGIPZdEfCS4I9U2NQaXA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.svg" tooltip="Pin Editor" enabled="false" type="Check" command="_oBoEgfUWEfCsmsrXaL4zdg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_oBloN_UWEfCsmsrXaL4zdg" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
