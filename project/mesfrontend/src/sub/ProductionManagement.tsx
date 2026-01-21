@@ -69,7 +69,7 @@ size : 한 페이지에 몇 개 가져올지
 👉 서버 응답(JSON)을 자바스크립트 객체로 변환
 👉 형태는 PageResponse + ProductionOrder
 */
-const fetchOrders = async (p = page) => {
+/*const fetchOrders = async (p = page) => {
     const res = await fetch(
         `${API_BASE}/api/production/orders?page=${p}&size=${size}`
     );
@@ -81,7 +81,7 @@ const fetchOrders = async (p = page) => {
 
 useEffect(() => {
     fetchOrders();
-}, []);
+}, []);*/
 /*
 useEffect를 쓰면?
 - 화면 열자마자
