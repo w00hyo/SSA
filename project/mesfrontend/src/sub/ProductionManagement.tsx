@@ -90,23 +90,24 @@ size : 한 페이지에 몇 개 가져올지
 👉 서버 응답(JSON)을 자바스크립트 객체로 변환
 👉 형태는 PageResponse + ProductionOrder
 */
-const fetchOrders = async (p = page) => {
+const fetchOrders = async (p: number) => {//
   try {
     const res = await fetch(`${API_BASE}/api/production/orders?page=${p}&size=${size}`);
     if (!res.ok) throw new Error("서버 오류");
 
     const data:PageResponse<ProductionOrder> = await res.json();
-    setRows(data.content || data); 
-    setPage(data.number || 0);
-    setTotalPages(data.totalPages || 1);
+    //setRows(data.content || data); 
+    setRows(data.content); 
+    //setPage(data.number || 0);
+    setTotalPages(data.totalPages);
   } catch (err) {
     console.error("생산지시 목록 조회 실패", err);
   }
 };
-
+// 2) page가 바뀔 때마다 조회
 useEffect(() => {
-    fetchOrders();
-}, []);
+    fetchOrders(page);
+}, [page]);// ✅ page 의존성
 
 
 //상세불러오는 함수
@@ -179,6 +180,16 @@ const handleDelete = async () => {
 
 }
 
+const TABLE_HEADERS = [
+{key:"orderDate", label:"지시일"},    
+{key:"workOrderNo", label:"지시번호"}, 
+{key:"itemCode", label:"품목코드"},
+{key:"itemName", label:"품목명"},
+{key:"planQty", label:"계획수량"},
+{key:"startDate", label:"시작일"},
+{key:"endDate", label:"종료일"},
+{key:"status", label:"상태"},
+]
 
 /*
 서버에 HTTP 요청을 보내는 부분이에요.
@@ -227,7 +238,8 @@ const worksheet = XLSX.utils.aoa_to_sheet(excelData);
 //페이징 이동함수 추가
 const goPage = (p:number) => {
     const next = Math.max(0, Math.min(p, totalPages - 1));
-    fetchOrders(next);
+    //fetchOrders(next);
+    setPage(next);
 };
 
 
@@ -255,19 +267,11 @@ body:JSON.stringify({
 //👉 입력한 form 데이터를 서버로 전송 ...form → 입력한 값 전부  planQty: Number(form.planQty) 👉 숫자로 변환
 });
 setShowCreate(false);
-fetchOrders();//저장 후 다시 목록 조회
+//fetchOrders();//저장 후 다시 목록 조회
+fetchOrders(page);
 }
 
-const TABLE_HEADERS = [
-{key:"orderDate", label:"지시일"},    
-{key:"workOrderNo", label:"지시번호"}, 
-{key:"itemCode", label:"품목코드"},
-{key:"itemName", label:"품목명"},
-{key:"planQty", label:"계획수량"},
-{key:"startDate", label:"시작일"},
-{key:"endDate", label:"종료일"},
-{key:"status", label:"상태"},
-]
+
     return(
 <>
  <Wrapper>
@@ -343,7 +347,7 @@ const TABLE_HEADERS = [
 ))}
 <Pagination.Next
 disabled={page >= totalPages - 1}
-onClick={() => fetchOrders(page + 1)}
+onClick={() => goPage(page + 1)}
 />
 <Pagination.Last
 disabled={page >=  totalPages - 1} onClick={() => goPage(totalPages - 1)}
@@ -428,9 +432,9 @@ onChange={(e) => setEditForm(prev =>({...prev, startDate:e.target.value}))}/>
 value={editForm.endDate} type="date"
 onChange={(e) => setEditForm(prev =>({...prev, endDate:e.target.value}))}/>
 
-<Form.Control className="mb-2" name=""
+<Form.Control className="mb-2" name="status" 
 placeholder="상태(대기/진행/완료)" value={editForm.status}
-onChange={(e) => setEditForm(prev =>({...prev, status:e.target.value}))}/>
+onChange={(e) => setEditForm(prev =>({...prev, status:e.target.value}))}/>{/*여기 네임값 안씀 */}
     </Form>
   </Modal.Body>
 
