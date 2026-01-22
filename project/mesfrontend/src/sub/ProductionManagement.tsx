@@ -12,6 +12,7 @@ import {saveAs} from "file-saver";
 const API_BASE = "http://localhost:9500"; //기본url을 변경이나 간략히 사용하기 위해서
 
 type ProductionOrder = {//생산지시서 한 건의 정보 구조”**를 정의
+id:number;//추가됨
 orderDate: string; workOrderNo:string; itemCode:string; itemName:string; planQty:number;
 startDate:string; endDate:string; status:string;
 }
@@ -38,6 +39,22 @@ const ProductionManagement = () => {
 orderDate:"", itemCode:"", itemName:"", planQty:"", startDate:"", endDate:"", workOrderNo:""       
     })
 //사용자가 입력 중인 생산지시 데이터 입력값을 저장,입력 중에도 값 유지, 저장 버튼 클릭 시 서버로 전송 
+
+const [showDetail, setShowDetail] = useState(false);
+const [selected, setSelected] = useState<ProductionOrder | null>(null);
+
+//수정용 폼(상세를 열었을때 채워짐)
+const [editForm, setEditForm] = useState({
+  orderDate:"",
+  workOrderNo:"",
+  itemCode:"",
+  itemName:"",
+  planQty:"",
+  startDate:"",
+  endDate:"",
+  status:"",
+})
+
 
 const handleChange = (e:React.ChangeEvent<any>) => {
 /*input 값이 바뀔 때 실행되는 함수
@@ -91,6 +108,90 @@ useEffect(() => {
     fetchOrders();
 }, []);
 
+
+//상세불러오는 함수
+const openDetail = async (id:number) => {
+
+  const res = await fetch(`${API_BASE}/api/production/orders/${id}`);
+  if (!res.ok) throw new Error("상세 조회 실패");
+
+  const data : ProductionOrder = await res.json();
+/*
+응답 body(서버가 준 데이터)를 JSON으로 파싱해서 JS 객체로 바꾸는 부분이에요.
+await res.json()도 시간이 걸릴 수 있어요. (body 읽고 파싱해야 해서)
+*/
+ setSelected(data)//React state 업데이트.
+
+ //아래 수정폼에 미리 값 채우기
+ setEditForm({ //data.xxx || "" data.orderDate가 값이 있으면 그 값을 쓰고, 
+ // 값이 없거나(예: undefined, null, "" 같은 falsy)면 빈 문자열 ""을 넣어요.
+  orderDate: data.orderDate || "",
+  workOrderNo: data.workOrderNo || "",
+  itemCode : data.itemCode || "",
+  itemName: data.itemName || "",
+  planQty: String(data.planQty ?? ""),
+  startDate: data.startDate || "",
+  endDate : data.endDate || "",
+  status: data.status || "",
+
+ });
+
+setShowDetail(true);
+}
+
+//수정함수
+const handleUpdate = async () => {
+  if (!selected) return; //👉 지금 선택된 데이터가 없으면 아무 것도 하지 않고 종료
+
+  const res = await fetch (`${API_BASE}/api/production/orders/${selected.id}`,{
+    method:"PUT",headers:{"Content-type":"application/json"},//👉 “JSON 형식으로 보낼게요” 라고 서버에 알려줌
+    body:JSON.stringify({
+      ...editForm,
+      planQty:Number(editForm.planQty),//👉 수정 폼에 입력한 값들을 서버로 전송 👉 planQty는 문자 → 숫자로 바꿔서 보냄
+    }),
+  })
+  if(!res.ok) throw new Error("수정 실패");
+
+  setShowDetail(false);
+  fetchOrders(page);//👉 상세창 닫고 👉 현재 페이지 목록 다시 불러오기 (수정 내용 반영)
+  //👉 서버에 “이 데이터 수정할게요” 라고 요청 $템플릿 리터럴
+}
+
+//삭제
+const handleDelete = async () => {
+  if (!selected) return; //선택된 데이터 없으면 종료
+
+  const ok = window.confirm("정말 삭제 할까요?");
+  if (!ok) return;
+  /*
+  👉 “진짜 삭제할까요?” 확인창 띄우기 👉 취소 누르면 아무 것도 안 함
+  */
+
+  const res = await fetch(`${API_BASE}/api/production/orders/${selected.id}`,{
+    method:"DELETE",
+  })
+
+  if(!res.ok) throw new Error("삭제 실패");
+
+  setShowDetail(false);
+  fetchOrders(page);
+//👉 상세창 닫고 👉 목록 다시 불러오기 (삭제 반영)
+
+}
+
+
+/*
+서버에 HTTP 요청을 보내는 부분이에요.
+await 때문에 “서버 응답이 올 때까지” 잠깐 기다렸다가 다음 줄로 가요.
+res는 응답(response) 객체예요. (상태코드, 헤더, body 등을 들고 있음)
+method를 안 적으면 기본이 GET이라 “조회” 요청이 됩니다.
+*/
+
+/*
+openDetail 이라는 함수를 만든 거고,
+id: number 는 “상세 조회할 생산지시의 번호(정수)”를 받는다는 뜻이에요.
+async 는 함수 안에서 await를 쓰기 위해 붙인 키워드예요. (비동기 처리)
+*/
 
 
 /*
@@ -209,7 +310,14 @@ const TABLE_HEADERS = [
 <tr key={i} className="text-center">
 <td>{i + 1 + page * size}</td>    
 <td>{r.orderDate}</td>
-<td>{r.workOrderNo}</td>
+<td>
+  <span 
+  style={{cursor:"pointer", color:"#0d6efd", textDecoration:"underline"}}
+  onClick={() => openDetail(r.id)}
+  >
+  {r.workOrderNo}
+  </span>
+</td>
 <td>{r.itemCode}</td>
 <td>{r.itemName}</td>
 <td>{r.planQty}</td>
@@ -278,6 +386,60 @@ disabled={page >=  totalPages - 1} onClick={() => goPage(totalPages - 1)}
               </Container>
               </DflexColumn>
               </Wrapper>
+
+
+{/*생산지시 상세 수정 모달 */}
+<Modal show={showDetail} onHide={() => setShowDetail(false)} centered>
+  
+  <Modal.Header closeButton>
+      <Modal.Title>생산지시 상세</Modal.Title>
+  </Modal.Header>
+
+  <Modal.Body>
+    <Form>
+      <Form.Control className="mb-2" type="date" name="orderDate"
+value={editForm.orderDate}
+onChange={(e) => setEditForm(prev => ({...prev, orderDate: e.target.value}))}     
+      />
+
+      {/*지시번호는 보통 수정을 막음 */}
+      <Form.Control className="mb-2" name="workOrderNo"
+      value={editForm.workOrderNo}
+      disabled
+      />
+
+<Form.Control className="mb-2" name="itemCode"
+placeholder="품목코드" value={editForm.itemCode}
+onChange={(e) => setEditForm(prev =>({...prev, itemCode:e.target.value}))}/>
+
+<Form.Control className="mb-2" name="itemName"
+placeholder="품목명" value={editForm.itemName}
+onChange={(e) => setEditForm(prev =>({...prev, itemName:e.target.value}))}/>
+
+<Form.Control className="mb-2" name="planQty"
+placeholder="계획수량" value={editForm.planQty}
+onChange={(e) => setEditForm(prev =>({...prev, planQty:e.target.value}))}/>
+
+<Form.Control className="mb-2" name="startDate"
+value={editForm.startDate} type="date"
+onChange={(e) => setEditForm(prev =>({...prev, startDate:e.target.value}))}/>
+
+<Form.Control className="mb-2" name="endDate" 
+value={editForm.endDate} type="date"
+onChange={(e) => setEditForm(prev =>({...prev, endDate:e.target.value}))}/>
+
+<Form.Control className="mb-2" name=""
+placeholder="상태(대기/진행/완료)" value={editForm.status}
+onChange={(e) => setEditForm(prev =>({...prev, status:e.target.value}))}/>
+    </Form>
+  </Modal.Body>
+
+<Modal.Footer>
+<Button variant="danger" onClick={handleDelete}>삭제</Button>
+<Button variant="success" onClick={handleUpdate}>수정 저장</Button>
+</Modal.Footer>
+
+</Modal>
 </>
     )
 }
