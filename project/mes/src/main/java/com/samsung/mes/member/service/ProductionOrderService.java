@@ -3,7 +3,9 @@ package com.samsung.mes.member.service;
 import java.util.NoSuchElementException;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.samsung.mes.member.dto.ProductionOrderDTO;
@@ -24,8 +26,9 @@ private final ProductionOrderRepository repository;//Repository 주입 (DB 접�
 
 //페이징 조회
 @Transactional//중간에 에러가 나면 → 전부 취소(롤백) 다 정상적으로 끝나면 → 한 번에 확정(커밋)
-public Page<ProductionOrderDTO> getOrders(Pageable pageable){
+public Page<ProductionOrderDTO> getOrders(int page, int size){//Pageable pageable
 //그냥 List가 아니라:데이터 목록 전체 개수 전체 페이지 수 현재 페이지 번호 👉 이런 정보까지 다 포함됨
+	Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "id"));
 	return repository.findAll(pageable).map(this::toDto);
 }
 
@@ -106,6 +109,7 @@ public void delete(Long id) {
 	}
 	repository.deleteById(id);
 }
+
 
 
 }
