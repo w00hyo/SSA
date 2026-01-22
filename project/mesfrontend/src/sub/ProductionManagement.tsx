@@ -210,7 +210,7 @@ dependency배열	실행 시점
 //엑셀 다운로드
 const handleExcelDownload = () => {
     const excelData: (string | number) [][] = [
-        ["#", ...TABLE_HEADERS], ...rows.map((row, idx) => [
+        ["#", ...TABLE_HEADERS.map(h => h.label)], ...rows.map((row, idx) => [
 idx+1, row.orderDate, row.workOrderNo, row.itemCode, row.itemName, row.planQty,
 row.startDate, row.endDate, row.status,
  ]),
