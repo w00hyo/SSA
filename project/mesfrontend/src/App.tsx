@@ -7,6 +7,7 @@ import Login from './sub/Login';
 import ProtectedRoute from './routes/ProtectedRoute';
 import SalesManagement from './sub/SalesManagement';
 import ProductionManagement from './sub/ProductionManagement';
+import PurchaseMaterial from './sub/PurchaseMaterial';
 
 const App = () => {
 return (
@@ -17,8 +18,9 @@ return (
 <Route path="/" element={<Login/>}/>
 
 <Route path="/admin" element={<ProtectedRoute><Admin/></ProtectedRoute>}/>
-<Route path="/sales" element={<SalesManagement/>}/>
-<Route path="/pmanagement" element={<ProductionManagement/>}/>
+<Route path="/sales" element={<ProtectedRoute><SalesManagement/></ProtectedRoute>}/>
+<Route path="/pmanagement" element={<ProtectedRoute><ProductionManagement/></ProtectedRoute>}/>
+<Route path="/pm" element={<PurchaseMaterial/>}/>
 <Route path="/member" element={<Member/>}/>
 <Route path="/" element={<Navigate to="/login" replace/>}/>
 <Route path="/forgot" element={<Forgot/>}/>

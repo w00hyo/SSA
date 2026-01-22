@@ -9,7 +9,7 @@ const Lnb = () => {
                 <div className="sidebar-brand-icon rotate-n-15">
                     <i className="fas fa-laugh-wink"></i>
                 </div>
-                <div className="sidebar-brand-text mx-3">&nbsp;MES<sup>sea2</sup>            <li className="nav-item">
+                <div className="sidebar-brand-text mx-3 mt-5">&nbsp;MES<sup>sea2</sup>            <li className="nav-item">
                 <a className="nav-link" href="tables.html">
                     <i className="fas fa-fw fa-table"></i>
                     <span>기준정보 관리</span></a>
@@ -44,9 +44,9 @@ const Lnb = () => {
                 </a>
                 <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div className="bg-white py-2 collapse-inner rounded">
-                        <h6 className="collapse-header">Custom Components:</h6>
-                        <a className="collapse-item" href="/sales">영업관리</a>
-                        <a className="collapse-item" href="/">Cards</a>
+                        <h6 className="collapse-header">영업관리</h6>
+                        <a className="collapse-item" href="/sales">영업관리 이동</a>
+                        {/*<a className="collapse-item" href="/">Cards</a>*/}
                     </div>
                 </div>
             </li>
@@ -61,8 +61,8 @@ const Lnb = () => {
                 <div id="collapseUtilities" className="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div className="bg-white py-2 collapse-inner rounded">
-                        <h6 className="collapse-header"></h6>
-                        <a className="collapse-item" href="/pmanagement">생산관리</a>
+                        <h6 className="collapse-header">생산관리</h6>
+                        <a className="collapse-item" href="/pmanagement">생산관리로 이동</a>
                     </div>
                 </div>
             </li>
@@ -84,14 +84,14 @@ const Lnb = () => {
                 </a>
                 <div id="collapsePages" className="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div className="bg-white py-2 collapse-inner rounded">
-                        <h6 className="collapse-header">Login Screens:</h6>
-                        <a className="collapse-item" href="login.html">Login</a>
-                        <a className="collapse-item" href="register.html">Register</a>
-                        <a className="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <h6 className="collapse-header">구매자제관리</h6>
+                        <a className="collapse-item" href="/pm">구매자제관리 이동</a>
+                        {/*<a className="collapse-item" href="register.html">Register</a>
+                        <a className="collapse-item" href="forgot-password.html">Forgot Password</a>*/}
                         <div className="collapse-divider"></div>
-                        <h6 className="collapse-header">Other Pages:</h6>
+                        {/*<h6 className="collapse-header">Other Pages:</h6>
                         <a className="collapse-item" href="404.html">404 Page</a>
-                        <a className="collapse-item" href="blank.html">Blank Page</a>
+                        <a className="collapse-item" href="blank.html">Blank Page</a>*/}
                     </div>
                 </div>
             </li>
@@ -133,10 +133,10 @@ const Lnb = () => {
             {/*  Sidebar Message */}
             <div className="sidebar-card d-none d-lg-flex">
                 <img className="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="..."/>
-                <p className="text-center mb-2"><strong>MES Admin Pro</strong>
-                미래에서 왔는데 너흰 다 취업함
+                <p className="text-center mb-2"><strong></strong>
+                Is Next
                 </p>
-                <a className="btn btn-success btn-sm" href="#">이건 템플릿을 활용한게 아님!</a>
+                <a className="btn btn-success btn-sm" href="#">MES</a>
             </div>
 
         </ul>
