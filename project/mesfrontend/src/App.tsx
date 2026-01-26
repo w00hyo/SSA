@@ -9,6 +9,9 @@ import SalesManagement from './sub/SalesManagement';
 import ProductionManagement from './sub/ProductionManagement';
 import PurchaseMaterial from './sub/PurchaseMaterial';
 import KpiManagement from './sub/KpiManagement';
+import InventoryManagement from './sub/InventoryManagement';
+import StandardManagement from "./sub/StandardManagement"
+import SystemManagement from './sub/SystemManagement';
 
 const App = () => {
 return (
@@ -22,7 +25,10 @@ return (
 <Route path="/sales" element={<ProtectedRoute><SalesManagement/></ProtectedRoute>}/>
 <Route path="/pmanagement" element={<ProtectedRoute><ProductionManagement/></ProtectedRoute>}/>
 <Route path="/pm" element={<PurchaseMaterial/>}/>
+<Route path="/im" element={<InventoryManagement/>}/>
 <Route path="/kpi" element={<KpiManagement/>}/>
+<Route path="/standard" element={<StandardManagement/>}/>
+<Route path="/system" element={<SystemManagement/>}/>
 <Route path="/member" element={<Member/>}/>
 <Route path="/" element={<Navigate to="/login" replace/>}/>
 <Route path="/forgot" element={<Forgot/>}/>

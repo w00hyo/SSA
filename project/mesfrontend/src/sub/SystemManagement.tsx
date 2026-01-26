@@ -12,17 +12,14 @@ import {saveAs} from "file-saver";
 
 const API_BASE = "http://localhost:9500";
 
-type KpiItem = {
+type SystemItem = {
 id:number;
-kpiName: string;
-kpiGroup?: string;        // KPI그룹(영업/마케팅/운영 등)
-owner?: string;           // 담당자
-periodType: "MONTH" | "QUARTER" | "YEAR";  // 집계 기준
-periodValue: string;      // 예: "2026-01" / "2026-Q1" / "2026"
-targetValue: number;  // ✅ 이게 있어야 함
-actualValue: number;  // ✅ 이것도
-unit?:"string";// 단위(%, 건, 원 등)
-status?: "ON_TRACK" | "RISK" | "OFF_TRACK";  // 상태(선택)
+systemCode: string;
+systemName: string; 
+systemGroup: string;        // KPI그룹(영업/마케팅/운영 등)
+owner?: string;           // 담당자version
+version?:string;
+status?:"ACTIVE" | "INATIVE" | "MAINTENANCE";  // 상태(선택)
 useYn: "Y" | "N";          // 사용여부
 remark?: string;           // 비고
 updatedAt?: string;
@@ -30,7 +27,7 @@ updatedAt?: string;
 
 //데이터 + 페이지 정보를 한 번에 받기 위해서
 type PageResponse<T> = {
-content:T[]; // 실제 데이터 목록 T는 뭐든 가능 (KPI, 주문, 회원 등) PageResponse<KpiItem> PageResponse<Order>
+content:T[]; // 실제 데이터 목록 T는 뭐든 가능 (KPI, 주문, 회원 등) PageResponse<SystemItem> PageResponse<Order>
 totalElements:number; // 전체 데이터 개수 “총 124건” 표시할 때 씀
 totalPages:number; // 전체 페이지 수 페이지 버튼 몇 개 만들지 결정 << 1 2 3 4 >>
 number:number; // 현재 페이지 번호 (0부터 시작)
@@ -38,25 +35,22 @@ size:number; // 한 페이지당 개수 몇 개씩 보여주는지 “10개씩 �
 }
 
 //테이블 상단에 들어가는 헤더
-//KpiItem에 들어있는 속성 중 하나를 key로 쓰고,화면에 보여줄 이름(label)을 같이 묶은 목록이다
-//key: keyof KpiItem KpiItem 안에 실제로 존재하는 필드 이름만 key로 쓸 수 있다
-const TABLE_HEADERS: {key:keyof KpiItem; label:string}[] = [
-  { key: "kpiName", label: "KPI명" },
-  { key: "kpiGroup", label: "그룹" },
+//SystemItem에 들어있는 속성 중 하나를 key로 쓰고,화면에 보여줄 이름(label)을 같이 묶은 목록이다
+//key: keyof SystemItem SystemItem 안에 실제로 존재하는 필드 이름만 key로 쓸 수 있다
+const TABLE_HEADERS: {key:keyof SystemItem; label:string}[] = [
+  { key: "systemCode", label: "시스템코드" },
+  { key: "systemName", label: "시스템명" },
+  { key: "systemGroup", label: "그룹" },
   { key: "owner", label: "담당자" },
-  { key: "periodType", label: "기간유형" },
-  { key: "periodValue", label: "기간" },
-  { key: "targetValue", label: "목표" },
-  { key: "actualValue", label: "실적" },
-  { key: "unit", label: "단위" },
+  { key: "version", label: "버전" },
   { key: "status", label: "상태" },
   { key: "useYn", label: "사용여부" },
   { key: "remark", label: "비고" },
 ];
 
-const KpiManagement = () => {
-    const [rows, setRows] = useState<KpiItem[]>([]);
-    //ows 안에는 KpiItem 객체들이 여러 개 들어있는 배열만 들어갈 거야
+const SystemManagement = () => {
+    const [rows, setRows] = useState<SystemItem[]>([]);
+    //ows 안에는 SystemItem 객체들이 여러 개 들어있는 배열만 들어갈 거야
     //([]) 이건 초기값 : 처음 화면이 뜰 때는 KPI 데이터가 아직 없으니까
     const [page, setPage] = useState(0);
     /*
@@ -77,15 +71,12 @@ totalElements: 전체 데이터가 총 몇 개인지 setTotalElements: 서버 �
 //등록 모달
 const [showCreate, setShowCreate] = useState(false);
 const [createForm, setCreateForm] = useState({
-    kpiName: "",
-    kpiGroup: "",
+    systemCode: "",
+    systemName: "",
+    systemGroup: "",
     owner: "",
-    periodType: "MONTH" as "MONTH" | "QUARTER" | "YEAR",
-    periodValue: "",
-    targetValue: "",
-    actualValue: "",
-    unit: "",
-    status: "ON_TRACK" as "ON_TRACK" | "RISK" | "OFF_TRACK",
+    version: "",
+    status: "ACTIVE" as "ACTIVE" | "INACTIVE" | "MAINTENANCE",
     useYn: "Y" as "Y" | "N",
     remark: "",
 })
@@ -93,20 +84,17 @@ const [createForm, setCreateForm] = useState({
 //상세 (수정/삭제) 모달
 const [showDetail, setShowDetail] = useState(false); //상세보기 창(모달/패널)을 지금 보여줄까?”를 저장하는 상태
 //true면 보여줌 false면 숨김
-const [selected, setSelected] = useState<KpiItem | null>(null);
+const [selected, setSelected] = useState<SystemItem | null>(null);
 //사용자가 클릭한 “선택된 KPI 1건”을 저장하는 상태 
-//<KpiItem | null> 선택된 KPI가 있을 때는 KpiItem 아직 아무것도 선택 안 했으면 null
-//처음: null (선택 없음) 클릭 후: { id: 3, kpiName: "...", ... } (선택됨)
+//<SystemItem | null> 선택된 KPI가 있을 때는 SystemItem 아직 아무것도 선택 안 했으면 null
+//처음: null (선택 없음) 클릭 후: { id: 3, systemCode: "...", ... } (선택됨)
 const [editForm, setEditForm] = useState({
-        kpiName: "",
-    kpiGroup: "",
+    systemCode: "",
+    systemName: "",
+    systemGroup: "",
     owner: "",
-    periodType: "MONTH" as "MONTH" | "QUARTER" | "YEAR",
-    periodValue: "",
-    targetValue: "",
-    actualValue: "",
-    unit: "",
-    status: "ON_TRACK" as "ON_TRACK" | "RISK" | "OFF_TRACK",
+    version: "",
+    status: "ACTIVE" as "ACTIVE" | "INACTIVE" | "MAINTENANCE",
     useYn: "Y" as "Y" | "N",
     remark: "",
 })
@@ -142,24 +130,24 @@ fetchList라는 함수를 만들었고 async → 함수 안에서 await를 쓸 �
 p: number → p는 숫자(페이지 번호). 예: 0, 1, 2…
 */
 try{
-const res = await fetch(`${API_BASE}/api/kpis?page=${p}&size=${size}`);
+const res = await fetch(`${API_BASE}/api/systems?page=${p}&size=${size}`);
 //서버가 500/404 등 오류면 여기서 잡힘
 if(!res.ok) throw new Error("서버 오류");
 /*
-응답 body를 JSON으로 변환해서 data에 넣음 data 구조는 PageResponse<KpiItem> 형태라고 타입 지정
+응답 body를 JSON으로 변환해서 data에 넣음 data 구조는 PageResponse<SystemItem> 형태라고 타입 지정
 즉 data 안에 content, totalPages, totalElements 등이 있어야 함
 */
-const data:PageResponse<KpiItem> = await res.json();
+const data:PageResponse<SystemItem> = await res.json();
 setRows(data.content);
 setTotalPages(data.totalPages);
 setTotalElements(data.totalElements);
     }catch(err){
-console.error("KPI 목록 조회 실패", err);
+console.error("시스템 목록 조회 실패", err);
     }
 };
 
 useEffect(() => { //페이지가 바뀔때 자동 조회
-    fetchList(page);
+fetchList(page);
 },[page]);
 
 const goPage = (p:number) => {
@@ -194,14 +182,11 @@ setPage(next);
       ["#", ...TABLE_HEADERS.map((h) => h.label)],
       ...rows.map((r, idx) => [
         idx + 1 + page * size,
-        r.kpiName,
-        r.kpiGroup ?? "",
+        r.systemCode,
+        r.systemName,
+        r.systemGroup ?? "",
         r.owner ?? "",
-        r.periodType ?? "",
-        r.periodValue ?? "",
-        r.targetValue ?? 0,
-        r.actualValue ?? 0,
-        r.unit ?? "",
+        r.version ?? "",
         r.status ?? "",
         r.useYn ?? "Y",
         r.remark ?? "",
@@ -210,34 +195,25 @@ setPage(next);
 
     const worksheet = XLSX.utils.aoa_to_sheet(excelData);
     const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "KPI관리");
+    XLSX.utils.book_append_sheet(workbook, worksheet, "시스템관리");
 
     const excelFile = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
     const blob = new Blob([excelFile], { type: "application/octet-stream" });
-    saveAs(blob, "KPI관리_리스트.xlsx");
+    saveAs(blob, "시스템관리_리스트.xlsx");
   };
 
   //등록저장
   const handleSave = async () => {
-    //async라서 await를 쓸 수 있어(서버 요청 끝날 때까지 기다릴 수 있음)
-    const targetValue = Number(createForm.targetValue || 0);
-//Number(...)로 숫자 타입으로 바꿔서 서버에 보내려고 하는 것.  
-//createForm.targetValue가 비어있거나 falsy면("", null, undefined) 0으로 처리.   
-    const actualValue = Number(createForm.actualValue || 0);
-
-    const res = await fetch(`${API_BASE}/api/kpis`, {
+const res = await fetch(`${API_BASE}/api/systems`, {
 method: "POST",//새 데이터를 등록”하는 요청이니까 POST 사용.
 headers: { "Content-Type": "application/json" },
 //내가 보내는 body는 JSON 형식이야” 라고 서버에 알려주는 헤더.
       body: JSON.stringify({//실제로 서버에 보낼 데이터(객체)를 JSON 문자열로 변환해서 body에 넣음.
-        kpiName: createForm.kpiName,
-        kpiGroup: createForm.kpiGroup || null, //비어있으면 null.
+        systemCode: createForm.systemCode,
+        systemName: createForm.systemName,
+        systemGroup: createForm.systemGroup || null,
         owner: createForm.owner || null,
-        periodType: createForm.periodType,
-        periodValue: createForm.periodValue,
-        targetValue,
-        actualValue,
-        unit: createForm.unit || null,
+        version: createForm.version || null,
         status: createForm.status || null,
         useYn: createForm.useYn || "Y",
         remark: createForm.remark || "",
@@ -256,15 +232,12 @@ headers: { "Content-Type": "application/json" },
 
     //폼 초기화 (다음등록을 위해)
     setCreateForm({
-      kpiName: "",
-      kpiGroup: "",
+      systemCode: "",
+      systemName: "",
+      systemGroup: "",
       owner: "",
-      periodType: "MONTH",
-      periodValue: "",
-      targetValue: "",
-      actualValue: "",
-      unit: "",
-      status: "ON_TRACK",
+      version: "",
+      status: "ACTIVE",
       useYn: "Y",
       remark: "",
     });
@@ -274,23 +247,19 @@ headers: { "Content-Type": "application/json" },
 
   //상세 열기
   const openDetail = async(id:number) => {
-    const res = await fetch(`${API_BASE}/api/kpis/${id}`);
+    const res = await fetch(`${API_BASE}/api/systems/${id}`);
     if(!res.ok) throw new Error("상세 조회 실패");
     //실패(404, 500 등)면 Error를 던져서 함수 실행을 중단.
-    const data:KpiItem = await res.json();
+    const data:SystemItem = await res.json();
 //서버가 내려준 JSON 응답을 자바스크립트 객체로 변환.
     setSelected(data);
     setEditForm({//수정 폼에 넣을 값들을 한꺼번에 세팅 시작.
-      kpiName: data.kpiName || "",
-      kpiGroup: data.kpiGroup || "",
+      systemCode: data.systemCode || "",
+      systemName: data.systemName || "",
+      systemGroup: data.systemGroup || "",
       owner: data.owner || "",
-      periodType: (data.periodType || "MONTH") as "MONTH" | "QUARTER" | "YEAR",
-      //이 값은 이 3개 중 하나야”라고 타입을 강제로 좁혀주는 것.
-      periodValue: data.periodValue || "",
-      targetValue: String(data.targetValue ?? ""),
-      actualValue: String(data.actualValue ?? ""),
-      unit: data.unit || "",
-      status: (data.status || "ON_TRACK") as "ON_TRACK" | "RISK" | "OFF_TRACK",
+      version: data.version || "",
+      status: (data.status || "ACTIVE") as "ACTIVE" | "INACTIVE" | "MAINTENANCE",
       useYn: (data.useYn || "Y") as "Y" | "N",
       remark: data.remark || "",
     });
@@ -301,13 +270,10 @@ headers: { "Content-Type": "application/json" },
   const handleUpdate = async () => {
     if(!selected) return;
 
-    const targetValue = Number(editForm.targetValue || 0);
-    const actualValue = Number(editForm.actualValue || 0);
-
-const res = await fetch(`${API_BASE}/api/kpis/${selected.id}`,{
+const res = await fetch(`${API_BASE}/api/systems/${selected.id}`,{
 method:"PUT", headers:{"Content-Type":"application/json"},
 body:JSON.stringify({
-...editForm, targetValue, actualValue,
+...editForm,
 }),
     });
 if(!res.ok) {
@@ -330,7 +296,7 @@ const handleDelete = async () => {
     if (!ok) return;
 
     //서버에 삭제 요청 보내기
-    const res = await fetch(`${API_BASE}/api/kpis/${selected.id}`,{
+    const res = await fetch(`${API_BASE}/api/systems/${selected.id}`,{
         method:"DELETE",
     })
 
@@ -381,15 +347,12 @@ return(
         <tr key={r.id ?? i} className="text-center">
 <td>{i + 1 + page * size}</td>   
 <td onClick={() => openDetail(r.id)}>
-    {r.kpiName}
+    {r.systemCode}
 </td>  
-<td>{r.kpiGroup ?? ""}</td>
+<td>{r.systemName}</td>
+<td>{r.systemGroup ?? ""}</td>
 <td>{r.owner ?? ""}</td>
-<td>{r.periodType}</td>
-<td>{r.periodValue}</td>
-<td>{r.targetValue}</td>
-<td>{r.actualValue}</td>
-<td>{r.unit ?? ""}</td>
+<td>{r.version ?? ""}</td>
 <td>{r.status ?? ""}</td>
 <td>{r.useYn}</td>
 <td>{r.remark ?? ""}</td>     
@@ -430,89 +393,87 @@ return(
 <Modal show={showCreate} onHide={() => setShowCreate(false)} centered>
     <Modal.Header closeButton>
 <Modal.Title>
-KPI등록
+시스템 등록
 </Modal.Title>
     </Modal.Header>
     <Modal.Body>
           <Form>
-            <Form.Control className="mb-2" name="kpiName" placeholder="KPI명" value={createForm.kpiName} onChange={onCreateChange} />
-            <Form.Control className="mb-2" name="kpiGroup" placeholder="그룹" value={createForm.kpiGroup} onChange={onCreateChange} />
-            <Form.Control className="mb-2" name="owner" placeholder="담당자" value={createForm.owner} onChange={onCreateChange} />
+<Form.Control className="mb-2" name="systemCode" placeholder="시스템코드" 
+value={createForm.systemCode} onChange={onCreateChange} />
 
-            <Form.Select className="mb-2" name="periodType" value={createForm.periodType} onChange={onCreateChange}>
-              <option value="MONTH">월</option>
-              <option value="QUARTER">분기</option>
-              <option value="YEAR">연</option>
-            </Form.Select>
+<Form.Control className="mb-2" name="systemName" placeholder="시스템명" 
+value={createForm.systemName} onChange={onCreateChange} />
 
-            <Form.Control className="mb-2" name="periodValue" placeholder="기간" value={createForm.periodValue} onChange={onCreateChange} />
+<Form.Control className="mb-2" name="systemGroup" placeholder="그룹" 
+value={createForm.systemGroup} onChange={onCreateChange} />
 
-            <Form.Control className="mb-2" type="number" name="targetValue" placeholder="목표" value={createForm.targetValue} onChange={onCreateChange} />
-            <Form.Control className="mb-2" type="number" name="actualValue" placeholder="실적" value={createForm.actualValue} onChange={onCreateChange} />
-            <Form.Control className="mb-2" name="unit" placeholder="단위" value={createForm.unit} onChange={onCreateChange} />
+<Form.Control className="mb-2" name="owner" placeholder="담당자" 
+value={createForm.owner} onChange={onCreateChange} />
 
-            <Form.Select className="mb-2" name="status" value={createForm.status} onChange={onCreateChange}>
-              <option value="ON_TRACK">정상</option>
-              <option value="RISK">주의</option>
-              <option value="OFF_TRACK">위험</option>
-            </Form.Select>
+<Form.Control className="mb-2" name="version" placeholder="버전" 
+value={createForm.version} onChange={onCreateChange} />
 
-            <Form.Select className="mb-2" name="useYn" value={createForm.useYn} onChange={onCreateChange}>
-              <option value="Y">사용</option>
-              <option value="N">미사용</option>
-            </Form.Select>
+<Form.Select className="mb-2" name="status" value={createForm.status} onChange={onCreateChange}>
+  <option value="ACTIVE">운영</option>
+  <option value="INACTIVE">중지</option>
+  <option value="MAINTENANCE">점검</option>
+</Form.Select>
 
-            <Form.Control className="mb-2" name="remark" placeholder="비고" value={createForm.remark} onChange={onCreateChange} />
-          </Form>
-          </Modal.Body>
+  <Form.Select className="mb-2" name="useYn" value={createForm.useYn} onChange={onCreateChange}>
+    <option value="Y">사용</option>
+    <option value="N">미사용</option>
+  </Form.Select>
 
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowCreate(false)}>
-            닫기
-          </Button>
-          <Button onClick={handleSave}>저장</Button>
-        </Modal.Footer>
+  <Form.Control className="mb-2" name="remark" placeholder="비고" value={createForm.remark} onChange={onCreateChange} />
+</Form>
+</Modal.Body>
+
+<Modal.Footer>
+  <Button variant="secondary" onClick={() => setShowCreate(false)}>
+    닫기
+  </Button>
+  <Button onClick={handleSave}>저장</Button>
+</Modal.Footer>
 
 </Modal>
 
 {/* ✅ 상세(수정/삭제) 모달 */}
       <Modal show={showDetail} onHide={() => setShowDetail(false)} centered>
         <Modal.Header closeButton>
-          <Modal.Title>KPI 상세</Modal.Title>
+          <Modal.Title>시스템 상세</Modal.Title>
         </Modal.Header>
 
-        <Modal.Body>
-          <Form>
-            <Form.Control className="mb-2" name="kpiName" placeholder="KPI명" value={editForm.kpiName} onChange={onEditChange} />
-            <Form.Control className="mb-2" name="kpiGroup" placeholder="그룹" value={editForm.kpiGroup} onChange={onEditChange} />
-            <Form.Control className="mb-2" name="owner" placeholder="담당자" value={editForm.owner} onChange={onEditChange} />
+<Modal.Body>
+<Form>
+<Form.Control className="mb-2" name="systemCode" placeholder="시스템코드" 
+value={editForm.systemCode} onChange={onEditChange} />
 
-            <Form.Select className="mb-2" name="periodType" value={editForm.periodType} onChange={onEditChange}>
-              <option value="MONTH">월</option>
-              <option value="QUARTER">분기</option>
-              <option value="YEAR">연</option>
-            </Form.Select>
+<Form.Control className="mb-2" name="systemName" placeholder="시스템명" 
+value={editForm.systemName} onChange={onEditChange} />
 
-            <Form.Control className="mb-2" name="periodValue" placeholder="기간" value={editForm.periodValue} onChange={onEditChange} />
+<Form.Control className="mb-2" name="systemGroup" placeholder="그룹" 
+value={editForm.systemGroup} onChange={onEditChange} />
 
-            <Form.Control className="mb-2" type="number" name="targetValue" placeholder="목표" value={editForm.targetValue} onChange={onEditChange} />
-            <Form.Control className="mb-2" type="number" name="actualValue" placeholder="실적" value={editForm.actualValue} onChange={onEditChange} />
-            <Form.Control className="mb-2" name="unit" placeholder="단위" value={editForm.unit} onChange={onEditChange} />
+<Form.Control className="mb-2" name="owner" placeholder="담당자" 
+value={editForm.owner} onChange={onEditChange} />
 
-            <Form.Select className="mb-2" name="status" value={editForm.status} onChange={onEditChange}>
-              <option value="ON_TRACK">정상</option>
-              <option value="RISK">주의</option>
-              <option value="OFF_TRACK">위험</option>
-            </Form.Select>
+<Form.Control className="mb-2" name="version" placeholder="버전" 
+value={editForm.version} onChange={onEditChange} />
 
-            <Form.Select className="mb-2" name="useYn" value={editForm.useYn} onChange={onEditChange}>
-              <option value="Y">사용</option>
-              <option value="N">미사용</option>
-            </Form.Select>
+<Form.Select className="mb-2" name="status" value={editForm.status} onChange={onEditChange}>
+  <option value="ACTIVE">운영</option>
+  <option value="INACTIVE">중지</option>
+  <option value="MAINTENANCE">점검</option>
+</Form.Select>
 
-            <Form.Control className="mb-2" name="remark" placeholder="비고" value={editForm.remark} onChange={onEditChange} />
-          </Form>
-        </Modal.Body>
+<Form.Select className="mb-2" name="useYn" value={editForm.useYn} onChange={onEditChange}>
+<option value="Y">사용</option>
+<option value="N">미사용</option>
+</Form.Select>
+
+<Form.Control className="mb-2" name="remark" placeholder="비고" value={editForm.remark} onChange={onEditChange} />
+</Form>
+</Modal.Body>
 
         <Modal.Footer>
           <Button variant="danger" onClick={handleDelete}>
@@ -527,4 +488,4 @@ KPI등록
 )
 }
 
-export default KpiManagement;
+export default SystemManagement;
