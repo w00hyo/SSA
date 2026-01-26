@@ -137,9 +137,18 @@ const onEditChange = (e:React.ChangeEvent<any>) => {
 
 //목록 조회 함수(페이징)
 const fetchList = async (p:number) => {
-    try{
+/*
+fetchList라는 함수를 만들었고 async → 함수 안에서 await를 쓸 수 있음(서버 통신 기다리기)
+p: number → p는 숫자(페이지 번호). 예: 0, 1, 2…
+*/
+try{
 const res = await fetch(`${API_BASE}/api/kpis?page=${p}&size=${size}`);
+//서버가 500/404 등 오류면 여기서 잡힘
 if(!res.ok) throw new Error("서버 오류");
+/*
+응답 body를 JSON으로 변환해서 data에 넣음 data 구조는 PageResponse<KpiItem> 형태라고 타입 지정
+즉 data 안에 content, totalPages, totalElements 등이 있어야 함
+*/
 const data:PageResponse<KpiItem> = await res.json();
 setRows(data.content);
 setTotalPages(data.totalPages);
@@ -149,8 +158,371 @@ console.error("KPI 목록 조회 실패", err);
     }
 };
 
+useEffect(() => { //페이지가 바뀔때 자동 조회
+    fetchList(page);
+},[page]);
+
+const goPage = (p:number) => {
+/*
+p를 안전한 범위로 강제로 맞춰주는 계산
+✅목표 범위
+최소값: 0 (맨 첫 페이지)
+최대값: totalPages - 1 (맨 마지막 페이지)
+왜 -1이냐면:
+페이지가 totalPages개면 
+마지막 페이지 번호는 0부터 시작해서 totalPages - 1이 마지막이기 때문.
+예: totalPages=5면 페이지 번호는 0,1,2,3,4
+*/
+const next = Math.max(0, Math.min(p, totalPages - 1));
+//결과적으로 next는 항상 0 ~ (totalPages-1) 사이의 값이 돼.
+// Math.min(p, totalPages - 1) 너무 큰 숫자면, 맨 끝으로 보내버려 그건 안 되니까 10층까지만 갈게
+// p = 100 totalPages=5 Math.min(100, 4)
+//Math.max(0 너무 작은 숫자면, 맨 처음으로 보내버려 난 1하 3층 갈껀데 나가있어 1층이 최고 아래층
+//얘는 페이지번호를 안전하게 울타리 안에 가두는 장치
+/*
+<button onClick={() => goPage(page - 1)}>이전</button>
+<button onClick={() => goPage(page + 1)}>다음</button>
+
+광클릭 page + 1 + 1 + 1
+*/
+setPage(next);
+}
+
+// ✅ 엑셀 다운로드
+  const handleExcelDownload = () => {
+    const excelData: (string | number)[][] = [
+      ["#", ...TABLE_HEADERS.map((h) => h.label)],
+      ...rows.map((r, idx) => [
+        idx + 1 + page * size,
+        r.kpiName,
+        r.kpiGroup ?? "",
+        r.owner ?? "",
+        r.periodType ?? "",
+        r.periodValue ?? "",
+        r.targetValue ?? 0,
+        r.actualValue ?? 0,
+        r.unit ?? "",
+        r.status ?? "",
+        r.useYn ?? "Y",
+        r.remark ?? "",
+      ]),
+    ];
+
+    const worksheet = XLSX.utils.aoa_to_sheet(excelData);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "KPI관리");
+
+    const excelFile = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+    const blob = new Blob([excelFile], { type: "application/octet-stream" });
+    saveAs(blob, "KPI관리_리스트.xlsx");
+  };
+
+  //등록저장
+  const handleSave = async () => {
+    //async라서 await를 쓸 수 있어(서버 요청 끝날 때까지 기다릴 수 있음)
+    const targetValue = Number(createForm.targetValue || 0);
+//Number(...)로 숫자 타입으로 바꿔서 서버에 보내려고 하는 것.  
+//createForm.targetValue가 비어있거나 falsy면("", null, undefined) 0으로 처리.   
+    const actualValue = Number(createForm.actualValue || 0);
+
+    const res = await fetch(`${API_BASE}/api/kpis`, {
+method: "POST",//새 데이터를 등록”하는 요청이니까 POST 사용.
+headers: { "Content-Type": "application/json" },
+//내가 보내는 body는 JSON 형식이야” 라고 서버에 알려주는 헤더.
+      body: JSON.stringify({//실제로 서버에 보낼 데이터(객체)를 JSON 문자열로 변환해서 body에 넣음.
+        kpiName: createForm.kpiName,
+        kpiGroup: createForm.kpiGroup || null, //비어있으면 null.
+        owner: createForm.owner || null,
+        periodType: createForm.periodType,
+        periodValue: createForm.periodValue,
+        targetValue,
+        actualValue,
+        unit: createForm.unit || null,
+        status: createForm.status || null,
+        useYn: createForm.useYn || "Y",
+        remark: createForm.remark || "",
+      }),
+    });
+
+    if (!res.ok) { //실패한다면
+      const raw = await res.text().catch(() => "");
+      //혹시 읽다가 에러 나면 ""로 처리(앱 터지는 거 방지).
+      alert(raw || "등록 실패");
+      return;//실패했으면 여기서 함수 종료
+    }
+
+    setShowCreate(false);//성공 처리: 모달 닫기 + 목록 다시 불러오기
+    fetchList(page);//현재 페이지(page) 기준으로 목록을 다시 조회해서
+
+    //폼 초기화 (다음등록을 위해)
+    setCreateForm({
+      kpiName: "",
+      kpiGroup: "",
+      owner: "",
+      periodType: "MONTH",
+      periodValue: "",
+      targetValue: "",
+      actualValue: "",
+      unit: "",
+      status: "ON_TRACK",
+      useYn: "Y",
+      remark: "",
+    });
+
+
+  }
+
+  //상세 열기
+  const openDetail = async(id:number) => {
+    const res = await fetch(`${API_BASE}/api/kpis/${id}`);
+    if(!res.ok) throw new Error("상세 조회 실패");
+    //실패(404, 500 등)면 Error를 던져서 함수 실행을 중단.
+    const data:KpiItem = await res.json();
+//서버가 내려준 JSON 응답을 자바스크립트 객체로 변환.
+    setSelected(data);
+    setEditForm({//수정 폼에 넣을 값들을 한꺼번에 세팅 시작.
+      kpiName: data.kpiName || "",
+      kpiGroup: data.kpiGroup || "",
+      owner: data.owner || "",
+      periodType: (data.periodType || "MONTH") as "MONTH" | "QUARTER" | "YEAR",
+      //이 값은 이 3개 중 하나야”라고 타입을 강제로 좁혀주는 것.
+      periodValue: data.periodValue || "",
+      targetValue: String(data.targetValue ?? ""),
+      actualValue: String(data.actualValue ?? ""),
+      unit: data.unit || "",
+      status: (data.status || "ON_TRACK") as "ON_TRACK" | "RISK" | "OFF_TRACK",
+      useYn: (data.useYn || "Y") as "Y" | "N",
+      remark: data.remark || "",
+    });
+    setShowDetail(true); //상세/수정 모달을 화면에 보여주도록 상태 변경.
+  }
+
+  //수정
+  const handleUpdate = async () => {
+    if(!selected) return;
+
+    const targetValue = Number(editForm.targetValue || 0);
+    const actualValue = Number(editForm.actualValue || 0);
+
+const res = await fetch(`${API_BASE}/api/kpis/${selected.id}`,{
+method:"PUT", headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+...editForm, targetValue, actualValue,
+}),
+    });
+if(!res.ok) {
+const raw = await res.text().catch(() => "");
+alert(raw || "수정 실패");
+return; 
+
+setShowDetail(false);
+fetchList(page);
+//성공처리 상세창을 닫고 목록을 새로고침
+}
+
+  }
+  //삭제
+const handleDelete = async () => {
+    if(!selected) return; //삭제할 대상이 있는지 확인
+
+    //진짜 삭제할 건지 한 번 더 확인
+    const ok = window.confirm("정말 삭제 할까요");
+    if (!ok) return;
+
+    //서버에 삭제 요청 보내기
+    const res = await fetch(`${API_BASE}/api/kpis/${selected.id}`,{
+        method:"DELETE",
+    })
+
+    if(!res.ok){//삭제 실패했을 때 처리
+        const raw = await res.text().catch(() => "");
+        alert(raw || "삭제 실패");
+        return;
+    }
+    //삭제 성공했을 때
+    setShowDetail(false);
+    fetchList(page);
+}
+
+
 return(
 <>
+<Wrapper>
+    <Lnb/>
+    <DflexColumn>
+        
+        <Content>
+            <Top/>
+        </Content>
+    
+    <Container fluid className="p-0">
+        <Row>
+            <Col>
+            <Ctap>
+<SpaceBetween>
+<h4>KPI관리</h4>
+<Dflex>
+<Button className="mx-2 my-3" onClick={handleExcelDownload} variant="success">엑셀다운로드</Button> 
+<Button className="my-3" onClick={() => setShowCreate(true)} variant="success">KPI등록</Button>     
+</Dflex>
+</SpaceBetween>    
+
+<Table bordered hover>
+    <thead>
+        <tr className="text-center">
+            <th>#</th>
+            {TABLE_HEADERS.map((h) => (
+                <th key={h.key as string}>{h.label}</th>
+            ))}
+        </tr>
+    </thead>
+    <tbody>
+    {(rows || []).map((r, i) => (
+        <tr key={r.id ?? i} className="text-center">
+<td>{i + 1 + page * size}</td>   
+<td onClick={() => openDetail(r.id)}>
+    {r.kpiName}
+</td>  
+<td>{r.kpiGroup ?? ""}</td>
+<td>{r.owner ?? ""}</td>
+<td>{r.periodType}</td>
+<td>{r.periodValue}</td>
+<td>{r.targetValue}</td>
+<td>{r.actualValue}</td>
+<td>{r.unit ?? ""}</td>
+<td>{r.status ?? ""}</td>
+<td>{r.useYn}</td>
+<td>{r.remark ?? ""}</td>     
+        </tr>
+    ))}
+</tbody>
+</Table>
+
+<Center>
+    {totalPages > 0 &&(
+<Pagination>
+<Pagination.First disabled={page === 0} onClick={() => goPage(0)}/>
+<Pagination.Prev disabled={page === 0} onClick={() => goPage(page - 1)}/>
+{Array.from({length:totalPages}).map((_, i) => i)
+.filter((i) => i >= page - 2 && i <= page + 2)
+.map((i) => (
+<Pagination.Item key={i} active={i === page} onClick={() => goPage(i)}>
+{i + 1}
+</Pagination.Item>
+))}
+<Pagination.Next disabled={page >= totalPages-1} onClick={() => goPage(page + 1)}/>
+<Pagination.Last disabled={page >= totalPages-1} onClick={() => goPage(totalPages -1)}/>
+</Pagination>
+    )}
+    <PageTotal>
+총{totalElements}건 {page  + 1} / {totalPages || 1} 페이지
+    </PageTotal>
+</Center>
+
+            </Ctap>
+            </Col>
+        </Row>
+    </Container>
+    </DflexColumn>
+</Wrapper>
+
+{/* ✅ 등록 모달 */}
+<Modal show={showCreate} onHide={() => setShowCreate(false)} centered>
+    <Modal.Header closeButton>
+<Modal.Title>
+KPI등록
+</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
+          <Form>
+            <Form.Control className="mb-2" name="kpiName" placeholder="KPI명" value={editForm.kpiName} onChange={onEditChange} />
+            <Form.Control className="mb-2" name="kpiGroup" placeholder="그룹" value={editForm.kpiGroup} onChange={onEditChange} />
+            <Form.Control className="mb-2" name="owner" placeholder="담당자" value={editForm.owner} onChange={onEditChange} />
+
+            <Form.Select className="mb-2" name="periodType" value={editForm.periodType} onChange={onEditChange}>
+              <option value="MONTH">월</option>
+              <option value="QUARTER">분기</option>
+              <option value="YEAR">연</option>
+            </Form.Select>
+
+            <Form.Control className="mb-2" name="periodValue" placeholder="기간" value={editForm.periodValue} onChange={onEditChange} />
+
+            <Form.Control className="mb-2" type="number" name="targetValue" placeholder="목표" value={editForm.targetValue} onChange={onEditChange} />
+            <Form.Control className="mb-2" type="number" name="actualValue" placeholder="실적" value={editForm.actualValue} onChange={onEditChange} />
+            <Form.Control className="mb-2" name="unit" placeholder="단위" value={editForm.unit} onChange={onEditChange} />
+
+            <Form.Select className="mb-2" name="status" value={editForm.status} onChange={onEditChange}>
+              <option value="ON_TRACK">정상</option>
+              <option value="RISK">주의</option>
+              <option value="OFF_TRACK">위험</option>
+            </Form.Select>
+
+            <Form.Select className="mb-2" name="useYn" value={editForm.useYn} onChange={onEditChange}>
+              <option value="Y">사용</option>
+              <option value="N">미사용</option>
+            </Form.Select>
+
+            <Form.Control className="mb-2" name="remark" placeholder="비고" value={editForm.remark} onChange={onEditChange} />
+          </Form>
+          </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowCreate(false)}>
+            닫기
+          </Button>
+          <Button onClick={handleSave}>저장</Button>
+        </Modal.Footer>
+
+</Modal>
+
+{/* ✅ 상세(수정/삭제) 모달 */}
+      <Modal show={showDetail} onHide={() => setShowDetail(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>KPI 상세</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          <Form>
+            <Form.Control className="mb-2" name="kpiName" placeholder="KPI명" value={editForm.kpiName} onChange={onEditChange} />
+            <Form.Control className="mb-2" name="kpiGroup" placeholder="그룹" value={editForm.kpiGroup} onChange={onEditChange} />
+            <Form.Control className="mb-2" name="owner" placeholder="담당자" value={editForm.owner} onChange={onEditChange} />
+
+            <Form.Select className="mb-2" name="periodType" value={editForm.periodType} onChange={onEditChange}>
+              <option value="MONTH">월</option>
+              <option value="QUARTER">분기</option>
+              <option value="YEAR">연</option>
+            </Form.Select>
+
+            <Form.Control className="mb-2" name="periodValue" placeholder="기간" value={editForm.periodValue} onChange={onEditChange} />
+
+            <Form.Control className="mb-2" type="number" name="targetValue" placeholder="목표" value={editForm.targetValue} onChange={onEditChange} />
+            <Form.Control className="mb-2" type="number" name="actualValue" placeholder="실적" value={editForm.actualValue} onChange={onEditChange} />
+            <Form.Control className="mb-2" name="unit" placeholder="단위" value={editForm.unit} onChange={onEditChange} />
+
+            <Form.Select className="mb-2" name="status" value={editForm.status} onChange={onEditChange}>
+              <option value="ON_TRACK">정상</option>
+              <option value="RISK">주의</option>
+              <option value="OFF_TRACK">위험</option>
+            </Form.Select>
+
+            <Form.Select className="mb-2" name="useYn" value={editForm.useYn} onChange={onEditChange}>
+              <option value="Y">사용</option>
+              <option value="N">미사용</option>
+            </Form.Select>
+
+            <Form.Control className="mb-2" name="remark" placeholder="비고" value={editForm.remark} onChange={onEditChange} />
+          </Form>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="danger" onClick={handleDelete}>
+            삭제
+          </Button>
+          <Button variant="success" onClick={handleUpdate}>
+            수정 저장
+          </Button>
+        </Modal.Footer>
+      </Modal>
 </>
 )
 }

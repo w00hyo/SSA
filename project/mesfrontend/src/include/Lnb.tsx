@@ -98,14 +98,14 @@ const Lnb = () => {
 
             {/*  Nav Item - Charts */}
             <li className="nav-item">
-                <a className="nav-link" href="/kpi">
+                <a className="nav-link" href="">
                     <i className="fas fa-fw fa-chart-area"></i>
                     <span>재고관리</span></a>
             </li>
 
             {/*  Nav Item - Tables */}
             <li className="nav-item">
-                <a className="nav-link" href="tables.html">
+                <a className="nav-link" href="/kpi">
                     <i className="fas fa-fw fa-table"></i>
                     <span>KPI 관리</span></a>
             </li>
