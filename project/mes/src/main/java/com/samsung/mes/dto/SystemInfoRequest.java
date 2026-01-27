@@ -1,4 +1,4 @@
-package com.samsung.mes.member.dto;
+package com.samsung.mes.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

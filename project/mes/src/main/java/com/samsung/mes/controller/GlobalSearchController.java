@@ -1,7 +1,8 @@
-package com.samsung.mes.member.controller;
+package com.samsung.mes.controller;
 
-import com.samsung.mes.member.search.*;
-import com.samsung.mes.member.service.GlobalSearchService;
+import com.samsung.mes.service.GlobalSearchService;
+import com.samsung.mes.search.GlobalSearchResponse;
+import com.samsung.mes.search.SearchType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.*;
 import org.springframework.data.web.PageableDefault;

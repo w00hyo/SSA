@@ -1,6 +1,6 @@
-package com.samsung.mes.member.repository;
+package com.samsung.mes.repository;
 
-import com.samsung.mes.member.entity.SystemInfo;
+import com.samsung.mes.entity.SystemInfo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,9 +1,9 @@
-package com.samsung.mes.member.service;
+package com.samsung.mes.service;
 
-import com.samsung.mes.member.dto.StandardRequest;
-import com.samsung.mes.member.dto.StandardResponse;
-import com.samsung.mes.member.entity.Standard;
-import com.samsung.mes.member.repository.StandardRepository;
+import com.samsung.mes.dto.StandardRequest;
+import com.samsung.mes.dto.StandardResponse;
+import com.samsung.mes.entity.Standard;
+import com.samsung.mes.repository.StandardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

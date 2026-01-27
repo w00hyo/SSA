@@ -1,8 +1,6 @@
 package com.samsung.mes.security;
 
-import com.samsung.mes.member.dto.SalesOrderRequest;
-
-import jakarta.servlet.http.HttpServletRequest;
+import com.samsung.mes.dto.SalesOrderRequest;
 
 import java.math.BigDecimal;
 

@@ -1,8 +1,8 @@
-package com.samsung.mes.member.controller;
+package com.samsung.mes.controller;
 
-import com.samsung.mes.member.dto.KpiRequest;
-import com.samsung.mes.member.dto.KpiResponse;
-import com.samsung.mes.member.service.KpiService;
+import com.samsung.mes.dto.KpiRequest;
+import com.samsung.mes.dto.KpiResponse;
+import com.samsung.mes.service.KpiService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

@@ -1,9 +1,11 @@
-package com.samsung.mes.member.service;
+package com.samsung.mes.service;
 
-import com.samsung.mes.member.entity.*;
-import com.samsung.mes.member.repository.*;
-import com.samsung.mes.member.search.*;
+import com.samsung.mes.entity.*;
 import com.samsung.mes.member.spec.*;
+import com.samsung.mes.repository.*;
+import com.samsung.mes.search.GlobalSearchResponse;
+import com.samsung.mes.search.SearchHit;
+import com.samsung.mes.search.SearchType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.samsung.mes.member.controller;
+package com.samsung.mes.controller;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.samsung.mes.member.dto.PurchaseMaterialRequest;
-import com.samsung.mes.member.dto.PurchaseMaterialResponse;
-import com.samsung.mes.member.service.PurchaseMaterialService;
+import com.samsung.mes.dto.PurchaseMaterialRequest;
+import com.samsung.mes.dto.PurchaseMaterialResponse;
+import com.samsung.mes.service.PurchaseMaterialService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.samsung.mes.member.service;
+package com.samsung.mes.service;
 
 import java.util.NoSuchElementException;
 
@@ -8,9 +8,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.samsung.mes.member.dto.ProductionOrderDTO;
-import com.samsung.mes.member.entity.ProductionOrder;
-import com.samsung.mes.member.repository.ProductionOrderRepository;
+import com.samsung.mes.dto.ProductionOrderDTO;
+import com.samsung.mes.entity.ProductionOrder;
+import com.samsung.mes.repository.ProductionOrderRepository;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.samsung.mes.member.entity;
+package com.samsung.mes.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

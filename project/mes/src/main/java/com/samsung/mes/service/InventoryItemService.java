@@ -1,9 +1,9 @@
-package com.samsung.mes.member.service;
+package com.samsung.mes.service;
 
-import com.samsung.mes.member.dto.InventoryItemRequest;
-import com.samsung.mes.member.dto.InventoryItemResponse;
-import com.samsung.mes.member.entity.InventoryItem;
-import com.samsung.mes.member.repository.InventoryItemRepository;
+import com.samsung.mes.dto.InventoryItemRequest;
+import com.samsung.mes.dto.InventoryItemResponse;
+import com.samsung.mes.entity.InventoryItem;
+import com.samsung.mes.repository.InventoryItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;

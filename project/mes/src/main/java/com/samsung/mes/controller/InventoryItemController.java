@@ -1,8 +1,8 @@
-package com.samsung.mes.member.controller;
+package com.samsung.mes.controller;
 
-import com.samsung.mes.member.dto.InventoryItemRequest;
-import com.samsung.mes.member.dto.InventoryItemResponse;
-import com.samsung.mes.member.service.InventoryItemService;
+import com.samsung.mes.dto.InventoryItemRequest;
+import com.samsung.mes.dto.InventoryItemResponse;
+import com.samsung.mes.service.InventoryItemService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

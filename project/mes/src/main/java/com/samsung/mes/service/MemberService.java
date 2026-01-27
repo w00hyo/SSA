@@ -1,4 +1,4 @@
-package com.samsung.mes.member.service;
+package com.samsung.mes.service;
 
 import java.util.List; //유 류[류시원]
 
@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.samsung.mes.member.dto.MemberRequestDTO;
-import com.samsung.mes.member.entity.Member;
-import com.samsung.mes.member.repository.MemberRepository;
+import com.samsung.mes.dto.MemberRequestDTO;
+import com.samsung.mes.entity.Member;
+import com.samsung.mes.repository.MemberRepository;
 
 import jakarta.transaction.Transactional;
 //import lombok.RequiredArgsConstructor;

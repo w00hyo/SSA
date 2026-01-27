@@ -1,6 +1,6 @@
-package com.samsung.mes.member.repository;
+package com.samsung.mes.repository;
 
-import com.samsung.mes.member.entity.InventoryItem;
+import com.samsung.mes.entity.InventoryItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

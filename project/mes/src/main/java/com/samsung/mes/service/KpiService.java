@@ -1,9 +1,9 @@
-package com.samsung.mes.member.service;
+package com.samsung.mes.service;
 
-import com.samsung.mes.member.dto.KpiRequest;
-import com.samsung.mes.member.dto.KpiResponse;
-import com.samsung.mes.member.entity.Kpi;
-import com.samsung.mes.member.repository.KpiRepository;
+import com.samsung.mes.dto.KpiRequest;
+import com.samsung.mes.dto.KpiResponse;
+import com.samsung.mes.entity.Kpi;
+import com.samsung.mes.repository.KpiRepository;
 import lombok.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

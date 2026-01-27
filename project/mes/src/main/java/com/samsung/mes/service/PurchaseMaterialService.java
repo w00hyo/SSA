@@ -1,4 +1,4 @@
-package com.samsung.mes.member.service;
+package com.samsung.mes.service;
 
 import java.math.BigDecimal;
 import java.util.NoSuchElementException;
@@ -10,10 +10,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.samsung.mes.member.dto.PurchaseMaterialRequest;
-import com.samsung.mes.member.dto.PurchaseMaterialResponse;
-import com.samsung.mes.member.entity.PurchaseMaterial;
-import com.samsung.mes.member.repository.PurchaseMaterialRepository;
+import com.samsung.mes.dto.PurchaseMaterialRequest;
+import com.samsung.mes.dto.PurchaseMaterialResponse;
+import com.samsung.mes.entity.PurchaseMaterial;
+import com.samsung.mes.repository.PurchaseMaterialRepository;
 
 import lombok.RequiredArgsConstructor;
 

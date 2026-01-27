@@ -1,8 +1,8 @@
-package com.samsung.mes.member.controller;
+package com.samsung.mes.controller;
 
-import com.samsung.mes.member.dto.SystemInfoRequest;
-import com.samsung.mes.member.dto.SystemInfoResponse;
-import com.samsung.mes.member.service.SystemInfoService;
+import com.samsung.mes.dto.SystemInfoRequest;
+import com.samsung.mes.dto.SystemInfoResponse;
+import com.samsung.mes.service.SystemInfoService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

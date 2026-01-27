@@ -1,4 +1,4 @@
-package com.samsung.mes.member.search;
+package com.samsung.mes.search;
 
 public enum SearchType {
     inventory, kpi, member, production, purchase, sales, standard, system, all

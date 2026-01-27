@@ -1,8 +1,8 @@
-package com.samsung.mes.member.repository;
+package com.samsung.mes.repository;
 
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.samsung.mes.member.entity.Member;
+import com.samsung.mes.entity.Member;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 //이코드는 회원정보를 db에서 쉽게 꺼내기 위한 창구 입니다

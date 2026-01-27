@@ -1,4 +1,4 @@
-package com.samsung.mes.member.dto;
+package com.samsung.mes.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

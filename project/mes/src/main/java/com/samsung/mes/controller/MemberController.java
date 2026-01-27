@@ -1,4 +1,4 @@
-package com.samsung.mes.member.controller;
+package com.samsung.mes.controller;
 
 import java.util.List;
 
@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.samsung.mes.member.dto.LoginRequestDTO;
-import com.samsung.mes.member.dto.LoginResponse;
-import com.samsung.mes.member.dto.MemberRequestDTO;
-import com.samsung.mes.member.entity.Member;
-import com.samsung.mes.member.service.MemberService;
+import com.samsung.mes.dto.LoginRequestDTO;
+import com.samsung.mes.dto.LoginResponse;
+import com.samsung.mes.dto.MemberRequestDTO;
+import com.samsung.mes.entity.Member;
+import com.samsung.mes.service.MemberService;
 import com.samsung.mes.security.JwtUtil;
 
 import jakarta.servlet.http.HttpServletRequest;

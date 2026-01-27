@@ -1,4 +1,4 @@
-package com.samsung.mes.member.search;
+package com.samsung.mes.search;
 
 import lombok.*;
 

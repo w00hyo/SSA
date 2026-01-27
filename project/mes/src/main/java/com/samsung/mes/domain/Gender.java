@@ -1,4 +1,4 @@
-package com.samsung.mes.member.domain;
+package com.samsung.mes.domain;
 
 public enum Gender {
 male, female, other
