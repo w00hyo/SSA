@@ -3,11 +3,12 @@ package com.samsung.mes.member.repository;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.samsung.mes.member.entity.Member;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 //이코드는 회원정보를 db에서 쉽게 꺼내기 위한 창구 입니다
 //DB랑 대화하는 대화하는 전담 인터페이스 sql을 직접 안써도 메서드 이름만으로 select, insert, update, delete를 만들어줌
 //이 한줄이 모든걸 의미함 결과적으로 멤버테이블을 다루는 db관리자
-public interface MemberRepository extends JpaRepository<Member, Long> {
+public interface MemberRepository extends JpaRepository<Member, Long>, JpaSpecificationExecutor<Member> {
 /*
 extends JpaRepository<Member, Long>이한줄을 쓰는것 만으로
 save(member)           // insert / update

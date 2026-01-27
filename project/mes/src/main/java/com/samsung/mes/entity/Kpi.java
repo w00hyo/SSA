@@ -73,7 +73,7 @@ public class Kpi {
     private String remark;
 
     @Column(name = "updated_at")
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 
 
     @PrePersist
@@ -97,12 +97,12 @@ DB에 null 값 들어가는 거 방지
 “등록 로직이 단순해지고, 데이터가 항상 안전해짐
 * */
 
-updateAt = LocalDateTime.now();
+updatedAt = LocalDateTime.now();
     }
 
     @PreUpdate
     public void preUpdate() {
-        updateAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
     }
 /*
 ✔ update 되기 직전에 자동 실행

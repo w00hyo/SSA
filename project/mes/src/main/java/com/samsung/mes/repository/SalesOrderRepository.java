@@ -6,8 +6,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.samsung.mes.member.entity.SalesOrder;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface SalesOrderRepository extends JpaRepository<SalesOrder, Long> {
+public interface SalesOrderRepository extends JpaRepository<SalesOrder, Long> , JpaSpecificationExecutor<SalesOrder> {
 
 	//기간 조회
 List<SalesOrder> findByOrderDateBetweenOrderByOrderDateDesc(LocalDate from, LocalDate to);
