@@ -3,19 +3,34 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import * as S from "../styled/Login.styles";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import Modal from "../components/Modal";
 
 const Login = () => {
   // 초기화
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
+  // Modal 상태
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [isLoginSuccess, setIsLoginSuccess] = useState(false);
+
   const navigate = useNavigate();
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+    if (isLoginSuccess) {
+      navigate("/admin", { replace: true });
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!email || !password) {
-      alert("이메일과 비밀번호를 입력해 주세요!");
+      setModalMessage("이메일과 비밀번호를 입력해 주세요!");
+      setIsLoginSuccess(false);
+      setModalOpen(true);
       return;
     }
 
@@ -29,7 +44,9 @@ const Login = () => {
       const token = res.data?.token;
 
       if (!token) {
-        alert("로그인 응답에 token이 없습니다. 백엔드 응답을 확인하세요!");
+        setModalMessage("로그인 응답에 token이 없습니다. 백엔드 응답을 확인하세요!");
+        setIsLoginSuccess(false);
+        setModalOpen(true);
         console.log("login response:", res.data);
         return;
       }
@@ -42,18 +59,21 @@ const Login = () => {
       window.dispatchEvent(new Event("storage"));
 
 
-      alert("로그인 성공");
+      setModalMessage("로그인 성공");
+      setIsLoginSuccess(true);
+      setModalOpen(true);
 
-      // ✅ 2) window.location.href 말고 SPA 라우팅으로 이동
-      navigate("/admin", { replace: true });
     } catch (err) {
       console.error(err);
-      alert("로그인 실패! 이메일 또는 비밀번호를 확인해 주세요");
+      setModalMessage("로그인 실패! 이메일 또는 비밀번호를 확인해 주세요");
+      setIsLoginSuccess(false);
+      setModalOpen(true);
     }
   };
 
   return (
     <>
+    <Modal isOpen={modalOpen} message={modalMessage} onClose={handleModalClose} />
     <S.Wrapper>
       <S.Card>
           <S.LeftImage/>
