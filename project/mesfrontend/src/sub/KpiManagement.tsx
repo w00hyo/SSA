@@ -235,114 +235,166 @@ const KpiManagement = () => {
             <Top />
           </Content>
 
-          <Container fluid>
-            <Ctap>
-              <SpaceBetween>
-                <h4>KPI관리</h4>
-                <Dflex>
-                  <Button className="mx-2" onClick={handleExcelDownload}>
-                    엑셀다운로드
-                  </Button>
-                  <Button onClick={() => setShowCreate(true)}>KPI등록</Button>
-                </Dflex>
-              </SpaceBetween>
+          <Container fluid className="p-0">
+            <Row>
+              <Col>
+                <Ctap>
+                  <SpaceBetween>
+                    <h4>KPI관리</h4>
+                    <Dflex>
+                      <Button className="mx-2 my-3" onClick={handleExcelDownload} variant="success">
+                        엑셀다운로드
+                      </Button>
+                      <Button className="my-3" onClick={() => setShowCreate(true)}>KPI등록</Button>
+                    </Dflex>
+                  </SpaceBetween>
 
-              <Table bordered hover>
-                <thead>
-                  <tr className="text-center">
-                    <th>#</th>
-                    {TABLE_HEADERS.map((h) => (
-                      <th key={h.key as string}>{h.label}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {rows.map((r, i) => (
-                    <tr key={r.id} className="text-center">
-                      <td>{i + 1 + page * size}</td>
-                      <td
-                        style={{ cursor: "pointer", textDecoration: "underline" }}
-                        onClick={() => openDetail(r.id)}
-                      >
-                        {r.kpiName}
-                      </td>
-                      <td>{r.kpiGroup}</td>
-                      <td>{r.owner}</td>
-                      <td>{r.periodType}</td>
-                      <td>{r.periodValue}</td>
-                      <td>{r.targetValue}</td>
-                      <td>{r.actualValue}</td>
-                      <td>{r.unit}</td>
-                      <td>{r.status}</td>
-                      <td>{r.useYn}</td>
-                      <td>{r.remark}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
+                  <Table bordered hover>
+                    <thead>
+                      <tr className="text-center">
+                        <th>#</th>
+                        {TABLE_HEADERS.map((h) => (
+                          <th key={h.key as string}>{h.label}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {rows.map((r, i) => (
+                        <tr key={r.id} className="text-center">
+                          <td>{i + 1 + page * size}</td>
+                          <td
+                            style={{ cursor: "pointer", textDecoration: "underline" }}
+                            onClick={() => openDetail(r.id)}
+                          >
+                            {r.kpiName}
+                          </td>
+                          <td>{r.kpiGroup}</td>
+                          <td>{r.owner}</td>
+                          <td>{r.periodType}</td>
+                          <td>{r.periodValue}</td>
+                          <td>{r.targetValue}</td>
+                          <td>{r.actualValue}</td>
+                          <td>{r.unit}</td>
+                          <td>{r.status}</td>
+                          <td>{r.useYn}</td>
+                          <td>{r.remark}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
 
-              <Center>
-                <Pagination>
-                  <Pagination.Prev disabled={page === 0} onClick={() => goPage(page - 1)} />
-                  {Array.from({ length: totalPages }).map((_, i) => (
-                    <Pagination.Item key={i} active={i === page} onClick={() => goPage(i)}>
-                      {i + 1}
-                    </Pagination.Item>
-                  ))}
-                  <Pagination.Next disabled={page >= totalPages - 1} onClick={() => goPage(page + 1)} />
-                </Pagination>
-                <PageTotal>
-                  총 {totalElements}건 / {page + 1}페이지
-                </PageTotal>
-              </Center>
-            </Ctap>
+                  <Center>
+                    <Pagination>
+                      <Pagination.Prev disabled={page === 0} onClick={() => goPage(page - 1)} />
+                      {Array.from({ length: totalPages }).map((_, i) => (
+                        <Pagination.Item key={i} active={i === page} onClick={() => goPage(i)}>
+                          {i + 1}
+                        </Pagination.Item>
+                      ))}
+                      <Pagination.Next disabled={page >= totalPages - 1} onClick={() => goPage(page + 1)} />
+                    </Pagination>
+                    <PageTotal>
+                      총 {totalElements}건 / {page + 1}페이지
+                    </PageTotal>
+                  </Center>
+                </Ctap>
+              </Col>
+            </Row>
           </Container>
         </DflexColumn>
       </Wrapper>
 
       {/* 등록 모달 */}
       <Modal show={showCreate} onHide={() => setShowCreate(false)} centered>
-        <Modal.Header closeButton />
+        <Modal.Header closeButton>
+          <Modal.Title>KPI 등록</Modal.Title>
+        </Modal.Header>
         <Modal.Body>
           <Form>
-            {Object.entries(createForm).map(([k, v]) => (
-              <Form.Control
-                key={k}
-                className="mb-2"
-                name={k}
-                value={v as any}
-                onChange={onCreateChange}
-                placeholder={k}
-              />
-            ))}
+            <Form.Control className="mb-2" name="kpiName" placeholder="KPI명" value={createForm.kpiName} onChange={onCreateChange} />
+            <Form.Control className="mb-2" name="kpiGroup" placeholder="그룹" value={createForm.kpiGroup} onChange={onCreateChange} />
+            <Form.Control className="mb-2" name="owner" placeholder="담당자" value={createForm.owner} onChange={onCreateChange} />
+
+            <Form.Select className="mb-2" name="periodType" value={createForm.periodType} onChange={onCreateChange}>
+              <option value="MONTH">월간</option>
+              <option value="QUARTER">분기</option>
+              <option value="YEAR">연간</option>
+            </Form.Select>
+
+            <Form.Control className="mb-2" name="periodValue" placeholder="기간 (예: 2023-10)" value={createForm.periodValue} onChange={onCreateChange} />
+
+            <Form.Control className="mb-2" type="number" name="targetValue" placeholder="목표값" value={createForm.targetValue} onChange={onCreateChange} />
+            <Form.Control className="mb-2" type="number" name="actualValue" placeholder="실적값" value={createForm.actualValue} onChange={onCreateChange} />
+
+            <Form.Control className="mb-2" name="unit" placeholder="단위" value={createForm.unit} onChange={onCreateChange} />
+
+            <Form.Select className="mb-2" name="status" value={createForm.status} onChange={onCreateChange}>
+              <option value="ON_TRACK">정상</option>
+              <option value="RISK">위험</option>
+              <option value="OFF_TRACK">이탈</option>
+            </Form.Select>
+
+            <Form.Select className="mb-2" name="useYn" value={createForm.useYn} onChange={onCreateChange}>
+              <option value="Y">사용</option>
+              <option value="N">미사용</option>
+            </Form.Select>
+
+            <Form.Control className="mb-2" name="remark" placeholder="비고" value={createForm.remark} onChange={onCreateChange} />
           </Form>
         </Modal.Body>
         <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowCreate(false)}>
+            닫기
+          </Button>
           <Button onClick={handleSave}>저장</Button>
         </Modal.Footer>
       </Modal>
 
       {/* 상세 모달 */}
       <Modal show={showDetail} onHide={() => setShowDetail(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>KPI 상세</Modal.Title>
+        </Modal.Header>
         <Modal.Body>
           <Form>
-            {Object.entries(editForm).map(([k, v]) => (
-              <Form.Control
-                key={k}
-                className="mb-2"
-                name={k}
-                value={v as any}
-                onChange={onEditChange}
-                placeholder={k}
-              />
-            ))}
+            <Form.Control className="mb-2" name="kpiName" placeholder="KPI명" value={editForm.kpiName} onChange={onEditChange} />
+            <Form.Control className="mb-2" name="kpiGroup" placeholder="그룹" value={editForm.kpiGroup} onChange={onEditChange} />
+            <Form.Control className="mb-2" name="owner" placeholder="담당자" value={editForm.owner} onChange={onEditChange} />
+
+            <Form.Select className="mb-2" name="periodType" value={editForm.periodType} onChange={onEditChange}>
+              <option value="MONTH">월간</option>
+              <option value="QUARTER">분기</option>
+              <option value="YEAR">연간</option>
+            </Form.Select>
+
+            <Form.Control className="mb-2" name="periodValue" placeholder="기간 (예: 2023-10)" value={editForm.periodValue} onChange={onEditChange} />
+
+            <Form.Control className="mb-2" type="number" name="targetValue" placeholder="목표값" value={editForm.targetValue} onChange={onEditChange} />
+            <Form.Control className="mb-2" type="number" name="actualValue" placeholder="실적값" value={editForm.actualValue} onChange={onEditChange} />
+
+            <Form.Control className="mb-2" name="unit" placeholder="단위" value={editForm.unit} onChange={onEditChange} />
+
+            <Form.Select className="mb-2" name="status" value={editForm.status} onChange={onEditChange}>
+              <option value="ON_TRACK">정상</option>
+              <option value="RISK">위험</option>
+              <option value="OFF_TRACK">이탈</option>
+            </Form.Select>
+
+            <Form.Select className="mb-2" name="useYn" value={editForm.useYn} onChange={onEditChange}>
+              <option value="Y">사용</option>
+              <option value="N">미사용</option>
+            </Form.Select>
+
+            <Form.Control className="mb-2" name="remark" placeholder="비고" value={editForm.remark} onChange={onEditChange} />
           </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="danger" onClick={handleDelete}>
             삭제
           </Button>
-          <Button onClick={handleUpdate}>수정</Button>
+          <Button variant="success" onClick={handleUpdate}>
+            수정 저장
+          </Button>
         </Modal.Footer>
       </Modal>
     </>
