@@ -1,4 +1,5 @@
 import {Sidebar,Brand,BrandText,Divider,SidebarCard } from "../styled/Component.styles";
+import { Link } from "react-router-dom";
 
 const Lnb = () => {
   return (
@@ -10,8 +11,9 @@ const Lnb = () => {
       >
         {/* Sidebar - Brand */}
         <Brand
+          as={Link}
           className="sidebar-brand d-flex align-items-center justify-content-center"
-          href="/"
+          to="/"
         >
           <div className="sidebar-brand-icon rotate-n-15">
             <i className="fas fa-laugh-wink" />
@@ -27,10 +29,10 @@ const Lnb = () => {
 
         {/* Nav Item - Dashboard */}
         <li className="nav-item active">
-          <a className="nav-link" href="/">
+          <Link className="nav-link" to="/admin">
             <i className="fas fa-fw fa-tachometer-alt" />
             <span>MES Dashboard</span>
-          </a>
+          </Link>
         </li>
 
         <Divider className="sidebar-divider" />
@@ -57,9 +59,9 @@ const Lnb = () => {
           >
             <div className="bg-white py-2 collapse-inner rounded">
               <h6 className="collapse-header">영업관리</h6>
-              <a className="collapse-item" href="/sales">
+              <Link className="collapse-item" to="/sales">
                 영업관리 이동
-              </a>
+              </Link>
             </div>
           </div>
         </li>
@@ -86,9 +88,9 @@ const Lnb = () => {
           >
             <div className="bg-white py-2 collapse-inner rounded">
               <h6 className="collapse-header">생산관리</h6>
-              <a className="collapse-item" href="/pmanagement">
+              <Link className="collapse-item" to="/pmanagement">
                 생산관리로 이동
-              </a>
+              </Link>
             </div>
           </div>
         </li>
@@ -117,9 +119,9 @@ const Lnb = () => {
           >
             <div className="bg-white py-2 collapse-inner rounded">
               <h6 className="collapse-header">구매자제관리</h6>
-              <a className="collapse-item" href="/pm">
+              <Link className="collapse-item" to="/pm">
                 구매자제관리 이동
-              </a>
+              </Link>
               <div className="collapse-divider" />
             </div>
           </div>
@@ -127,34 +129,34 @@ const Lnb = () => {
 
         {/* Nav Item - 재고관리 */}
         <li className="nav-item">
-          <a className="nav-link" href="/im">
+          <Link className="nav-link" to="/im">
             <i className="fas fa-fw fa-chart-area" />
             <span>재고관리</span>
-          </a>
+          </Link>
         </li>
 
         {/* Nav Item - KPI */}
         <li className="nav-item">
-          <a className="nav-link" href="/kpi">
+          <Link className="nav-link" to="/kpi">
             <i className="fas fa-fw fa-table" />
             <span>KPI 관리</span>
-          </a>
+          </Link>
         </li>
 
         {/* Nav Item - 기준정보 */}
         <li className="nav-item">
-          <a className="nav-link" href="/standard">
+          <Link className="nav-link" to="/standard">
             <i className="fas fa-fw fa-table" />
             <span>기준정보 관리</span>
-          </a>
+          </Link>
         </li>
 
         {/* Nav Item - 시스템 */}
         <li className="nav-item">
-          <a className="nav-link" href="/system">
+          <Link className="nav-link" to="/system">
             <i className="fas fa-fw fa-table" />
             <span>시스템 관리</span>
-          </a>
+          </Link>
         </li>
 
         <Divider className="sidebar-divider d-none d-md-block" />
